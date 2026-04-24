@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/24 10:25:49 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/24 12:23:38 by mshargan         ###   ########.fr       */
+/*   Created: 2025/11/13 15:50:56 by mshargan          #+#    #+#             */
+/*   Updated: 2026/02/13 15:56:05 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/minishell.h"
+#include "libft.h"
+#include <unistd.h>
 
-int	main(int argc, char **argv, char **envp)
+void	ft_putendl_fd(char *s, int fd)
 {
-	t_shell	shell;
-
-	init_shell(&shell);
-	setup_signals();
-	shell_loop(&shell);
-	return (0);
+	if (!s)
+		return ;
+	write(fd, s, ft_strlen(s));
+	write(fd, "\n", 1);
+	return ;
 }
+
+// int	main(void)
+// {
+// 	char	s[] = "hello";
+// 	ft_putendl_fd(s, 1);
+// 	return (0);
+// }

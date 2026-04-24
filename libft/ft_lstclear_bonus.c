@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/24 10:25:49 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/24 12:23:38 by mshargan         ###   ########.fr       */
+/*   Created: 2025/11/18 18:53:31 by mshargan          #+#    #+#             */
+/*   Updated: 2025/11/19 16:32:26 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/minishell.h"
+#include "libft.h"
+#include <stdlib.h>
 
-int	main(int argc, char **argv, char **envp)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	t_shell	shell;
+	t_list	*temp;
 
-	init_shell(&shell);
-	setup_signals();
-	shell_loop(&shell);
-	return (0);
+	if (!lst)
+		return ;
+	if (!(*lst))
+		return ;
+	while ((*lst)->next)
+	{
+		temp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		(*lst) = temp;
+	}
+	ft_lstdelone(*lst, del);
+	(*lst) = NULL;
 }

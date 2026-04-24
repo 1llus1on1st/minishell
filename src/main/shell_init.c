@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   shell_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/24 10:25:49 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/24 12:23:38 by mshargan         ###   ########.fr       */
+/*   Created: 2026/04/24 12:21:40 by mshargan          #+#    #+#             */
+/*   Updated: 2026/04/24 12:22:30 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-int	main(int argc, char **argv, char **envp)
+void	init_shell(t_shell *shell)
 {
-	t_shell	shell;
+    shell->last_exit = 0;
+}
 
-	init_shell(&shell);
-	setup_signals();
-	shell_loop(&shell);
-	return (0);
+void	setup_signals(void)
+{
+    signal(SIGINT, handle_sigint);
+    signal(SIGQUIT, SIG_IGN);
 }

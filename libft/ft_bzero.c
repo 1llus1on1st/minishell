@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/24 10:25:49 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/24 12:23:38 by mshargan         ###   ########.fr       */
+/*   Created: 2025/11/06 11:49:15 by mshargan          #+#    #+#             */
+/*   Updated: 2025/11/17 13:52:43 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/minishell.h"
+#include "libft.h"
 
-int	main(int argc, char **argv, char **envp)
+void	ft_bzero(void *s, size_t n)
 {
-	t_shell	shell;
+	unsigned char	*res;
 
-	init_shell(&shell);
-	setup_signals();
-	shell_loop(&shell);
-	return (0);
+	res = (unsigned char *)s;
+	while (n > 0)
+	{
+		*res = 0;
+		res++;
+		n--;
+	}
 }

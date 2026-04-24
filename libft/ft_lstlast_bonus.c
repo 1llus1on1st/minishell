@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/24 10:25:49 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/24 12:23:38 by mshargan         ###   ########.fr       */
+/*   Created: 2025/11/18 17:52:31 by mshargan          #+#    #+#             */
+/*   Updated: 2025/11/18 17:56:57 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/minishell.h"
+#include "libft.h"
 
-int	main(int argc, char **argv, char **envp)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_shell	shell;
+	t_list	*res;
 
-	init_shell(&shell);
-	setup_signals();
-	shell_loop(&shell);
-	return (0);
+	if (!lst)
+		return (0);
+	res = lst;
+	while (lst->next)
+	{
+		res = lst->next;
+		lst = lst->next;
+	}
+	return (res);
 }

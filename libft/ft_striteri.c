@@ -1,23 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/24 10:25:49 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/24 12:23:38 by mshargan         ###   ########.fr       */
+/*   Created: 2025/11/13 15:26:31 by mshargan          #+#    #+#             */
+/*   Updated: 2025/11/20 15:55:53 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/minishell.h"
+#include "libft.h"
 
-int	main(int argc, char **argv, char **envp)
+// void	ft_f(unsigned int i, char *c)
+// {
+// 	*c += i;
+// }
+
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	t_shell	shell;
+	unsigned int	i;
 
-	init_shell(&shell);
-	setup_signals();
-	shell_loop(&shell);
-	return (0);
+	if (!s || !f)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		(*f)(i, &s[i]);
+		i++;
+	}
+	return ;
 }
+
+// #include <stdio.h>
+
+// int	main(void)
+// {
+// 	char s[] = "abcd";
+// 	printf("%s\n", s);
+// 	ft_striteri(s, ft_f);
+// 	printf("%s", s);
+// 	return (0);
+// }

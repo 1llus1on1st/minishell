@@ -6,12 +6,12 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 10:52:52 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/24 11:09:28 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/04/24 12:24:52 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL.H
-# define MINISHELL.H
+#ifndef MINISHELL_H
+# define MINISHELL_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -28,5 +28,15 @@
 #include "lexer.h"
 #include "parser.h"
 #include "utils.h"
+
+typedef struct s_shell
+{
+    int last_exit;
+} t_shell;
+
+void	init_shell(t_shell *shell);
+void	setup_signals(void);
+void	shell_loop(t_shell *shell);
+void	handle_sigint(int sig);
 
 #endif

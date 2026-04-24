@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/24 10:25:49 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/24 12:23:38 by mshargan         ###   ########.fr       */
+/*   Created: 2025/11/13 15:46:28 by mshargan          #+#    #+#             */
+/*   Updated: 2025/11/14 11:52:14 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/minishell.h"
+#include "libft.h"
+#include <unistd.h>
 
-int	main(int argc, char **argv, char **envp)
+void	ft_putchar_fd(char c, int fd)
 {
-	t_shell	shell;
-
-	init_shell(&shell);
-	setup_signals();
-	shell_loop(&shell);
-	return (0);
+	write(fd, &c, 1);
+	return ;
 }
+
+// int	main(void)
+// {
+// 	ft_putchar_fd('h', 1);
+// 	return (0);
+// }
