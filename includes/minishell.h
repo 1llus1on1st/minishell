@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 10:52:52 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/24 10:56:41 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/04/24 11:09:28 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@
 #include "exec.h"
 #include "expand.h"
 #include "lexer.h"
-#include "main.h"
 #include "parser.h"
 #include "utils.h"
 

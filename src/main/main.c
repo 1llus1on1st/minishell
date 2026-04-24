@@ -6,9 +6,11 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 10:25:49 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/24 11:02:18 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/04/24 11:10:11 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include "../../includes/minishell.h"
+
+
 
