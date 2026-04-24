@@ -11,7 +11,7 @@ SRC				=	\
 					main/main.c \
 					main/shell_init.c \
 					main/shell.c \
-					main/signals.c \
+					signals/signals.c \
 
 SRCS			=	$(addprefix $(SRC_DIR)/, $(SRC))
 

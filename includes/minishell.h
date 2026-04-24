@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 10:52:52 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/24 12:24:52 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/04/24 12:39:27 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 #include "expand.h"
 #include "lexer.h"
 #include "parser.h"
+#include "signals.h"
 #include "utils.h"
 
 typedef struct s_shell
@@ -37,6 +38,5 @@ typedef struct s_shell
 void	init_shell(t_shell *shell);
 void	setup_signals(void);
 void	shell_loop(t_shell *shell);
-void	handle_sigint(int sig);
 
 #endif
