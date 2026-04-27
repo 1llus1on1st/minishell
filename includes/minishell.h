@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 10:52:52 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/24 12:39:27 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/04/27 17:07:50 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 #include <fcntl.h>
 #include <signal.h>
 
+#include "../libft/libft.h"
 #include "builtins.h"
 #include "exec.h"
 #include "expand.h"

@@ -1,8 +1,8 @@
 NAME			=	minishell
 
 CC				=	cc
-# CFLAGS			=	-Wall -Wextra -Werror -I $(HEADER_DIR)
-CFLAGS			=	-I $(HEADER_DIR)
+# CFLAGS			=	-Wall -Wextra -Werror -I $(HEADER_DIR) -I $(LIBFT_DIR)
+CFLAGS			=	-I $(HEADER_DIR) -I $(LIBFT_DIR)
 RM				=	rm -rf
 
 SRC_DIR			=	src
@@ -11,6 +11,9 @@ SRC				=	\
 					main/main.c \
 					main/shell_init.c \
 					main/shell.c \
+					lexer/lexer.c \
+					lexer/lexer_utils.c \
+					lexer/lexer_word.c \
 					signals/signals.c \
 
 SRCS			=	$(addprefix $(SRC_DIR)/, $(SRC))
