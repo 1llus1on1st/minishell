@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 16:13:29 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/27 17:02:58 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/04/27 17:32:17 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int	skip_quote(char *line, int start, int *j)
 	return (1);
 }
 
-void	handle_word(char *line, int *i, t_token **tokens)
+int	handle_word(char *line, int *i, t_token **tokens)
 {
 	int		j;
 	char	*word;
@@ -52,15 +52,17 @@ void	handle_word(char *line, int *i, t_token **tokens)
 		if (line[*i + j] == '"' || line[*i + j] == '\'')
 		{
 			if (!skip_quote(line, *i, &j))
-				return ;
+				return (0);
 		}
 		else
 			j++;
 	}
 	word = ft_substr(line, *i, j);
 	if (!word)
-		return ;
-	add_token_back(tokens, create_token(T_WORD, word));
+		return (0);
+	if (!add_token_back(tokens, create_token(T_WORD, word)))
+		return (free(word),0);
 	free(word);
 	*i += j;
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 13:28:13 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/27 15:45:58 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/04/27 17:39:41 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,47 +36,54 @@ t_token	*create_token(t_token_type type, char *value)
 	return (token);
 }
 
-void	add_token_back(t_token **tokens, t_token *new_token)
+int	add_token_back(t_token **tokens, t_token *new_token)
 {
 	t_token	*current;
 
 	if (!new_token)
-		return ;
+		return (0);
 	if (!*tokens)
 	{
 		*tokens = new_token;
-		return ;
+		return (1);
 	}
 	current = *tokens;
 	while (current->next)
 		current = current->next;
 	current->next = new_token;
+	return (1);
 }
 
-void	handle_redir_in(char *line, int *i, t_token **tokens)
+int	handle_redir_in(char *line, int *i, t_token **tokens)
 {
 	if (line[*i + 1] == '<')
 	{
-		add_token_back(tokens, create_token(T_HEREDOC, "<<"));
+		if (!add_token_back(tokens, create_token(T_HEREDOC, "<<")))
+			return (0);
 		*i += 2;
 	}
 	else
 	{
-		add_token_back(tokens, create_token(T_REDIR_IN, "<"));
+		if (!add_token_back(tokens, create_token(T_REDIR_IN, "<")))
+			return (0);
 		(*i)++;
 	}
+	return (1);
 }
 
-void	handle_redir_out(char *line, int *i, t_token **tokens)
+int	handle_redir_out(char *line, int *i, t_token **tokens)
 {
 	if (line[*i + 1] == '>')
 	{
-		add_token_back(tokens, create_token(T_APPEND, ">>"));
+		if (!add_token_back(tokens, create_token(T_APPEND, ">>")))
+			return (0);
 		*i += 2;
 	}
 	else
 	{
-		add_token_back(tokens, create_token(T_REDIR_OUT, ">"));
+		if (!add_token_back(tokens, create_token(T_REDIR_OUT, ">")))
+			return (0);
 		(*i)++;
 	}
+	return (1);
 }
