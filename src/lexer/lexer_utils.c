@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 13:28:13 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/28 13:05:02 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/04/28 13:08:44 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_token	*create_token(t_token_type type, char *value)
 {
 	t_token	*token;
 
-	token = gc_malloc(sizeof(t_token));
+	token = malloc(sizeof(t_token));
 	if (!token)
 		return (NULL);
 	token->type = type;
