@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 13:28:13 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/28 17:02:10 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/04/28 17:08:34 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ int	add_token_back(t_token **tokens, t_token *new_token)
 int	handle_pipe(t_shell *shell, char *line, int *i, t_token **tokens)
 {
 	if (!add_token_back(tokens, create_token(shell, T_PIPE, "|")))
-			return (0);
-		(*i)++;
+		return (0);
+	(*i)++;
 }
 
 int	handle_redir_in(t_shell *shell, char *line, int *i, t_token **tokens)

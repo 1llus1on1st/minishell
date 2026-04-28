@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:14:25 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/28 16:59:15 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/04/28 17:09:17 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,10 @@ void	print_tokens(t_token *tokens)
 	}
 }
 
-
 static void	process_line(char *line, t_shell *shell)
 {
-	t_token *tokens;
-		
+	t_token	*tokens;
+
 	(void)shell;
 	tokens = NULL;
 	if (lexer(shell, line, &tokens) != 0)

@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 12:47:47 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/28 16:58:44 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/04/28 17:08:54 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	lexer(t_shell *shell, char *line, t_token **tokens)
 {
 	int		i;
 	char	c;
-	
+
 	i = 0;
 	while (line[i])
 	{
@@ -37,7 +37,7 @@ int	lexer(t_shell *shell, char *line, t_token **tokens)
 		else if (c == '>' && !handle_redir_out(shell, line, &i, tokens))
 			return (1);
 		else if (c != '|' && c != '<' && c != '>'
-					&& !handle_word(shell, line, &i, tokens))
+			&& !handle_word(shell, line, &i, tokens))
 			return (1);
 	}
 	return (0);
