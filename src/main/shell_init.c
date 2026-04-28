@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:21:40 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/24 13:05:25 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/04/28 12:37:23 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,5 @@
 void	init_shell(t_shell *shell)
 {
 	shell->last_exit = 0;
+	shell->line_gc = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:14:25 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/27 17:40:03 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/04/28 13:06:23 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static char	*read_input(void)
 	line = readline("minishell$ ");
 	if (line && *line)
 		add_history(line);
+	
 	return (line);
 }
 

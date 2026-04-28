@@ -6,23 +6,17 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 13:28:13 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/27 17:39:41 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/04/28 13:05:02 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-void	skip_spaces(char *line, int *i)
-{
-	while (line[*i] == ' ' || line[*i] == '\t')
-		(*i)++;
-}
-
 t_token	*create_token(t_token_type type, char *value)
 {
 	t_token	*token;
 
-	token = malloc(sizeof(t_token));
+	token = gc_malloc(sizeof(t_token));
 	if (!token)
 		return (NULL);
 	token->type = type;
@@ -52,6 +46,13 @@ int	add_token_back(t_token **tokens, t_token *new_token)
 		current = current->next;
 	current->next = new_token;
 	return (1);
+}
+
+int	handle_pipe(char *line, int *i, t_token **tokens)
+{
+	if (!add_token_back(tokens, create_token(T_PIPE, "|")))
+			return (0);
+		*i++;
 }
 
 int	handle_redir_in(char *line, int *i, t_token **tokens)

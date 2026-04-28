@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   garbage_collector.h                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/24 10:25:49 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/28 12:41:15 by mshargan         ###   ########.fr       */
+/*   Created: 2026/04/28 12:51:57 by mshargan          #+#    #+#             */
+/*   Updated: 2026/04/28 12:59:33 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/minishell.h"
+#ifndef GARBAGE_COLLECTOR_H
+# define GARBAGE_COLLECTOR_H
 
-int	main(int argc, char **argv, char **envp)
+#include <stddef.h>
+
+typedef struct s_gc
 {
-	t_shell	shell;
+	void		*ptr;
+	struct s_gc	*next;
+}	t_gc;
 
-	init_shell(&shell);
-	setup_signals();
-	shell_loop(&shell);
-	return (0);
-}
+void	*gc_malloc(t_gc **gc, size_t size);
+int		gc_add(t_gc **gc, void *ptr);
+void	gc_clear(t_gc **gc);
+
+#endif
