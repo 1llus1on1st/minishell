@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 10:52:52 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/28 12:59:29 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/04/28 16:57:38 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,21 @@
 #include <signal.h>
 
 #include "../libft/libft.h"
-#include "builtins.h"
-#include "exec.h"
-#include "expand.h"
 #include "garbage_collector.h"
-#include "lexer.h"
-#include "parser.h"
-#include "signals.h"
-#include "utils.h"
 
 typedef struct s_shell
 {
     int		last_exit;
 	t_gc	*line_gc;
 } t_shell;
+
+#include "builtins.h"
+#include "exec.h"
+#include "expand.h"
+#include "lexer.h"
+#include "parser.h"
+#include "signals.h"
+#include "utils.h"
 
 void	init_shell(t_shell *shell);
 void	setup_signals(void);

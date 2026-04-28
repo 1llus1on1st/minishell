@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 12:46:34 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/28 16:46:40 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/04/28 16:58:55 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_token
 	struct s_token	*next;
 }	t_token;
 
-int		lexer(char *line, t_token **tokens);
+int		lexer(t_shell *shell, char *line, t_token **tokens);
 t_token	*create_token(t_shell *shell, t_token_type type, char *value);
 int		add_token_back(t_token **tokens, t_token *new_token);
 int		handle_pipe(t_shell *shell, char *line, int *i, t_token **tokens);

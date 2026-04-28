@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:14:25 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/28 13:08:10 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/04/28 16:59:15 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,13 @@ static void	process_line(char *line, t_shell *shell)
 		
 	(void)shell;
 	tokens = NULL;
-	if (lexer(line, &tokens) != 0)
+	if (lexer(shell, line, &tokens) != 0)
 	{
 		shell->last_exit = 2;
 		return ;
 	}
 	print_tokens(tokens);
+	gc_clear(&shell->line_gc);
 }
 
 static void	exit_shell(void)
