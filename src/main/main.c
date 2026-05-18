@@ -16,6 +16,9 @@ int	main(int argc, char **argv, char **envp)
 {
 	t_shell	shell;
 
+	(void)argc;
+	(void)argv;
+	(void)envp;
 	init_shell(&shell);
 	setup_signals();
 	shell_loop(&shell);

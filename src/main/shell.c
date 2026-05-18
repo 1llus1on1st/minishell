@@ -52,16 +52,23 @@ void	print_tokens(t_token *tokens)
 static void	process_line(char *line, t_shell *shell)
 {
 	t_token	*tokens;
+	t_cmd	*cmds;
 
-	(void)shell;
 	tokens = NULL;
+	cmds = NULL;
 	if (lexer(shell, line, &tokens) != 0)
 	{
 		shell->last_exit = 2;
 		gc_clear(&shell->line_gc);
 		return ;
 	}
-	print_tokens(tokens);
+	if (parser(shell, tokens, &cmds) != 0)
+	{
+		shell->last_exit = 2;
+		gc_clear(&shell->line_gc);
+		return ;
+	}
+	print_cmds(cmds);
 	gc_clear(&shell->line_gc);
 }
 

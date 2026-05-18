@@ -1,8 +1,7 @@
 NAME			=	minishell
 
 CC				=	cc
-# CFLAGS			=	-Wall -Wextra -Werror -I $(HEADER_DIR) -I $(LIBFT_DIR)
-CFLAGS			=	-I $(HEADER_DIR) -I $(LIBFT_DIR)
+CFLAGS			=	-Wall -Wextra -Werror -I $(HEADER_DIR) -I $(LIBFT_DIR)
 RM				=	rm -rf
 
 SRC_DIR			=	src
@@ -15,12 +14,16 @@ SRC				=	\
 					lexer/lexer.c \
 					lexer/lexer_utils.c \
 					lexer/lexer_word.c \
+					parser/parser.c \
+					parser/parser_utils.c \
+					parser/parser_redir.c \
+					parser/parser_debug.c \
 					signals/signals.c \
 
 SRCS			=	$(addprefix $(SRC_DIR)/, $(SRC))
 
 HEADER_DIR		=	includes
-HEADERS			=	$(HEADER_DIR)/minishell.h
+HEADERS			=	$(wildcard $(HEADER_DIR)/*.h)
 
 OBJ_DIR			=	obj
 OBJS			=	$(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))

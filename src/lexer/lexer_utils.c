@@ -49,6 +49,7 @@ int	add_token_back(t_token **tokens, t_token *new_token)
 
 int	handle_pipe(t_shell *shell, char *line, int *i, t_token **tokens)
 {
+	(void)line;
 	if (!add_token_back(tokens, create_token(shell, T_PIPE, "|")))
 		return (0);
 	(*i)++;
