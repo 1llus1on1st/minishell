@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lexer.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mike <mike@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 12:46:34 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/28 16:58:55 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/05/18 12:15:43 by mike             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_token
 int		lexer(t_shell *shell, char *line, t_token **tokens);
 t_token	*create_token(t_shell *shell, t_token_type type, char *value);
 int		add_token_back(t_token **tokens, t_token *new_token);
-int		handle_pipe(t_shell *shell, char *line, int *i, t_token **tokens);
+int		handle_pipe(t_shell *shell, int *i, t_token **tokens);
 int		handle_redir_in(t_shell *shell, char *line, int *i, t_token **tokens);
 int		handle_redir_out(t_shell *shell, char *line, int *i, t_token **tokens);
 int		handle_word(t_shell *shell, char *line, int *i, t_token **tokens);

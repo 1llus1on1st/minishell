@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lexer_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mike <mike@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 13:28:13 by mshargan          #+#    #+#             */
-/*   Updated: 2026/05/12 21:37:23 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/05/18 12:15:32 by mike             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	add_token_back(t_token **tokens, t_token *new_token)
 	return (1);
 }
 
-int	handle_pipe(t_shell *shell, char *line, int *i, t_token **tokens)
+int	handle_pipe(t_shell *shell, int *i, t_token **tokens)
 {
 	(void)line;
 	if (!add_token_back(tokens, create_token(shell, T_PIPE, "|")))
