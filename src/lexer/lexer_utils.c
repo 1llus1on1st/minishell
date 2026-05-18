@@ -6,7 +6,7 @@
 /*   By: mike <mike@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/26 13:28:13 by mshargan          #+#    #+#             */
-/*   Updated: 2026/05/18 12:15:32 by mike             ###   ########.fr       */
+/*   Updated: 2026/05/18 12:16:30 by mike             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int	add_token_back(t_token **tokens, t_token *new_token)
 
 int	handle_pipe(t_shell *shell, int *i, t_token **tokens)
 {
-	(void)line;
 	if (!add_token_back(tokens, create_token(shell, T_PIPE, "|")))
 		return (0);
 	(*i)++;
