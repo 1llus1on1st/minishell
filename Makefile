@@ -19,6 +19,8 @@ SRC				=	\
 					parser/parser_redir.c \
 					parser/parser_debug.c \
 					signals/signals.c \
+					env/env_init.c \
+					env/env_utils.c \
 
 SRCS			=	$(addprefix $(SRC_DIR)/, $(SRC))
 
