@@ -6,14 +6,14 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 12:51:57 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/28 12:59:33 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/05/24 19:10:51 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GARBAGE_COLLECTOR_H
 # define GARBAGE_COLLECTOR_H
 
-#include <stddef.h>
+# include <stddef.h>
 
 typedef struct s_gc
 {

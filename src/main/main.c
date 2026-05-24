@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/24 10:25:49 by mshargan          #+#    #+#             */
-/*   Updated: 2026/04/28 12:41:15 by mshargan         ###   ########.fr       */
+/*   Created: 2026/05/24 19:04:55 by mshargan          #+#    #+#             */
+/*   Updated: 2026/05/24 19:04:56 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ int	main(int argc, char **argv, char **envp)
 
 	(void)argc;
 	(void)argv;
-	(void)envp;
-	init_shell(&shell);
+	init_shell(&shell, envp);
 	setup_signals();
 	shell_loop(&shell);
 	return (0);

@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   lexer.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mike <mike@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/26 12:46:34 by mshargan          #+#    #+#             */
-/*   Updated: 2026/05/18 12:15:43 by mike             ###   ########.fr       */
+/*   Created: 2026/05/24 19:04:19 by mshargan          #+#    #+#             */
+/*   Updated: 2026/05/24 19:14:14 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LEXER_H
 # define LEXER_H
+
+typedef struct s_shell t_shell;
 
 typedef enum e_token_type
 {

@@ -74,5 +74,3 @@ void	add_cmd_back(t_cmd **cmds, t_cmd *new_cmd)
 		current = current->next;
 	current->next = new_cmd;
 }
-
-
