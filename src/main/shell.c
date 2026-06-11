@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:14:25 by mshargan          #+#    #+#             */
-/*   Updated: 2026/06/11 13:35:32 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/06/11 14:22:34 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,22 @@ static char	*read_input(void)
 	return (line);
 }
 
-static char	*token_type_to_str(t_token_type type)
-{
-	if (type == T_WORD)
-		return ("WORD");
-	if (type == T_PIPE)
-		return ("PIPE");
-	if (type == T_REDIR_IN)
-		return ("REDIR_IN");
-	if (type == T_REDIR_OUT)
-		return ("REDIR_OUT");
-	if (type == T_APPEND)
-		return ("APPEND");
-	if (type == T_HEREDOC)
-		return ("HEREDOC");
-	return ("UNKNOWN");
-}
+// static char	*token_type_to_str(t_token_type type)
+// {
+// 	if (type == T_WORD)
+// 		return ("WORD");
+// 	if (type == T_PIPE)
+// 		return ("PIPE");
+// 	if (type == T_REDIR_IN)
+// 		return ("REDIR_IN");
+// 	if (type == T_REDIR_OUT)
+// 		return ("REDIR_OUT");
+// 	if (type == T_APPEND)
+// 		return ("APPEND");
+// 	if (type == T_HEREDOC)
+// 		return ("HEREDOC");
+// 	return ("UNKNOWN");
+// }
 
 // //Debugger to verify lexer worked correctly
 // void	print_tokens(t_token *tokens)
@@ -72,7 +72,6 @@ static void	process_line(char *line, t_shell *shell)
 	{
 		shell->last_exit = 2;
 		gc_clear(&shell->line_gc);
-		gc_clear(&shell->shell_gc);
 		return ;
 	}
 	gc_clear(&shell->line_gc);
@@ -82,6 +81,7 @@ static void	exit_shell(t_shell *shell)
 {
 	printf("exit\n");
 	gc_clear(&shell->line_gc);
+	gc_clear(&shell->shell_gc);
 	exit(0);
 }
 
