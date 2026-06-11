@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:14:25 by mshargan          #+#    #+#             */
-/*   Updated: 2026/06/11 13:33:56 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/06/11 13:35:32 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ static void	process_line(char *line, t_shell *shell)
 	{
 		shell->last_exit = 2;
 		gc_clear(&shell->line_gc);
+		gc_clear(&shell->shell_gc);
 		return ;
 	}
 	gc_clear(&shell->line_gc);
