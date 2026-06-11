@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:14:25 by mshargan          #+#    #+#             */
-/*   Updated: 2026/06/11 13:00:50 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/06/11 13:31:06 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static void	process_line(char *line, t_shell *shell)
 		gc_clear(&shell->line_gc);
 		return ;
 	}
-	if (expand(shell, cmds) != 0)
+	if (!expand(shell, cmds))
 	{
 		shell->last_exit = 2;
 		gc_clear(&shell->line_gc);
@@ -77,9 +77,10 @@ static void	process_line(char *line, t_shell *shell)
 	gc_clear(&shell->line_gc);
 }
 
-static void	exit_shell(void)
+static void	exit_shell(t_shell *shell)
 {
 	printf("exit\n");
+	gc_clear(&shell->line_gc);
 	exit(0);
 }
 
@@ -91,7 +92,7 @@ void	shell_loop(t_shell *shell)
 	{
 		line = read_input();
 		if (!line)
-			exit_shell();
+			exit_shell(shell);
 		process_line(line, shell);
 		free(line);
 	}
