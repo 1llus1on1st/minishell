@@ -21,6 +21,11 @@ SRC				=	\
 					signals/signals.c \
 					env/env_init.c \
 					env/env_utils.c \
+					expand/expand.c \
+					expand/expand_string.c \
+					expand/expand_utils.c \
+					expand/expand_var.c \
+					expand/quote_utils.c \
 
 SRCS			=	$(addprefix $(SRC_DIR)/, $(SRC))
 
