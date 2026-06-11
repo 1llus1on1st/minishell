@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:14:25 by mshargan          #+#    #+#             */
-/*   Updated: 2026/06/11 13:31:06 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/06/11 13:33:56 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,15 @@ static char	*token_type_to_str(t_token_type type)
 	return ("UNKNOWN");
 }
 
-//Debugger to verify lexer worked correctly
-void	print_tokens(t_token *tokens)
-{
-	while (tokens)
-	{
-		printf("%s: %s\n", token_type_to_str(tokens->type), tokens->value);
-		tokens = tokens->next;
-	}
-}
+// //Debugger to verify lexer worked correctly
+// void	print_tokens(t_token *tokens)
+// {
+// 	while (tokens)
+// 	{
+// 		printf("%s: %s\n", token_type_to_str(tokens->type), tokens->value);
+// 		tokens = tokens->next;
+// 	}
+// }
 
 static void	process_line(char *line, t_shell *shell)
 {
