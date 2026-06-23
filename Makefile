@@ -21,6 +21,8 @@ SRC				=	\
 					signals/signals.c \
 					env/env_init.c \
 					env/env_utils.c \
+					src/env/env_mutation.c \
+					src/env/env_identifier.c \
 					expand/expand.c \
 					expand/expand_string.c \
 					expand/expand_utils.c \

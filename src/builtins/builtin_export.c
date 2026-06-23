@@ -6,16 +6,49 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 14:13:23 by mshargan          #+#    #+#             */
-/*   Updated: 2026/06/23 14:13:28 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/06/23 14:34:43 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+static void	print_export(t_shell *shell)
+{
+	int	i;
+
+	i = 0;
+	while (shell->env && shell->env[i])
+	{
+		ft_putstr_fd("declare -x ", 1);
+		ft_putendl_fd(shell->env[i], 1);
+		i++;
+	}
+}
+
+static int	export_error(char *arg)
+{
+	ft_putstr_fd("minishell: export: `", 2);
+	ft_putstr_fd(arg, 2);
+	ft_putstr_fd("': not a valid identifier\n", 2);
+	return (1);
+}
+
 int	builtin_export(t_shell *shell, t_cmd *cmd)
 {
-	(void)shell;
-	(void)cmd;
-	ft_putstr_fd("export: not implemented yet\n", 2);
-	return (1);
+	int	i;
+	int	status;
+
+	if (!cmd->argv[1])
+		return (print_export(shell), 0);
+	i = 1;
+	status = 0;
+	while (cmd->argv[i])
+	{
+		if (!is_valid_identifier(cmd->argv[i], 1))
+			status = export_error(cmd->argv[i]);
+		else if (!env_set_entry(shell, cmd->argv[i]))
+			status = 1;
+		i++;
+	}
+	return (status);
 }
