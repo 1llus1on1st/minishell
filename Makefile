@@ -26,6 +26,14 @@ SRC				=	\
 					expand/expand_utils.c \
 					expand/expand_var.c \
 					expand/quote_utils.c \
+					builtins/builtins.c \
+					builtins/builtin_echo.c \
+					builtins/builtin_pwd.c \
+					builtins/builtin_env.c \
+					builtins/builtin_exit.c \
+					builtins/builtin_cd.c \
+					builtins/builtin_export.c \
+					builtins/builtin_unset.c \
 
 SRCS			=	$(addprefix $(SRC_DIR)/, $(SRC))
 
