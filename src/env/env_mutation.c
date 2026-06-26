@@ -6,72 +6,29 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 14:33:24 by mshargan          #+#    #+#             */
-/*   Updated: 2026/06/23 14:34:10 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/06/26 18:29:52 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-static int	key_len(char *entry)
-{
-	int	i;
-
-	i = 0;
-	while (entry[i] && entry[i] != '=')
-		i++;
-	return (i);
-}
-
-static int	env_count(char **env)
-{
-	int	i;
-
-	i = 0;
-	while (env && env[i])
-		i++;
-	return (i);
-}
-
-static int	find_env_index(t_shell *shell, char *key)
-{
-	int	i;
-	int	len;
-
-	i = 0;
-	len = key_len(key);
-	while (shell->env && shell->env[i])
-	{
-		if (key_len(shell->env[i]) == len
-			&& ft_strncmp(shell->env[i], key, len) == 0)
-			return (i);
-		i++;
-	}
-	return (-1);
-}
-
-static char	*gc_strdup_env(t_shell *shell, char *str)
+static int	replace_env_entry(t_shell *shell, int index, char *entry)
 {
 	char	*copy;
 
-	copy = ft_strdup(str);
+	copy = gc_strdup_env(shell, entry);
 	if (!copy)
-		return (NULL);
-	if (!gc_add(&shell->shell_gc, copy))
-		return (free(copy), NULL);
-	return (copy);
+		return (0);
+	shell->env[index] = copy;
+	return (1);
 }
 
-int	env_set_entry(t_shell *shell, char *entry)
+static int	append_env_entry(t_shell *shell, char *entry)
 {
 	char	**new_env;
+	char	*copy;
 	int		i;
-	int		index;
 
-	index = find_env_index(shell, entry);
-	if (index >= 0 && !ft_strchr(entry, '='))
-		return (1);
-	if (index >= 0)
-		return (shell->env[index] = gc_strdup_env(shell, entry), 1);
 	new_env = gc_malloc(&shell->shell_gc, sizeof(char *)
 			* (env_count(shell->env) + 2));
 	if (!new_env)
@@ -82,26 +39,37 @@ int	env_set_entry(t_shell *shell, char *entry)
 		new_env[i] = shell->env[i];
 		i++;
 	}
-	new_env[i] = gc_strdup_env(shell, entry);
+	copy = gc_strdup_env(shell, entry);
+	if (!copy)
+		return (0);
+	new_env[i] = copy;
 	new_env[i + 1] = NULL;
 	shell->env = new_env;
-	return (new_env[i] != NULL);
+	return (1);
 }
 
-int	env_unset_key(t_shell *shell, char *key)
+int	env_set_entry(t_shell *shell, char *entry)
+{
+	int	index;
+
+	index = env_find_index(shell, entry);
+	if (index < 0)
+		return (append_env_entry(shell, entry));
+	if (!ft_strchr(entry, '='))
+		return (1);
+	return (replace_env_entry(shell, index, entry));
+}
+
+static char	**make_unset_env(t_shell *shell, int index)
 {
 	char	**new_env;
 	int		i;
 	int		j;
-	int		index;
 
-	index = find_env_index(shell, key);
-	if (index < 0)
-		return (1);
 	new_env = gc_malloc(&shell->shell_gc, sizeof(char *)
 			* env_count(shell->env));
 	if (!new_env)
-		return (0);
+		return (NULL);
 	i = 0;
 	j = 0;
 	while (shell->env[i])
@@ -111,6 +79,20 @@ int	env_unset_key(t_shell *shell, char *key)
 		i++;
 	}
 	new_env[j] = NULL;
+	return (new_env);
+}
+
+int	env_unset_key(t_shell *shell, char *key)
+{
+	char	**new_env;
+	int		index;
+
+	index = env_find_index(shell, key);
+	if (index < 0)
+		return (1);
+	new_env = make_unset_env(shell, index);
+	if (!new_env)
+		return (0);
 	shell->env = new_env;
 	return (1);
 }
