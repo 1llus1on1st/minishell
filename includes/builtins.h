@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 13:58:31 by mshargan          #+#    #+#             */
-/*   Updated: 2026/06/23 13:58:37 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/01 14:52:33 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	builtin_echo(t_cmd *cmd);
 int	builtin_pwd(void);
 int	builtin_env(t_shell *shell);
 int	builtin_exit(t_shell *shell, t_cmd *cmd);
+int	parse_exit_code(char *str, long long *code);
 int	builtin_cd(t_shell *shell, t_cmd *cmd);
 int	builtin_export(t_shell *shell, t_cmd *cmd);
 int	builtin_unset(t_shell *shell, t_cmd *cmd);
