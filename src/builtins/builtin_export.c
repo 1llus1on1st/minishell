@@ -6,24 +6,11 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 14:13:23 by mshargan          #+#    #+#             */
-/*   Updated: 2026/06/23 14:34:43 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/01 14:38:17 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
-
-static void	print_export(t_shell *shell)
-{
-	int	i;
-
-	i = 0;
-	while (shell->env && shell->env[i])
-	{
-		ft_putstr_fd("declare -x ", 1);
-		ft_putendl_fd(shell->env[i], 1);
-		i++;
-	}
-}
 
 static int	export_error(char *arg)
 {

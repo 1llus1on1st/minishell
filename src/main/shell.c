@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:14:25 by mshargan          #+#    #+#             */
-/*   Updated: 2026/06/23 14:07:36 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/01 14:34:26 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ static void	process_line(char *line, t_shell *shell)
 		gc_clear(&shell->line_gc);
 		return ;
 	}
+	if (!cmds)
+		return (gc_clear(&shell->line_gc));
 	if (!expand(shell, cmds))
 	{
 		shell->last_exit = 2;
@@ -77,6 +79,7 @@ static void	process_line(char *line, t_shell *shell)
 	if (cmds->argv && is_builtin(cmds->argv[0]))
 	{
 		shell->last_exit = execute_builtin(shell, cmds);
+		gc_clear(&shell->line_gc);
 		return ;
 	}
 	gc_clear(&shell->line_gc);

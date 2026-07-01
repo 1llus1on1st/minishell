@@ -35,6 +35,7 @@ SRC				=	\
 					builtins/builtin_exit.c \
 					builtins/builtin_cd.c \
 					builtins/builtin_export.c \
+					builtins/builtin_export_print.c \
 					builtins/builtin_unset.c \
 
 SRCS			=	$(addprefix $(SRC_DIR)/, $(SRC))
