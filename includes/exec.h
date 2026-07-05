@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 17:30:39 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/05 17:45:43 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/05 18:38:12 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ typedef struct s_cmd	t_cmd;
 
 int		execute_cmd(t_shell *shell, t_cmd *cmd);
 int		execute_external(t_shell *shell, t_cmd *cmd);
+int		execute_builtin_with_redirs(t_shell *shell, t_cmd *cmd);
+int		execute_redir_only(t_cmd *cmd);
+int		apply_redirections(t_cmd *cmd);
+int		save_stdio(int saved[2]);
+int		restore_stdio(int saved[2]);
 char	*get_cmd_path(t_shell *shell, char *cmd, int *exit_status);
 
 #endif
