@@ -38,19 +38,14 @@ echo $A
 unset A
 echo $A
 pwd
-rm out
-rm emptyfile
-rm pipe_input
-rm pipe_out
-cd minishell
-rm out
-rm emptyfile
-rm builtin_out
-rm pwd_out
-rm a
-rm b
-rm created_before_fail
-rm should_not_matter
-rm pipe_input
-rm pipe_out
+rm -f out
+rm -f emptyfile
+rm -f builtin_out
+rm -f pwd_out
+rm -f a
+rm -f b
+rm -f created_before_fail
+rm -f should_not_matter
+rm -f pipe_input
+rm -f pipe_out
 exit
