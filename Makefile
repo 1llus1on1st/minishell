@@ -42,6 +42,8 @@ SRC				=	\
 					exec/exec_path.c \
 					exec/exec_redir.c \
 					exec/exec_stdio.c \
+					exec/exec_pipeline.c \
+					exec/exec_pipeline_child.c \
 					utils/free_split.c \
 
 
