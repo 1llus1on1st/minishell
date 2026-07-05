@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 19:03:14 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/01 14:39:08 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/05 17:28:00 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,5 @@ int		env_unset_key(t_shell *shell, char *key);
 int		init_env(t_shell *shell, char **envp);
 char	*get_env_value(t_shell *shell, char *key);
 int		is_valid_identifier(char *str, int allow_equal);
-int		print_export(t_shell *shell);
 
 #endif

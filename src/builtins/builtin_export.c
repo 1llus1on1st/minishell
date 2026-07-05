@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 14:13:23 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/01 14:38:17 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/05 17:28:43 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	builtin_export(t_shell *shell, t_cmd *cmd)
 	int	status;
 
 	if (!cmd->argv[1])
-		return (print_export(shell), 0);
+		return (print_export(shell));
 	i = 1;
 	status = 0;
 	while (cmd->argv[i])

@@ -38,6 +38,9 @@ SRC				=	\
 					builtins/builtin_export.c \
 					builtins/builtin_export_print.c \
 					builtins/builtin_unset.c \
+					exec/exec.c \
+					exec/exec_path.c \
+					utils/free_split.c \
 
 SRCS			=	$(addprefix $(SRC_DIR)/, $(SRC))
 
