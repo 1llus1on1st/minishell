@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 17:34:30 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/05 18:38:32 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/05 19:35:10 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	execute_cmd(t_shell *shell, t_cmd *cmd)
 {
 	if (!cmd)
 		return (0);
+	if (cmd->next)
+		return (execute_pipeline(shell, cmd));
 	if (!cmd->argv || !cmd->argv[0])
 		return (execute_redir_only(cmd));
 	if (is_builtin(cmd->argv[0]))
