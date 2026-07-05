@@ -65,6 +65,25 @@ echo "abc'def'"
 echo 'abc"def"'
 echo ""
 echo ''
+echo pipehello | cat
+echo $?
+echo alpha | grep alpha
+echo $?
+cat Makefile | wc -l
+echo $?
+cat Makefile | grep SRC | wc -l
+echo $?
+echo pipeline > pipe_input
+cat pipe_input | grep pipeline > pipe_out
+echo $?
+cat pipe_out
+echo $?
+idontexist | cat
+echo $?
+echo ok | idontexist
+echo $?
+cat < does_not_exist | wc -l
+echo $?
 pwd
 cd ..
 pwd
@@ -83,4 +102,6 @@ rm pwd_out
 rm a
 rm b
 rm created_before_fail
+rm pipe_input
+rm pipe_out
 exit

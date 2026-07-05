@@ -22,6 +22,17 @@ echo $?
 echo $?
 cat emptyfile
 echo $?
+echo pipehello | cat
+echo $?
+echo alpha | grep alpha
+echo $?
+cat Makefile | wc -l
+echo $?
+echo pipeline > pipe_input
+cat pipe_input | grep pipeline > pipe_out
+echo $?
+cat pipe_out
+echo $?
 export A=42
 echo $A
 unset A
@@ -29,6 +40,8 @@ echo $A
 pwd
 rm out
 rm emptyfile
+rm pipe_input
+rm pipe_out
 cd minishell
 rm out
 rm emptyfile
@@ -38,4 +51,6 @@ rm a
 rm b
 rm created_before_fail
 rm should_not_matter
+rm pipe_input
+rm pipe_out
 exit
