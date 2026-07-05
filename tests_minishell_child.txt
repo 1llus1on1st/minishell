@@ -1,0 +1,86 @@
+echo hello
+echo $?
+ls
+echo $?
+/bin/ls
+echo $?
+cat Makefile
+echo $?
+idontexist
+echo $?
+./idontexist
+echo $?
+/tmp
+echo $?
+echo hi > out
+echo $?
+cat out
+echo $?
+echo second > out
+cat out
+echo third >> out
+cat out
+cat < out
+echo $?
+cat < does_not_exist
+echo $?
+> emptyfile
+echo $?
+cat emptyfile
+echo $?
+echo builtin > builtin_out
+cat builtin_out
+pwd > pwd_out
+cat pwd_out
+echo first > a > b
+cat a
+cat b
+echo second > b > a
+cat a
+cat b
+cat < does_not_exist > should_not_matter
+echo $?
+ls should_not_matter
+cat > created_before_fail < does_not_exist
+echo $?
+ls created_before_fail
+export A=42
+echo $A
+unset A
+echo $A
+export EMPTY=
+echo $EMPTY
+export ONLYNAME
+env
+unset EMPTY ONLYNAME
+echo "$USER"
+echo '$USER'
+echo "$HOME"
+echo '$HOME'
+echo $NOT_A_REAL_VAR
+echo "$NOT_A_REAL_VAR"
+echo abc"def"ghi
+echo abc'def'ghi
+echo "abc'def'"
+echo 'abc"def"'
+echo ""
+echo ''
+pwd
+cd ..
+pwd
+cd /this/does/not/exist
+echo $?
+cd -
+echo $?
+export BAD-NAME=oops
+echo $?
+unset 1BAD
+echo $?
+rm out
+rm emptyfile
+rm builtin_out
+rm pwd_out
+rm a
+rm b
+rm created_before_fail
+exit

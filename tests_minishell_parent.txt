@@ -1,0 +1,41 @@
+echo hello
+echo $?
+ls
+echo $?
+idontexist
+echo $?
+/tmp
+echo $?
+echo hi > out
+echo $?
+cat out
+echo $?
+echo second > out
+cat out
+echo third >> out
+cat out
+cat < out
+echo $?
+cat < does_not_exist
+echo $?
+> emptyfile
+echo $?
+cat emptyfile
+echo $?
+export A=42
+echo $A
+unset A
+echo $A
+pwd
+rm out
+rm emptyfile
+cd minishell
+rm out
+rm emptyfile
+rm builtin_out
+rm pwd_out
+rm a
+rm b
+rm created_before_fail
+rm should_not_matter
+exit
