@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 21:13:47 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/07 21:13:51 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/07 21:28:08 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,20 +47,21 @@ static int	read_heredoc_loop(t_shell *shell, t_redir *redir, int fd)
 	}
 }
 
-static char	*make_heredoc_path(t_shell *shell)
+static char	*join_heredoc_path(t_shell *shell, char *pid, int count)
 {
-	static int	count;
-	char		*pid;
-	char		*num;
-	char		*tmp;
-	char		*path;
+	char	*num;
+	char	*base;
+	char	*tmp;
+	char	*path;
 
-	pid = ft_itoa(getpid());
-	num = ft_itoa(count++);
-	if (!pid || !num)
-		return (free(pid), free(num), NULL);
-	tmp = ft_strjoin("/tmp/minishell_hd_", pid);
-	free(pid);
+	num = ft_itoa(count);
+	if (!num)
+		return (NULL);
+	base = ft_strjoin("/tmp/minishell_hd_", pid);
+	if (!base)
+		return (free(num), NULL);
+	tmp = ft_strjoin(base, "_");
+	free(base);
 	if (!tmp)
 		return (free(num), NULL);
 	path = ft_strjoin(tmp, num);
@@ -73,16 +74,28 @@ static char	*make_heredoc_path(t_shell *shell)
 	return (path);
 }
 
-static int	reopen_heredoc_file(char *path, int write_fd)
+static int	open_unique_heredoc(t_shell *shell, char **path)
 {
-	int	read_fd;
+	char	*pid;
+	int		fd;
+	int		count;
 
-	close(write_fd);
-	read_fd = open(path, O_RDONLY);
-	unlink(path);
-	if (read_fd < 0)
-		return (perror(path), -1);
-	return (read_fd);
+	pid = ft_itoa(getpid());
+	if (!pid)
+		return (-1);
+	count = 0;
+	while (count < 1000)
+	{
+		*path = join_heredoc_path(shell, pid, count++);
+		if (!*path)
+			return (free(pid), -1);
+		fd = open(*path, O_WRONLY | O_CREAT | O_EXCL, 0600);
+		if (fd >= 0)
+			return (free(pid), fd);
+	}
+	free(pid);
+	ft_putstr_fd("minishell: heredoc temp file error\n", 2);
+	return (-1);
 }
 
 int	prepare_one_heredoc(t_shell *shell, t_redir *redir)
@@ -91,17 +104,17 @@ int	prepare_one_heredoc(t_shell *shell, t_redir *redir)
 	int		write_fd;
 	int		read_fd;
 
-	path = make_heredoc_path(shell);
-	if (!path)
-		return (0);
-	write_fd = open(path, O_WRONLY | O_CREAT | O_TRUNC, 0600);
+	path = NULL;
+	write_fd = open_unique_heredoc(shell, &path);
 	if (write_fd < 0)
-		return (perror(path), 0);
+		return (0);
 	if (!read_heredoc_loop(shell, redir, write_fd))
 		return (close(write_fd), unlink(path), 0);
-	read_fd = reopen_heredoc_file(path, write_fd);
+	close(write_fd);
+	read_fd = open(path, O_RDONLY);
+	unlink(path);
 	if (read_fd < 0)
-		return (0);
+		return (perror(path), 0);
 	if (redir->heredoc_fd >= 0)
 		close(redir->heredoc_fd);
 	redir->heredoc_fd = read_fd;
