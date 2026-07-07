@@ -81,5 +81,3 @@ int	parse_redir(t_shell *shell, t_token **token, t_cmd *cmd)
 	*token = (*token)->next;
 	return (1);
 }
-
-
