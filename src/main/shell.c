@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:14:25 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/06 09:29:01 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/07 21:39:33 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,13 @@ void	shell_loop(t_shell *shell)
 
 	while (1)
 	{
+		setup_prompt_signals();
 		line = read_input();
+		if (g_signal == SIGINT)
+		{
+			shell->last_exit = 130;
+			g_signal = 0;
+		}
 		if (!line)
 			exit_shell(shell);
 		process_line(line, shell);

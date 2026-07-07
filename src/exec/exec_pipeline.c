@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 19:34:32 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/05 19:59:28 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/07 21:43:42 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ static int	wait_pipeline(pid_t *pids, int count)
 	int	i;
 	int	status;
 	int	last_status;
+	int	sig;
 
 	i = 0;
 	last_status = 1;
@@ -68,7 +69,14 @@ static int	wait_pipeline(pid_t *pids, int count)
 			if (WIFEXITED(status))
 				last_status = WEXITSTATUS(status);
 			else if (WIFSIGNALED(status))
-				last_status = 128 + WTERMSIG(status);
+			{
+				sig = WTERMSIG(status);
+				if (sig == SIGINT)
+					write(1, "\n", 1);
+				else if (sig == SIGQUIT)
+					ft_putstr_fd("Quit (core dumped)\n", 2);
+				last_status = 128 + sig;
+			}
 		}
 		i++;
 	}
@@ -81,6 +89,7 @@ int	execute_pipeline(t_shell *shell, t_cmd *cmds)
 	int		i;
 	int		*pipes;
 	pid_t	*pids;
+	int		status;
 
 	count = count_cmds(cmds);
 	pipes = gc_malloc(&shell->line_gc, sizeof(int) * 2 * (count - 1));
@@ -92,12 +101,18 @@ int	execute_pipeline(t_shell *shell, t_cmd *cmds)
 	{
 		pids[i] = fork();
 		if (pids[i] < 0)
-			return (close_pipes(pipes, count), perror("fork"), 1);
+		{
+			close_pipes(pipes, count);
+			return (perror("fork"), 1);
+		}
 		if (pids[i] == 0)
 			run_pipeline_child(shell, cmds, pipes, (int [2]){i, count});
 		cmds = cmds->next;
 		i++;
 	}
 	close_pipes(pipes, count);
-	return (wait_pipeline(pids, count));
+	setup_parent_signals();
+	status = wait_pipeline(pids, count);
+	setup_prompt_signals();
+	return (status);
 }

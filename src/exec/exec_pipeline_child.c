@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 19:34:23 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/05 19:59:32 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/07 21:43:22 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ static void	exec_pipeline_cmd(t_shell *shell, t_cmd *cmd)
 
 void	run_pipeline_child(t_shell *shell, t_cmd *cmd, int *pipes, int info[2])
 {
+	setup_child_signals();
 	if (!setup_pipeline_fds(pipes, info[0], info[1]))
 		exit(1);
 	exec_pipeline_cmd(shell, cmd);

@@ -6,36 +6,55 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:23:04 by mshargan          #+#    #+#             */
-/*   Updated: 2026/05/24 19:15:29 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/07 21:39:00 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-/*
-When Ctrl-C is press
-1. a new line is printed
-2. readline is on a new line
-3. the current typed text is cleared
-4. the prompt is redisplayed
-*/
-static void	handle_sigint(int sig)
+volatile sig_atomic_t	g_signal = 0;
+
+static void	handle_prompt_sigint(int sig)
 {
-	(void)sig;
+	g_signal = sig;
 	write(1, "\n", 1);
 	rl_on_new_line();
 	rl_replace_line("", 0);
 	rl_redisplay();
 }
 
-/* Setup of the Ctrl-C (SIG_INT) and Ctrl-\ (SIGN_QUIT) signals which otherwise
-cause errors
+static void	handle_heredoc_sigint(int sig)
+{
+	g_signal = sig;
+	write(1, "\n", 1);
+	close(STDIN_FILENO);
+}
 
-Ctrl-C is sent to handle_sigint
-Ctrl-\ is ignored (SIG_IGN)
-*/
+void	setup_prompt_signals(void)
+{
+	signal(SIGINT, handle_prompt_sigint);
+	signal(SIGQUIT, SIG_IGN);
+}
+
+void	setup_parent_signals(void)
+{
+	signal(SIGINT, SIG_IGN);
+	signal(SIGQUIT, SIG_IGN);
+}
+
+void	setup_child_signals(void)
+{
+	signal(SIGINT, SIG_DFL);
+	signal(SIGQUIT, SIG_DFL);
+}
+
+void	setup_heredoc_signals(void)
+{
+	signal(SIGINT, handle_heredoc_sigint);
+	signal(SIGQUIT, SIG_IGN);
+}
+
 void	setup_signals(void)
 {
-	signal(SIGINT, handle_sigint);
-	signal(SIGQUIT, SIG_IGN);
+	setup_prompt_signals();
 }

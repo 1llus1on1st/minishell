@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 17:34:30 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/05 19:35:10 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/07 21:41:03 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,19 @@
 
 static int	wait_status_to_exit(int status)
 {
+	int	sig;
+
 	if (WIFEXITED(status))
 		return (WEXITSTATUS(status));
 	if (WIFSIGNALED(status))
-		return (128 + WTERMSIG(status));
+	{
+		sig = WTERMSIG(status);
+		if (sig == SIGINT)
+			write(1, "\n", 1);
+		else if (sig == SIGQUIT)
+			ft_putstr_fd("Quit (core dumped)\n", 2);
+		return (128 + sig);
+	}
 	return (1);
 }
 
@@ -39,6 +48,7 @@ static void	run_child(t_shell *shell, t_cmd *cmd)
 	int		exit_status;
 	char	*path;
 
+	setup_child_signals();
 	exit_status = 0;
 	if (!apply_redirections(cmd))
 		exit(1);
@@ -60,7 +70,12 @@ int	execute_external(t_shell *shell, t_cmd *cmd)
 		return (perror("fork"), 1);
 	if (pid == 0)
 		run_child(shell, cmd);
+	setup_parent_signals();
 	if (waitpid(pid, &status, 0) < 0)
+	{
+		setup_prompt_signals();
 		return (perror("waitpid"), 1);
+	}
+	setup_prompt_signals();
 	return (wait_status_to_exit(status));
 }
