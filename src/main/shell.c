@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:14:25 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/07 21:39:33 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/07 21:50:55 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,36 +57,26 @@ static void	process_line(char *line, t_shell *shell)
 	tokens = NULL;
 	cmds = NULL;
 	if (lexer(shell, line, &tokens) != 0)
-	{
-		shell->last_exit = 2;
-		gc_clear(&shell->line_gc);
-		return ;
-	}
+		return (shell->last_exit = 2, gc_clear(&shell->line_gc));
 	if (parser(shell, tokens, &cmds) != 0)
-	{
-		shell->last_exit = 2;
-		gc_clear(&shell->line_gc);
-		return ;
-	}
+		return (shell->last_exit = 2, gc_clear(&shell->line_gc));
 	if (!cmds)
 		return (gc_clear(&shell->line_gc));
 	if (!expand(shell, cmds))
-	{
-		shell->last_exit = 2;
-		gc_clear(&shell->line_gc);
-		return ;
-	}
+		return (shell->last_exit = 2, gc_clear(&shell->line_gc));
 	if (!prepare_heredocs(shell, cmds))
 	{
-		shell->last_exit = 1;
+		if (g_signal == SIGINT)
+			shell->last_exit = 130;
+		else
+			shell->last_exit = 1;
+		g_signal = 0;
 		close_heredoc_fds(cmds);
-		gc_clear(&shell->line_gc);
-		return ;
+		return (gc_clear(&shell->line_gc));
 	}
 	shell->last_exit = execute_cmd(shell, cmds);
 	close_heredoc_fds(cmds);
 	gc_clear(&shell->line_gc);
-	return ;
 }
 
 static void	exit_shell(t_shell *shell)

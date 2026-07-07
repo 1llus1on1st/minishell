@@ -47,6 +47,7 @@ SRC				=	\
 					exec/exec_pipeline_child.c \
 					exec/exec_heredoc.c \
 					exec/exec_heredoc_file.c \
+					exec/exec_heredoc_prepare.c \
 					utils/free_split.c \
 
 

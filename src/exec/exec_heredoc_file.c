@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 21:13:47 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/07 21:28:08 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/07 21:49:54 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	write_heredoc_line(t_shell *shell, char *line, int fd, int expand)
 	return (1);
 }
 
-static int	read_heredoc_loop(t_shell *shell, t_redir *redir, int fd)
+int	read_heredoc_loop(t_shell *shell, t_redir *redir, int fd)
 {
 	char	*line;
 
@@ -38,7 +38,11 @@ static int	read_heredoc_loop(t_shell *shell, t_redir *redir, int fd)
 	{
 		line = readline("> ");
 		if (!line)
+		{
+			if (g_signal == SIGINT)
+				return (0);
 			return (1);
+		}
 		if (ft_strncmp(line, redir->file, ft_strlen(redir->file) + 1) == 0)
 			return (free(line), 1);
 		if (!write_heredoc_line(shell, line, fd, redir->heredoc_expand))
@@ -74,7 +78,7 @@ static char	*join_heredoc_path(t_shell *shell, char *pid, int count)
 	return (path);
 }
 
-static int	open_unique_heredoc(t_shell *shell, char **path)
+int	open_unique_heredoc(t_shell *shell, char **path)
 {
 	char	*pid;
 	int		fd;
@@ -96,27 +100,4 @@ static int	open_unique_heredoc(t_shell *shell, char **path)
 	free(pid);
 	ft_putstr_fd("minishell: heredoc temp file error\n", 2);
 	return (-1);
-}
-
-int	prepare_one_heredoc(t_shell *shell, t_redir *redir)
-{
-	char	*path;
-	int		write_fd;
-	int		read_fd;
-
-	path = NULL;
-	write_fd = open_unique_heredoc(shell, &path);
-	if (write_fd < 0)
-		return (0);
-	if (!read_heredoc_loop(shell, redir, write_fd))
-		return (close(write_fd), unlink(path), 0);
-	close(write_fd);
-	read_fd = open(path, O_RDONLY);
-	unlink(path);
-	if (read_fd < 0)
-		return (perror(path), 0);
-	if (redir->heredoc_fd >= 0)
-		close(redir->heredoc_fd);
-	redir->heredoc_fd = read_fd;
-	return (1);
 }
