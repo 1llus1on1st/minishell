@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 21:58:45 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/07 21:58:49 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/07 22:01:18 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	setup_child_signals(void)
 
 void	setup_heredoc_signals(void)
 {
-	rl_catch_signals = 0;
 	set_signal_handler(SIGINT, handle_heredoc_sigint);
 	set_signal_handler(SIGQUIT, SIG_IGN);
 }
