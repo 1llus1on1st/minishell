@@ -19,6 +19,7 @@ SRC				=	\
 					parser/parser_redir.c \
 					parser/parser_debug.c \
 					signals/signals.c \
+					signals/signals_modes.c \
 					env/env_init.c \
 					env/env_utils.c \
 					env/env_mutation.c \
