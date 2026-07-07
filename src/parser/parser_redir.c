@@ -33,6 +33,20 @@ static void	add_redir_back(t_redir **redirs, t_redir *new_redir)
 	current->next = new_redir;
 }
 
+static int	has_quotes(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str && str[i])
+	{
+		if (str[i] == '\'' || str[i] == '"')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 static t_redir	*create_redir(t_shell *shell, t_token_type type, char *file)
 {
 	t_redir	*redir;
@@ -68,16 +82,4 @@ int	parse_redir(t_shell *shell, t_token **token, t_cmd *cmd)
 	return (1);
 }
 
-static int	has_quotes(char *str)
-{
-	int	i;
 
-	i = 0;
-	while (str && str[i])
-	{
-		if (str[i] == '\'' || str[i] == '"')
-			return (1);
-		i++;
-	}
-	return (0);
-}
