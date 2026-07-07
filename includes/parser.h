@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 19:08:48 by mshargan          #+#    #+#             */
-/*   Updated: 2026/05/24 19:19:05 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/06 09:25:16 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ typedef struct s_redir
 {
 	t_token_type	type;
 	char			*file;
+	int				heredoc_fd;
+	int				heredoc_expand;
 	struct s_redir	*next;
 }	t_redir;
 

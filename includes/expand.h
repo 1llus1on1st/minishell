@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 11:34:34 by mshargan          #+#    #+#             */
-/*   Updated: 2026/06/11 12:56:44 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/06 09:27:00 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ char	*remove_quotes(t_shell *shell, char *str);
 int		append_char(t_shell *shell, char **res, char c);
 int		append_str(t_shell *shell, char **res, char *str);
 int		expand_variable(t_shell *shell, char *str, char **res, int *i);
+char	*expand_heredoc_line(t_shell *shell, char *str);
 
 #endif

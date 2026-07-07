@@ -46,6 +46,10 @@ static t_redir	*create_redir(t_shell *shell, t_token_type type, char *file)
 		return (NULL);
 	if (!gc_add(&shell->line_gc, redir->file))
 		return (free(redir->file), NULL);
+	redir->heredoc_fd = -1;
+	redir->heredoc_expand = 1;
+	if (type == T_HEREDOC && has_quotes(file))
+		redir->heredoc_expand = 0;
 	redir->next = NULL;
 	return (redir);
 }
@@ -62,4 +66,18 @@ int	parse_redir(t_shell *shell, t_token **token, t_cmd *cmd)
 	add_redir_back(&cmd->redirs, redir);
 	*token = (*token)->next;
 	return (1);
+}
+
+static int	has_quotes(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str && str[i])
+	{
+		if (str[i] == '\'' || str[i] == '"')
+			return (1);
+		i++;
+	}
+	return (0);
 }

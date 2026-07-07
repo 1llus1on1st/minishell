@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 18:37:50 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/05 19:59:18 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/06 09:28:11 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,15 @@ static int	apply_one_redir(t_redir *redir)
 	if (redir->type == T_APPEND)
 		return (apply_output_redir(redir->file, 1));
 	if (redir->type == T_HEREDOC)
-		return (0);
+	{
+		if (redir->heredoc_fd < 0)
+			return (0);
+		if (dup2(redir->heredoc_fd, STDIN_FILENO) < 0)
+			return (perror("dup2"), 0);
+		close(redir->heredoc_fd);
+		redir->heredoc_fd = -1;
+		return (1);
+	}
 	return (1);
 }
 

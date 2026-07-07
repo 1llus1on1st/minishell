@@ -27,6 +27,7 @@ SRC				=	\
 					expand/expand_string.c \
 					expand/expand_utils.c \
 					expand/expand_var.c \
+					expand/expand_heredoc.c \
 					expand/quote_utils.c \
 					builtins/builtins.c \
 					builtins/builtin_echo.c \
@@ -44,6 +45,7 @@ SRC				=	\
 					exec/exec_stdio.c \
 					exec/exec_pipeline.c \
 					exec/exec_pipeline_child.c \
+					exec/exec_heredoc.c \
 					utils/free_split.c \
 
 

@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:14:25 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/05 17:46:14 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/06 09:29:01 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,15 @@ static void	process_line(char *line, t_shell *shell)
 		gc_clear(&shell->line_gc);
 		return ;
 	}
+	if (!prepare_heredocs(shell, cmds))
+	{
+		shell->last_exit = 1;
+		close_heredoc_fds(cmds);
+		gc_clear(&shell->line_gc);
+		return ;
+	}
 	shell->last_exit = execute_cmd(shell, cmds);
+	close_heredoc_fds(cmds);
 	gc_clear(&shell->line_gc);
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 17:30:39 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/05 19:36:45 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/06 09:27:37 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ int		execute_pipeline(t_shell *shell, t_cmd *cmds);
 void	run_pipeline_child(t_shell *shell, t_cmd *cmd, int *pipes,
 		int info[2]);
 void	close_pipes(int *pipes, int count);
+int		prepare_heredocs(t_shell *shell, t_cmd *cmds);
+void	close_heredoc_fds(t_cmd *cmds);
 
 #endif
