@@ -84,6 +84,40 @@ echo ok | idontexist
 echo $?
 cat < does_not_exist | wc -l
 echo $?
+cat << EOF
+hello heredoc
+EOF
+echo $?
+cat << EOF
+$USER
+EOF
+echo $?
+cat << 'EOF'
+$USER
+EOF
+echo $?
+cat << EOF | grep heredoc
+pipeline heredoc
+EOF
+echo $?
+cat << EOF > hd_out
+file heredoc
+EOF
+echo $?
+cat hd_out
+echo $?
+cat << A << B
+first heredoc
+A
+second heredoc
+B
+echo $?
+cat << EOF | grep heredoc > hd_pipe_out
+pipeline heredoc redirected
+EOF
+echo $?
+cat hd_pipe_out
+echo $?
 rm -f out
 rm -f emptyfile
 rm -f builtin_out
@@ -94,6 +128,8 @@ rm -f created_before_fail
 rm -f should_not_matter
 rm -f pipe_input
 rm -f pipe_out
+rm -f hd_out
+rm -f hd_pipe_out
 pwd
 cd ..
 pwd

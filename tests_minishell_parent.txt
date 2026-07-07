@@ -33,6 +33,34 @@ cat pipe_input | grep pipeline > pipe_out
 echo $?
 cat pipe_out
 echo $?
+cat << EOF
+hello heredoc
+EOF
+echo $?
+cat << EOF
+$USER
+EOF
+echo $?
+cat << 'EOF'
+$USER
+EOF
+echo $?
+cat << EOF | grep heredoc
+pipeline heredoc
+EOF
+echo $?
+cat << EOF > hd_out
+file heredoc
+EOF
+echo $?
+cat hd_out
+echo $?
+cat << A << B
+first heredoc
+A
+second heredoc
+B
+echo $?
 export A=42
 echo $A
 unset A
@@ -48,4 +76,5 @@ rm -f created_before_fail
 rm -f should_not_matter
 rm -f pipe_input
 rm -f pipe_out
+rm -f hd_out
 exit
