@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 17:30:39 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/07 21:13:17 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/07 21:16:15 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 typedef struct s_shell	t_shell;
 typedef struct s_cmd	t_cmd;
+typedef struct s_redir	t_redir;
 
 int		execute_cmd(t_shell *shell, t_cmd *cmd);
 int		execute_external(t_shell *shell, t_cmd *cmd);
