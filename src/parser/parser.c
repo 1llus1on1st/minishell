@@ -46,6 +46,8 @@ int	parser(t_shell *shell, t_token *tokens, t_cmd **cmds)
 {
 	t_cmd	*cmd;
 
+	if (!check_syntax(tokens))
+		return (1);
 	cmd = create_cmd(shell);
 	if (!cmd)
 		return (1);

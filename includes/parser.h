@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 19:08:48 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/06 09:25:16 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/08 13:57:20 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,7 @@ int		is_redir(t_token_type type);
 int		parse_redir(t_shell *shell, t_token **token, t_cmd *cmd);
 int		parser(t_shell *shell, t_token *tokens, t_cmd **cmds);
 void	print_cmds(t_cmd *cmds);
+int		check_syntax(t_token *tokens);
+char	*token_value(t_token *token);
 
 #endif
