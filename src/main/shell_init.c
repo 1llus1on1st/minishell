@@ -6,13 +6,18 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 19:04:59 by mshargan          #+#    #+#             */
-/*   Updated: 2026/05/24 19:08:03 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/09 11:42:23 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-// Initializes the values of the t_shell strucutre
+/*
+1.	Initializes the values of the variables in the t_shell structure
+2.	Launches the initializer of the garbage collector
+	If it fails launches the clear of the garbage collector which can contain 
+	partial t_shell data
+*/
 void	init_shell(t_shell *shell, char **envp)
 {
 	shell->last_exit = 0;

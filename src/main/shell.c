@@ -6,12 +6,17 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:14:25 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/09 11:31:46 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/09 11:47:32 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/*
+1.	Displays the minishell prompt and waits for user input
+2.	Adds non-empty input lines to the readline history
+3.	Returns the line read by readline, or NULL if EOF is reached
+*/
 static char	*read_input(void)
 {
 	char	*line;
@@ -52,6 +57,12 @@ static void	process_line(char *line, t_shell *shell)
 	gc_clear(&shell->line_gc);
 }
 
+/*
+1.	Prints "exit" when minishell receives EOF
+2.	Clears the line garbage collector
+3.	Clears the shell garbage collector
+4.	Exits the program with status 0
+*/
 static void	exit_shell(t_shell *shell)
 {
 	printf("exit\n");
@@ -60,6 +71,13 @@ static void	exit_shell(t_shell *shell)
 	exit(0);
 }
 
+/*
+1.	Keeps minishell running until EOF is received
+2.	Sets up the prompt signal handling before reading input
+3.	Reads the user input and updates last_exit after SIGINT
+4.	Exits the shell if readline returns NULL
+5.	Processes the input line and frees it after execution
+*/
 void	shell_loop(t_shell *shell)
 {
 	char	*line;
