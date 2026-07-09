@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 14:13:15 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/05 20:00:14 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/09 12:54:26 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	builtin_cd(t_shell *shell, t_cmd *cmd)
 	char	*path;
 
 	if (cmd->argv[1] && cmd->argv[2])
-		return (ft_putstr_fd("minishell: cd: too many arguments\n", 2), 1);
+		return (ft_putstr_fd("minishell: cd: too many arguments\n", 2), 2);
 	path = cmd->argv[1];
 	if (!path)
 		path = get_env_value(shell, "HOME");
