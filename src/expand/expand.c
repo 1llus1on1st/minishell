@@ -12,6 +12,14 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Expands every argument stored in one argv array.
+1.	Starts from the first argument in argv
+2.	Calls expand_string on each argument to handle quotes and variables
+3.	Returns 0 if any argument expansion fails
+4.	Replaces the old argv entry with the expanded string
+5.	Returns 1 after all arguments have been expanded
+*/
 static int	expand_argv(t_shell *shell, char **argv)
 {
 	int		i;
@@ -29,6 +37,14 @@ static int	expand_argv(t_shell *shell, char **argv)
 	return (1);
 }
 
+/*
+Expands every redirection filename in one command.
+1.	Walks through the command redirection linked list
+2.	Only removes quotes from heredoc delimiters
+3.	Expands variables and removes quotes for normal redirection filenames
+4.	Replaces the redirection file value with the expanded result
+5.	Returns 0 if any expansion fails, otherwise returns 1
+*/
 static int	expand_redirs(t_shell *shell, t_redir *redirs)
 {
 	char	*expanded;
@@ -47,6 +63,14 @@ static int	expand_redirs(t_shell *shell, t_redir *redirs)
 	return (1);
 }
 
+/*
+Expands arguments and redirections for every parsed command.
+1.	Loops through the command linked list
+2.	Expands the argv array of the current command
+3.	Expands the redirection list of the current command
+4.	Stops and returns 0 if any expansion step fails
+5.	Returns 1 when every command has been expanded successfully
+*/
 int	expand(t_shell *shell, t_cmd *cmds)
 {
 	while (cmds)

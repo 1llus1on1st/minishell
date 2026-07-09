@@ -12,11 +12,26 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Checks whether a character can be part of an environment variable name.
+1.	Accepts alphabetic and numeric characters
+2.	Accepts underscore characters
+3.	Rejects every other character
+4.	Returns 1 when the character is valid and 0 when it is not
+*/
 static int	is_var_char(char c)
 {
 	return (ft_isalnum(c) || c == '_');
 }
 
+/*
+Expands the special $? variable into the last exit status.
+1.	Converts shell->last_exit into a string
+2.	Adds the new string to the line garbage collector
+3.	Appends the exit status string to the expansion result
+4.	Moves the input index past the two characters "$?"
+5.	Returns 1 on success and 0 if allocation or append fails
+*/
 static int	expand_exit_status(t_shell *shell, char **res, int *i)
 {
 	char	*value;
@@ -32,6 +47,14 @@ static int	expand_exit_status(t_shell *shell, char **res, int *i)
 	return (1);
 }
 
+/*
+Expands a dollar expression inside a command string.
+1.	Expands "$?" using the shell last exit status
+2.	Keeps a literal "$" when the next character is not a variable character
+3.	Reads the full variable name after the dollar sign
+4.	Looks up the variable value in the shell environment
+5.	Appends the value to the result, or an empty string if it does not exist
+*/
 int	expand_variable(t_shell *shell, char *str, char **res, int *i)
 {
 	int		start;

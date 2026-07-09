@@ -12,6 +12,14 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Expands variables inside one heredoc input line.
+1.	Starts with an empty result string tracked by the line garbage collector
+2.	Loops through each character of the heredoc line
+3.	Expands dollar expressions when a '$' character is found
+4.	Copies every other character directly into the result
+5.	Returns the expanded line or NULL if allocation or append fails
+*/
 char	*expand_heredoc_line(t_shell *shell, char *str)
 {
 	char	*res;
