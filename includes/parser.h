@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 19:08:48 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/08 13:57:20 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/09 11:39:07 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "lexer.h"
 
-typedef struct s_shell t_shell;
+typedef struct s_shell	t_shell;
 
 typedef struct s_redir
 {

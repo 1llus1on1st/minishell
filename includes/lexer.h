@@ -6,14 +6,14 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 19:04:19 by mshargan          #+#    #+#             */
-/*   Updated: 2026/06/11 12:56:49 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/09 11:37:54 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LEXER_H
 # define LEXER_H
 
-typedef struct s_shell t_shell;
+typedef struct s_shell	t_shell;
 
 typedef enum e_token_type
 {

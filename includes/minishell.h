@@ -6,14 +6,14 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 19:04:30 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/07 22:07:35 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/09 11:38:51 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
-#define _POSIX_C_SOURCE 200809L
+# define _POSIX_C_SOURCE 200809L
 
 # include <stdio.h>
 # include <stdlib.h>

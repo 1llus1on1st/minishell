@@ -6,15 +6,15 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 11:34:34 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/06 09:27:00 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/09 11:38:26 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EXPAND_H
 # define EXPAND_H
 
-typedef struct s_shell t_shell;
-typedef struct s_cmd t_cmd;
+typedef struct s_shell	t_shell;
+typedef struct s_cmd	t_cmd;
 
 int		expand(t_shell *shell, t_cmd *cmds);
 char	*expand_string(t_shell *shell, char *str);
