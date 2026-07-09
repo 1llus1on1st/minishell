@@ -6,11 +6,44 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 21:13:47 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/07 21:49:54 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/09 17:55:11 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
+
+static char	*read_piped_line(void)
+{
+	char	*line;
+	char	*new_line;
+	size_t	len;
+	ssize_t	bytes;
+	char	c;
+
+	line = malloc(1);
+	if (!line)
+		return (NULL);
+	line[0] = '\0';
+	len = 0;
+	while (1)
+	{
+		bytes = read(STDIN_FILENO, &c, 1);
+		if (bytes <= 0 || c == '\n')
+			break ;
+		new_line = malloc(len + 2);
+		if (!new_line)
+			return (free(line), NULL);
+		ft_memcpy(new_line, line, len);
+		new_line[len] = c;
+		new_line[len + 1] = '\0';
+		free(line);
+		line = new_line;
+		len++;
+	}
+	if (bytes <= 0 && len == 0)
+		return (free(line), NULL);
+	return (line);
+}
 
 static int	write_heredoc_line(t_shell *shell, char *line, int fd, int expand)
 {
@@ -36,7 +69,10 @@ int	read_heredoc_loop(t_shell *shell, t_redir *redir, int fd)
 
 	while (1)
 	{
-		line = readline("> ");
+		if (isatty(STDIN_FILENO))
+			line = readline("> ");
+		else
+			line = read_piped_line();
 		if (!line)
 		{
 			if (g_signal == SIGINT)

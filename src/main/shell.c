@@ -6,21 +6,51 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:14:25 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/09 12:42:49 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/09 17:54:22 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-/*
-1.	Displays the minishell prompt and waits for user input
-2.	Adds non-empty input lines to the readline history
-3.	Returns the line read by readline, or NULL if EOF is reached
-*/
+static char	*read_piped_line(void)
+{
+	char	*line;
+	char	*new_line;
+	size_t	len;
+	ssize_t	bytes;
+	char	c;
+
+	line = malloc(1);
+	if (!line)
+		return (NULL);
+	line[0] = '\0';
+	len = 0;
+	while (1)
+	{
+		bytes = read(STDIN_FILENO, &c, 1);
+		if (bytes <= 0 || c == '\n')
+			break ;
+		new_line = malloc(len + 2);
+		if (!new_line)
+			return (free(line), NULL);
+		ft_memcpy(new_line, line, len);
+		new_line[len] = c;
+		new_line[len + 1] = '\0';
+		free(line);
+		line = new_line;
+		len++;
+	}
+	if (bytes <= 0 && len == 0)
+		return (free(line), NULL);
+	return (line);
+}
+
 static char	*read_input(void)
 {
 	char	*line;
 
+	if (!isatty(STDIN_FILENO))
+		return (read_piped_line());
 	line = readline("minishell$ ");
 	if (line && *line)
 		add_history(line);
@@ -57,15 +87,11 @@ static void	process_line(char *line, t_shell *shell)
 	gc_clear(&shell->line_gc);
 }
 
-/*
-1.	Prints "exit" when minishell receives EOF
-2.	Clears the line garbage collector
-3.	Clears the shell garbage collector
-4.	Exits the program with status 0
-*/
+
 static void	exit_shell(t_shell *shell)
 {
-	printf("exit\n");
+	if (isatty(STDIN_FILENO))
+		printf("exit\n");
 	gc_clear(&shell->line_gc);
 	gc_clear(&shell->shell_gc);
 	exit(0);

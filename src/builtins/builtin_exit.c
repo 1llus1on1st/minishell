@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 14:02:34 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/09 12:55:24 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/09 17:54:33 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ int	builtin_exit(t_shell *shell, t_cmd *cmd)
 {
 	long long	code;
 
-	printf("exit\n");
+	if (isatty(STDIN_FILENO))
+		printf("exit\n");
 	code = shell->last_exit;
 	if (cmd->argv[1] && !parse_exit_code(cmd->argv[1], &code))
 		exit_numeric_error(shell, cmd->argv[1]);
