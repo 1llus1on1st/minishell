@@ -31,6 +31,10 @@ SRC				=	\
 					expand/expand_var.c \
 					expand/expand_heredoc.c \
 					expand/quote_utils.c \
+					expand/expand_marked_vars.c \
+					expand/expand_marked_word.c \
+					expand/expand_marked_split.c \
+					expand/expand_redirs.c \
 					builtins/builtins.c \
 					builtins/builtin_echo.c \
 					builtins/builtin_pwd.c \

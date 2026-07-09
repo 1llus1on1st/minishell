@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:14:25 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/09 11:50:32 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/09 12:42:49 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	process_line(char *line, t_shell *shell)
 	if (!cmds)
 		return (gc_clear(&shell->line_gc));
 	if (!expand(shell, cmds))
-		return (shell->last_exit = 2, gc_clear(&shell->line_gc));
+		return (gc_clear(&shell->line_gc));
 	if (!prepare_heredocs(shell, cmds))
 	{
 		if (g_signal == SIGINT)

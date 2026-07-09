@@ -6,17 +6,29 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 11:34:34 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/09 11:38:26 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/09 12:40:32 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EXPAND_H
 # define EXPAND_H
+\
+#ifndef EXP_SPLIT
+# define EXP_SPLIT 31
+#endif
 
 typedef struct s_shell	t_shell;
 typedef struct s_cmd	t_cmd;
 
 int		expand(t_shell *shell, t_cmd *cmds);
+int		expand_redirs(t_shell *shell, t_redir *redirs);
+char	*expand_marked_word(t_shell *shell, char *str, int *had_quote);
+int		expand_unquoted_variable(t_shell *shell, char *str, char **res, int *i);
+int		expand_quoted_variable(t_shell *shell, char *str, char **res, int *i);
+int		marked_word_count(char *str);
+char	*marked_get_word(t_shell *shell, char *str, int index);
+int		add_marked_words(t_shell *shell, t_cmd *cmd, char *marked,
+			int keep_empty);
 char	*expand_string(t_shell *shell, char *str);
 char	*remove_quotes(t_shell *shell, char *str);
 int		append_char(t_shell *shell, char **res, char c);
