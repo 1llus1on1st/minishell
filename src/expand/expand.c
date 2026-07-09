@@ -6,34 +6,56 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 11:28:02 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/05 19:58:47 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/09 12:23:08 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-/*
-Expands every argument stored in one argv array.
-1.	Starts from the first argument in argv
-2.	Calls expand_string on each argument to handle quotes and variables
-3.	Returns 0 if any argument expansion fails
-4.	Replaces the old argv entry with the expanded string
-5.	Returns 1 after all arguments have been expanded
-*/
+static int	has_quote(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str && str[i])
+	{
+		if (str[i] == '\'' || str[i] == '"')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+static int	should_remove_empty_arg(char *original, char *expanded)
+{
+	if (!expanded || expanded[0] != '\0')
+		return (0);
+	if (has_quote(original))
+		return (0);
+	return (ft_strchr(original, '$') != NULL);
+}
+
 static int	expand_argv(t_shell *shell, char **argv)
 {
 	int		i;
+	int		j;
+	char	*original;
 	char	*expanded;
 
 	i = 0;
+	j = 0;
 	while (argv && argv[i])
 	{
-		expanded = expand_string(shell, argv[i]);
+		original = argv[i];
+		expanded = expand_string(shell, original);
 		if (!expanded)
 			return (0);
-		argv[i] = expanded;
+		if (!should_remove_empty_arg(original, expanded))
+			argv[j++] = expanded;
 		i++;
 	}
+	if (argv)
+		argv[j] = NULL;
 	return (1);
 }
 
