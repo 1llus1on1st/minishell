@@ -12,6 +12,12 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Returns the printable value used in syntax error messages.
+1.	Checks whether the token pointer is NULL
+2.	Returns "newline" when the parser reached the end unexpectedly
+3.	Returns the token value when an actual token caused the error
+*/
 char	*token_value(t_token *token)
 {
 	if (!token)
@@ -19,6 +25,13 @@ char	*token_value(t_token *token)
 	return (token->value);
 }
 
+/*
+Prints a parser syntax error for an unexpected token.
+1.	Writes the minishell syntax error prefix to stderr
+2.	Prints either the token value or "newline"
+3.	Closes the error message with a quote and newline
+4.	Returns 0 so callers can fail directly from this helper
+*/
 static int	print_syntax_error(t_token *token)
 {
 	ft_putstr_fd("minishell: syntax error near unexpected token `", 2);
@@ -27,6 +40,14 @@ static int	print_syntax_error(t_token *token)
 	return (0);
 }
 
+/*
+Checks whether a pipe token is valid in its current position.
+1.	Rejects a pipe at the beginning of the command line
+2.	Rejects a pipe at the end of the command line
+3.	Rejects two pipe tokens placed directly next to each other
+4.	Prints a syntax error when the pipe is invalid
+5.	Returns 1 when the pipe has a command before and after it
+*/
 static int	check_pipe_syntax(t_token *prev, t_token *current)
 {
 	if (!prev || !current->next || prev->type == T_PIPE)
@@ -34,6 +55,14 @@ static int	check_pipe_syntax(t_token *prev, t_token *current)
 	return (1);
 }
 
+/*
+Checks whether a redirection token is followed by a valid filename.
+1.	Rejects a redirection at the end of the command line
+2.	Checks that the next token is a word token
+3.	Prints "newline" when the filename is missing completely
+4.	Prints the next token value when another operator appears instead
+5.	Returns 1 when the redirection has a valid word after it
+*/
 static int	check_redir_syntax(t_token *current)
 {
 	if (!current->next)
@@ -43,6 +72,14 @@ static int	check_redir_syntax(t_token *current)
 	return (1);
 }
 
+/*
+Checks the full token list for parser syntax errors.
+1.	Keeps track of the previous token while walking through the list
+2.	Validates every pipe token with pipe-specific rules
+3.	Validates every redirection token with redirection-specific rules
+4.	Stops immediately when a syntax error is found
+5.	Returns 1 when the whole token list is syntactically valid
+*/
 int	check_syntax(t_token *tokens)
 {
 	t_token	*prev;
