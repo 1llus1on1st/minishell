@@ -6,14 +6,14 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 19:03:14 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/05 17:28:00 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/09 11:38:14 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ENV_H
 # define ENV_H
 
-typedef struct s_shell t_shell;
+typedef struct s_shell	t_shell;
 
 int		env_key_len(char *entry);
 int		env_count(char **env);
