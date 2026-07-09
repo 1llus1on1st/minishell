@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 17:35:04 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/05 17:49:05 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/09 12:28:31 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,12 @@ char	*get_cmd_path(t_shell *shell, char *cmd, int *exit_status)
 	char	**dirs;
 	char	*path;
 
+	if (!cmd || cmd[0] == '\0')
+	{
+		ft_putstr_fd(": command not found\n", 2);
+		*exit_status = 127;
+		return (NULL);
+	}
 	if (ft_strchr(cmd, '/'))
 		return (handle_direct_path(cmd, exit_status));
 	path_env = get_env_value(shell, "PATH");
