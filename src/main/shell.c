@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:14:25 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/07 21:50:55 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/09 11:31:46 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,33 +21,6 @@ static char	*read_input(void)
 		add_history(line);
 	return (line);
 }
-
-// static char	*token_type_to_str(t_token_type type)
-// {
-// 	if (type == T_WORD)
-// 		return ("WORD");
-// 	if (type == T_PIPE)
-// 		return ("PIPE");
-// 	if (type == T_REDIR_IN)
-// 		return ("REDIR_IN");
-// 	if (type == T_REDIR_OUT)
-// 		return ("REDIR_OUT");
-// 	if (type == T_APPEND)
-// 		return ("APPEND");
-// 	if (type == T_HEREDOC)
-// 		return ("HEREDOC");
-// 	return ("UNKNOWN");
-// }
-
-// //Debugger to verify lexer worked correctly
-// void	print_tokens(t_token *tokens)
-// {
-// 	while (tokens)
-// 	{
-// 		printf("%s: %s\n", token_type_to_str(tokens->type), tokens->value);
-// 		tokens = tokens->next;
-// 	}
-// }
 
 static void	process_line(char *line, t_shell *shell)
 {
