@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 19:04:47 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/09 11:55:24 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/09 11:56:42 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,8 @@ Handles input redirection operators found by the lexer.
 1.	Checks if the current character is followed by another '<'
 2.	Creates a T_HEREDOC token for "<<"
 3.	If there is only one '<', creates a T_REDIR_IN token
-4.	Advances the input index by two characters for heredoc or one for normal input redirection
+4.	Advances the input index by two characters for heredoc or one for 
+	normal input redirection
 5.	Returns 1 on success and 0 if token creation or insertion fails
 */
 int	handle_redir_in(t_shell *shell, char *line, int *i, t_token **tokens)
@@ -108,7 +109,8 @@ Handles output redirection operators found by the lexer.
 1.	Checks if the current character is followed by another '>'
 2.	Creates a T_APPEND token for ">>"
 3.	If there is only one '>', creates a T_REDIR_OUT token
-4.	Advances the input index by two characters for append or one for normal output redirection
+4.	Advances the input index by two characters for append or one for normal
+	output redirection
 5.	Returns 1 on success and 0 if token creation or insertion fails
 */
 int	handle_redir_out(t_shell *shell, char *line, int *i, t_token **tokens)
