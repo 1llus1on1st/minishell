@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:50:15 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/05 20:00:20 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 14:12:56 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,22 +60,16 @@ int	parse_exit_code(char *str, long long *code)
 	value = 0;
 	while (is_space_char(str[i]))
 		i++;
+	if (str[i] == '-')
+		sign = -1;
 	if (is_sign(str[i]))
-	{
-		if (str[i++] == '-')
-			sign = -1;
-	}
+		i++;
 	if (!read_digits(str, &i, sign, &value))
 		return (0);
 	while (is_space_char(str[i]))
 		i++;
 	if (str[i])
 		return (0);
-	if (sign == -1 && value == 9223372036854775808ULL)
-		*code = -9223372036854775807LL - 1;
-	else if (sign == -1)
-		*code = -(long long)value;
-	else
-		*code = (long long)value;
+	set_exit_code(code, value, sign);
 	return (1);
 }

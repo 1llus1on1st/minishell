@@ -43,6 +43,7 @@ SRC				=	\
 					builtins/builtin_env.c \
 					builtins/builtin_exit.c \
 					builtins/builtin_exit_parse.c \
+					builtins/builtin_exit_code.c \
 					builtins/builtin_cd.c \
 					builtins/builtin_export.c \
 					builtins/builtin_export_print.c \
