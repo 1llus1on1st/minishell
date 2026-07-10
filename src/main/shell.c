@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:14:25 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 18:20:22 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 18:21:43 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,6 @@ static void	exit_shell(t_shell *shell)
 	exit((unsigned char)status);
 }
 
-/*
-Keeps minishell running until EOF is received
-1.	Sets up the prompt signal handling before reading input
-2.	Reads the user input and updates last_exit after SIGINT
-3.	Exits the shell if readline returns NULL
-4.	Processes the input line and frees it after execution
-*/
 void	shell_loop(t_shell *shell)
 {
 	char	*line;
