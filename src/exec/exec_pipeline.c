@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 19:34:32 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/07 21:43:42 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 14:09:48 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,42 +51,33 @@ void	close_pipes(int *pipes, int count)
 	}
 }
 
-static int	wait_pipeline(pid_t *pids, int count)
+static int	fork_pipeline(t_shell *shell, t_cmd *cmds, int *pipes,
+	pid_t *pids)
 {
 	int	i;
-	int	status;
-	int	last_status;
-	int	sig;
+	int	count;
 
 	i = 0;
-	last_status = 1;
+	count = count_cmds(cmds);
 	while (i < count)
 	{
-		if (waitpid(pids[i], &status, 0) < 0)
-			return (perror("waitpid"), 1);
-		if (i == count - 1)
+		pids[i] = fork();
+		if (pids[i] < 0)
 		{
-			if (WIFEXITED(status))
-				last_status = WEXITSTATUS(status);
-			else if (WIFSIGNALED(status))
-			{
-				sig = WTERMSIG(status);
-				if (sig == SIGINT)
-					write(1, "\n", 1);
-				else if (sig == SIGQUIT)
-					ft_putstr_fd("Quit (core dumped)\n", 2);
-				last_status = 128 + sig;
-			}
+			close_pipes(pipes, count);
+			return (perror("fork"), 0);
 		}
+		if (pids[i] == 0)
+			run_pipeline_child(shell, cmds, pipes, (int [2]){i, count});
+		cmds = cmds->next;
 		i++;
 	}
-	return (last_status);
+	return (1);
 }
 
 int	execute_pipeline(t_shell *shell, t_cmd *cmds)
 {
 	int		count;
-	int		i;
 	int		*pipes;
 	pid_t	*pids;
 	int		status;
@@ -96,20 +87,8 @@ int	execute_pipeline(t_shell *shell, t_cmd *cmds)
 	pids = gc_malloc(&shell->line_gc, sizeof(pid_t) * count);
 	if (!pipes || !pids || !create_pipes(pipes, count))
 		return (1);
-	i = 0;
-	while (i < count)
-	{
-		pids[i] = fork();
-		if (pids[i] < 0)
-		{
-			close_pipes(pipes, count);
-			return (perror("fork"), 1);
-		}
-		if (pids[i] == 0)
-			run_pipeline_child(shell, cmds, pipes, (int [2]){i, count});
-		cmds = cmds->next;
-		i++;
-	}
+	if (!fork_pipeline(shell, cmds, pipes, pids))
+		return (1);
 	close_pipes(pipes, count);
 	setup_parent_signals();
 	status = wait_pipeline(pids, count);

@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 17:30:39 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 14:07:02 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 14:09:15 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ char	*get_cmd_path(t_shell *shell, char *cmd, int *exit_status);
 char	*handle_direct_path(char *cmd, int *exit_status);
 int		handle_special_cmd_name(char *cmd, int *exit_status);
 int		execute_pipeline(t_shell *shell, t_cmd *cmds);
+int		wait_pipeline(pid_t *pids, int count);
 void	run_pipeline_child(t_shell *shell, t_cmd *cmd, int *pipes,
 			int info[2]);
 void	close_pipes(int *pipes, int count);
