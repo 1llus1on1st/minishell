@@ -53,4 +53,4 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest ne
                      STD_OUT: 6  STD_ERR: 5  EXIT_CODE: 3  
                          TOTAL FAILED AND PASSED CASES:
                                      ❌ 14   
-                                     ✅ 118   
+                                     ✅ 118  
