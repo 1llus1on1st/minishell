@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 14:13:42 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 15:15:40 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 15:20:15 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,6 @@ static int	unset_option_error(char *arg)
 		ft_putchar_fd(arg[1], 2);
 	ft_putstr_fd(": invalid option\n", 2);
 	return (2);
-}
-
-static int	is_valid_unset_identifier(char *str)
-{
-	int	i;
-
-	if (!str || !str[0])
-		return (0);
-	if (!ft_isalpha(str[0]) && str[0] != '_')
-		return (0);
-	i = 1;
-	while (str[i])
-	{
-		if (!ft_isalnum(str[i]) && str[i] != '_')
-			return (0);
-		i++;
-	}
-	return (1);
 }
 
 int	builtin_unset(t_shell *shell, t_cmd *cmd)
