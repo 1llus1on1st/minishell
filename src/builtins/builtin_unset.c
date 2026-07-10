@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 14:13:42 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 10:55:41 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 11:03:26 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	builtin_unset(t_shell *shell, t_cmd *cmd)
 		if (cmd->argv[i][0] == '-')
 			return (unset_option_error(cmd->argv[i]));
 		if (is_valid_unset_identifier(cmd->argv[i]))
-			env_unset(shell, cmd->argv[i]);
+			env_unset_key(shell, cmd->argv[i]);
 		i++;
 	}
 	return (0);
