@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 17:35:04 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 14:06:29 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 17:40:56 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,12 @@ static char	*find_cmd_from_path(t_shell *shell, char *cmd, int *exit_status)
 	char	*path;
 
 	path_env = get_env_value(shell, "PATH");
-	if (!path_env)
-		path_env = "/bin:/usr/bin";
-	if (path_env[0] == '\0')
+	if (!path_env || path_env[0] == '\0')
+	{
+		if (access(cmd, X_OK) == 0)
+			return (cmd);
 		return (cmd_not_found(cmd, exit_status));
+	}
 	dirs = ft_split(path_env, ':');
 	if (!dirs)
 		return (*exit_status = 1, NULL);
