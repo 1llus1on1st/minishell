@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 13:56:48 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 11:32:45 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 15:18:40 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Returns the printable value used in syntax error messages.
 2.	Returns "newline" when the parser reached the end unexpectedly
 3.	Returns the token value when an actual token caused the error
 */
-char	*token_value(t_token *token)
+static char	*token_value(t_token *token)
 {
 	if (!token)
 		return ("newline");

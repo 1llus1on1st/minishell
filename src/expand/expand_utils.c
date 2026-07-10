@@ -6,20 +6,17 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 11:37:08 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/05 19:58:52 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 15:16:13 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-/*
-Appends one character to an expanding result string.
-1.	Builds a temporary one-character string
-2.	Joins the current result with that temporary string
-3.	Returns 0 if the join allocation fails
-4.	Adds the joined string to the line garbage collector
-5.	Updates the result pointer to the new joined string
-*/
+int	is_var_char(char c)
+{
+	return (ft_isalnum(c) || c == '_');
+}
+
 int	append_char(t_shell *shell, char **res, char c)
 {
 	char	tmp[2];
@@ -36,14 +33,6 @@ int	append_char(t_shell *shell, char **res, char c)
 	return (1);
 }
 
-/*
-Appends a full string to an expanding result string.
-1.	Treats a NULL source string as an empty string
-2.	Joins the current result with the source string
-3.	Returns 0 if the join allocation fails
-4.	Adds the joined string to the line garbage collector
-5.	Updates the result pointer to the new joined string
-*/
 int	append_str(t_shell *shell, char **res, char *str)
 {
 	char	*joined;

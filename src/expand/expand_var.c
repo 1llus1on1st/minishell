@@ -6,23 +6,11 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 11:37:05 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/05 19:58:50 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 15:16:36 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
-
-/*
-Checks whether a character can be part of an environment variable name.
-1.	Accepts alphabetic and numeric characters
-2.	Accepts underscore characters
-3.	Rejects every other character
-4.	Returns 1 when the character is valid and 0 when it is not
-*/
-static int	is_var_char(char c)
-{
-	return (ft_isalnum(c) || c == '_');
-}
 
 /*
 Expands the special $? variable into the last exit status.

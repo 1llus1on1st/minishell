@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:23:04 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/07 22:07:44 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 15:17:16 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,15 +68,4 @@ void	setup_prompt_signals(void)
 {
 	set_signal_handler(SIGINT, handle_prompt_sigint);
 	set_signal_handler(SIGQUIT, SIG_IGN);
-}
-
-/*
-Sets the initial signal behavior for minishell.
-1.	Uses the same signal setup as the interactive prompt
-2.	Ensures Ctrl-C and Ctrl-\ behave correctly before the shell loop starts
-3.	Keeps the setup in one wrapper so main can call a simple function
-*/
-void	setup_signals(void)
-{
-	setup_prompt_signals();
 }

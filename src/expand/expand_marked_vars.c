@@ -6,16 +6,11 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 12:40:49 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 12:49:03 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 15:16:45 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
-
-static int	is_var_char(char c)
-{
-	return (ft_isalnum(c) || c == '_');
-}
 
 static int	append_marked_value(t_shell *shell, char **res,
 	char *value, int split)

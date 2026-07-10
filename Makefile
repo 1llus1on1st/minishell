@@ -19,7 +19,6 @@ SRC				=	\
 					parser/parser.c \
 					parser/parser_utils.c \
 					parser/parser_redir.c \
-					parser/parser_debug.c \
 					parser/parser_syntax.c \
 					signals/signals.c \
 					signals/signals_modes.c \

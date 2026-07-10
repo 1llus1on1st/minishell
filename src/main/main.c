@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 19:04:55 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 12:46:35 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 15:17:27 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv, char **envp)
 	(void)argc;
 	(void)argv;
 	init_shell(&shell, envp);
-	setup_signals();
+	setup_prompt_signals();
 	shell_loop(&shell);
 	return (0);
 }

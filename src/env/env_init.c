@@ -6,28 +6,18 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 19:04:35 by mshargan          #+#    #+#             */
-/*   Updated: 2026/05/24 19:07:44 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 15:14:57 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
-
-static int	count_env(char **envp)
-{
-	int	i;
-
-	i = 0;
-	while (envp && envp[i])
-		i++;
-	return (i);
-}
 
 int	init_env(t_shell *shell, char **envp)
 {
 	int	i;
 
 	shell->env = gc_malloc(&shell->shell_gc, sizeof(char *)
-			* (count_env(envp) + 1));
+			* (env_count(envp) + 1));
 	if (!shell->env)
 		return (0);
 	i = 0;

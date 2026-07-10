@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 11:34:34 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 12:51:40 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 15:16:25 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ int		append_char(t_shell *shell, char **res, char c);
 int		append_str(t_shell *shell, char **res, char *str);
 int		expand_variable(t_shell *shell, char *str, char **res, int *i);
 char	*expand_heredoc_line(t_shell *shell, char *str);
+int		is_var_char(char c);
 
 #endif

@@ -6,21 +6,11 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 14:37:17 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/05 20:00:30 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 15:15:25 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
-
-static int	env_size(char **env)
-{
-	int	i;
-
-	i = 0;
-	while (env && env[i])
-		i++;
-	return (i);
-}
 
 static char	**copy_env_refs(t_shell *shell)
 {
@@ -28,7 +18,7 @@ static char	**copy_env_refs(t_shell *shell)
 	int		i;
 
 	copy = gc_malloc(&shell->line_gc, sizeof(char *)
-			* (env_size(shell->env) + 1));
+			* (env_count(shell->env) + 1));
 	if (!copy)
 		return (NULL);
 	i = 0;
