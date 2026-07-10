@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 21:13:47 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 12:48:07 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 15:30:39 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	read_heredoc_loop(t_shell *shell, t_redir *redir, int fd)
 	}
 }
 
-static char	*join_heredoc_path(t_shell *shell, char *pid, int count)
+static char	*join_heredoc_path(char *pid, int count)
 {
 	char	*num;
 	char	*base;
@@ -76,11 +76,18 @@ static char	*join_heredoc_path(t_shell *shell, char *pid, int count)
 	path = ft_strjoin(tmp, num);
 	free(tmp);
 	free(num);
-	if (!path)
-		return (NULL);
-	if (!gc_add(&shell->line_gc, path))
-		return (free(path), NULL);
 	return (path);
+}
+
+static int	save_heredoc_path(t_shell *shell, char **path, int fd)
+{
+	if (gc_add(&shell->line_gc, *path))
+		return (fd);
+	close(fd);
+	unlink(*path);
+	free(*path);
+	*path = NULL;
+	return (-1);
 }
 
 int	open_unique_heredoc(t_shell *shell, char **path)
@@ -88,21 +95,25 @@ int	open_unique_heredoc(t_shell *shell, char **path)
 	char	*pid;
 	int		fd;
 	int		count;
+	int		error;
 
 	pid = ft_itoa(getpid());
 	if (!pid)
 		return (-1);
 	count = 0;
-	while (count < 1000)
+	while (1)
 	{
-		*path = join_heredoc_path(shell, pid, count++);
+		*path = join_heredoc_path(pid, count);
 		if (!*path)
 			return (free(pid), -1);
 		fd = open(*path, O_WRONLY | O_CREAT | O_EXCL, 0600);
 		if (fd >= 0)
-			return (free(pid), fd);
+			return (free(pid), save_heredoc_path(shell, path, fd));
+		error = errno;
+		free(*path);
+		*path = NULL;
+		if (error != EEXIST)
+			return (free(pid), errno = error, perror("minishell: heredoc"), -1);
+		count++;
 	}
-	free(pid);
-	ft_putstr_fd("minishell: heredoc temp file error\n", 2);
-	return (-1);
 }

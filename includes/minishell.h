@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 19:04:30 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 15:27:03 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 15:29:40 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include <fcntl.h>
 # include <signal.h>
 # include <limits.h>
+# include <errno.h>
 
 # include "../libft/libft.h"
 # include "garbage_collector.h"
