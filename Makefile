@@ -49,6 +49,8 @@ SRC				=	\
 					builtins/builtin_unset.c \
 					exec/exec.c \
 					exec/exec_path.c \
+					exec/exec_path_direct.c \
+					exec/exec_path_special.c \
 					exec/exec_redir.c \
 					exec/exec_stdio.c \
 					exec/exec_pipeline.c \

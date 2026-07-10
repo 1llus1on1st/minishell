@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 17:30:39 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/09 11:38:35 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 14:07:02 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int		apply_redirections(t_cmd *cmd);
 int		save_stdio(int saved[2]);
 int		restore_stdio(int saved[2]);
 char	*get_cmd_path(t_shell *shell, char *cmd, int *exit_status);
+char	*handle_direct_path(char *cmd, int *exit_status);
+int		handle_special_cmd_name(char *cmd, int *exit_status);
 int		execute_pipeline(t_shell *shell, t_cmd *cmds);
 void	run_pipeline_child(t_shell *shell, t_cmd *cmd, int *pipes,
 			int info[2]);

@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 17:35:04 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 12:46:54 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 14:06:29 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,103 +47,42 @@ static char	*find_in_path(t_shell *shell, char *cmd, char **dirs)
 	return (NULL);
 }
 
-static char	*direct_path_error(char *cmd, int *exit_status,
-		int status, char *message)
+static char	*cmd_not_found(char *cmd, int *exit_status)
 {
-	ft_putstr_fd("minishell: ", 2);
 	ft_putstr_fd(cmd, 2);
-	ft_putstr_fd(": ", 2);
-	ft_putstr_fd(message, 2);
-	ft_putchar_fd('\n', 2);
-	*exit_status = status;
+	ft_putstr_fd(": command not found\n", 2);
+	*exit_status = 127;
 	return (NULL);
 }
 
-static int	is_directory(char *path)
-{
-	struct stat	st;
-
-	if (stat(path, &st) != 0)
-		return (0);
-	return (S_ISDIR(st.st_mode));
-}
-
-static char	*handle_direct_path(char *cmd, int *exit_status)
-{
-	if (access(cmd, F_OK) != 0)
-		return (direct_path_error(cmd, exit_status, 127,
-				"No such file or directory"));
-	if (is_directory(cmd))
-		return (direct_path_error(cmd, exit_status, 126,
-				"Is a directory"));
-	if (access(cmd, X_OK) != 0)
-		return (direct_path_error(cmd, exit_status, 126,
-				"Permission denied"));
-	*exit_status = 0;
-	return (cmd);
-}
-
-static int	is_exact_cmd(char *cmd, char *target)
-{
-	return (ft_strncmp(cmd, target, ft_strlen(target) + 1) == 0);
-}
-
-static char	*handle_special_cmd_name(char *cmd, int *exit_status)
-{
-	if (is_exact_cmd(cmd, "~"))
-	{
-		ft_putstr_fd("minishell: ~: Is a directory\n", 2);
-		*exit_status = 126;
-		return (NULL);
-	}
-	if (is_exact_cmd(cmd, ".") || is_exact_cmd(cmd, ".."))
-	{
-		ft_putstr_fd(cmd, 2);
-		ft_putstr_fd(": command not found\n", 2);
-		*exit_status = 127;
-		return (NULL);
-	}
-	return ((char *)1);
-}
-
-char	*get_cmd_path(t_shell *shell, char *cmd, int *exit_status)
+static char	*find_cmd_from_path(t_shell *shell, char *cmd, int *exit_status)
 {
 	char	*path_env;
 	char	**dirs;
 	char	*path;
-	char	*special;
 
-	if (!cmd || cmd[0] == '\0')
-	{
-		ft_putstr_fd(": command not found\n", 2);
-		*exit_status = 127;
-		return (NULL);
-	}
-	special = handle_special_cmd_name(cmd, exit_status);
-	if (!special)
-		return (NULL);
-	if (ft_strchr(cmd, '/'))
-		return (handle_direct_path(cmd, exit_status));
 	path_env = get_env_value(shell, "PATH");
 	if (!path_env)
 		path_env = "/bin:/usr/bin";
 	if (path_env[0] == '\0')
-	{
-		ft_putstr_fd(cmd, 2);
-		ft_putstr_fd(": command not found\n", 2);
-		*exit_status = 127;
-		return (NULL);
-	}
+		return (cmd_not_found(cmd, exit_status));
 	dirs = ft_split(path_env, ':');
 	if (!dirs)
 		return (*exit_status = 1, NULL);
 	path = find_in_path(shell, cmd, dirs);
 	free_split(dirs);
 	if (!path)
-	{
-		ft_putstr_fd(cmd, 2);
-		ft_putstr_fd(": command not found\n", 2);
-		*exit_status = 127;
-	}
+		return (cmd_not_found(cmd, exit_status));
 	return (path);
+}
+
+char	*get_cmd_path(t_shell *shell, char *cmd, int *exit_status)
+{
+	if (!cmd || cmd[0] == '\0')
+		return (cmd_not_found("", exit_status));
+	if (!handle_special_cmd_name(cmd, exit_status))
+		return (NULL);
+	if (ft_strchr(cmd, '/'))
+		return (handle_direct_path(cmd, exit_status));
+	return (find_cmd_from_path(shell, cmd, exit_status));
 }
