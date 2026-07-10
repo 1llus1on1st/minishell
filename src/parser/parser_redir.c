@@ -19,13 +19,6 @@ int	is_redir(t_token_type type)
 		|| type == T_READ_WRITE || type == T_HERE_STRING);
 }
 
-/*
-Adds a redirection node to the end of a command redirection list.
-1.	If the list is empty, stores the new redirection as the first node
-2.	Otherwise starts from the first redirection in the list
-3.	Moves forward until it reaches the last redirection
-4.	Links the last redirection to the new redirection
-*/
 static void	add_redir_back(t_redir **redirs, t_redir *new_redir)
 {
 	t_redir	*current;
@@ -41,13 +34,6 @@ static void	add_redir_back(t_redir **redirs, t_redir *new_redir)
 	current->next = new_redir;
 }
 
-/*
-Checks whether a string contains quote characters.
-1.	Starts scanning the string from index 0
-2.	Handles NULL safely by stopping before reading the string
-3.	Returns 1 if it finds a single quote or double quote
-4.	Returns 0 if the whole string has no quote characters
-*/
 static int	has_quotes(char *str)
 {
 	int	i;
