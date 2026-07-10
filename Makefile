@@ -13,6 +13,7 @@ SRC				=	\
 					main/shell.c \
 					garbage_collector/garbage_collector.c \
 					lexer/lexer.c \
+					lexer/lexer_redir.c \
 					lexer/lexer_utils.c \
 					lexer/lexer_word.c \
 					parser/parser.c \
