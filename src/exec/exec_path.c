@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 17:35:04 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 11:19:12 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 12:46:54 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ static int	is_exact_cmd(char *cmd, char *target)
 {
 	return (ft_strncmp(cmd, target, ft_strlen(target) + 1) == 0);
 }
+
 static char	*handle_special_cmd_name(char *cmd, int *exit_status)
 {
 	if (is_exact_cmd(cmd, "~"))

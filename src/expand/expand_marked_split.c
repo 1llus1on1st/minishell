@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 12:41:30 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/09 12:41:35 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 12:45:03 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ static int	marked_word_len(char *str, int i)
 
 char	*marked_get_word(t_shell *shell, char *str, int index)
 {
-	int	i;
-	int	count;
+	int		i;
+	int		count;
 	char	*word;
 
 	i = 0;

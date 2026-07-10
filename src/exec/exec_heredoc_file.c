@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/07 21:13:47 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 12:18:27 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 12:48:07 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ int	read_heredoc_loop(t_shell *shell, t_redir *redir, int fd)
 		{
 			if (g_signal == SIGINT)
 				return (0);
-			ft_putstr_fd("minishell: warning: here-document delimited by end-of-file", 2);
+			ft_putstr_fd("minishell: warning: here-document delimited by "
+				"end-of-file", 2);
 			ft_putstr_fd(" (wanted `", 2);
 			ft_putstr_fd(redir->file, 2);
 			ft_putstr_fd("')\n", 2);
