@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:14:25 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 10:36:45 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 11:33:28 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,16 @@ static char	*read_input(void)
 	return (line);
 }
 
+static void	exit_noninteractive_syntax(t_shell *shell)
+{
+	if (!isatty(STDIN_FILENO))
+	{
+		gc_clear(&shell->line_gc);
+		gc_clear(&shell->shell_gc);
+		exit(2);
+	}
+}
+
 static void	process_line(char *line, t_shell *shell)
 {
 	t_token	*tokens;
@@ -65,9 +75,17 @@ static void	process_line(char *line, t_shell *shell)
 	tokens = NULL;
 	cmds = NULL;
 	if (lexer(shell, line, &tokens) != 0)
-		return (shell->last_exit = 2, gc_clear(&shell->line_gc));
+	{
+		shell->last_exit = 2;
+		exit_noninteractive_syntax(shell);
+		return (gc_clear(&shell->line_gc));
+	}
 	if (parser(shell, tokens, &cmds) != 0)
-		return (shell->last_exit = 2, gc_clear(&shell->line_gc));
+	{
+		shell->last_exit = 2;
+		exit_noninteractive_syntax(shell);
+		return (gc_clear(&shell->line_gc));
+	}
 	if (!cmds)
 		return (gc_clear(&shell->line_gc));
 	if (!expand(shell, cmds))
