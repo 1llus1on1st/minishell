@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 19:04:47 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 11:15:12 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 11:36:10 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,16 @@ int	handle_redir_out(t_shell *shell, char *line, int *i, t_token **tokens)
 		if (!value)
 			return (0);
 		if (!add_token_back(tokens, create_token(shell, T_APPEND, value)))
+			return (free(value), 0);
+		free(value);
+		*i = op + 2;
+	}
+	else if (line[*i + 1] == '|')
+	{
+		value = ft_substr(line, start, *i - start + 2);
+		if (!value)
+			return (0);
+		if (!add_token_back(tokens, create_token(shell, T_REDIR_OUT, value)))
 			return (free(value), 0);
 		free(value);
 		*i = op + 2;
