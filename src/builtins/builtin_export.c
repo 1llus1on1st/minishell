@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 14:13:23 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 10:45:06 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 10:50:24 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,26 @@ static char	*get_append_name(char *arg)
 	return (ft_substr(arg, 0, i));
 }
 
+static char	*make_append_entry(char *name, char *old_value, char *append_value)
+{
+	char	*joined_value;
+	char	*left;
+	char	*entry;
+
+	if (!old_value)
+		old_value = "";
+	joined_value = ft_strjoin(old_value, append_value);
+	if (!joined_value)
+		return (NULL);
+	left = ft_strjoin(name, "=");
+	if (!left)
+		return (free(joined_value), NULL);
+	entry = ft_strjoin(left, joined_value);
+	free(left);
+	free(joined_value);
+	return (entry);
+}
+
 static int	export_append(t_shell *shell, char *arg)
 {
 	char	*name;
@@ -78,26 +98,6 @@ static int	export_append(t_shell *shell, char *arg)
 	if (!status)
 		return (1);
 	return (0);
-}
-
-static char	*make_append_entry(char *name, char *old_value, char *append_value)
-{
-	char	*joined_value;
-	char	*left;
-	char	*entry;
-
-	if (!old_value)
-		old_value = "";
-	joined_value = ft_strjoin(old_value, append_value);
-	if (!joined_value)
-		return (NULL);
-	left = ft_strjoin(name, "=");
-	if (!left)
-		return (free(joined_value), NULL);
-	entry = ft_strjoin(left, joined_value);
-	free(left);
-	free(joined_value);
-	return (entry);
 }
 
 int	builtin_export(t_shell *shell, t_cmd *cmd)
