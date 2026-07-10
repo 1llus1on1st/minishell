@@ -14,11 +14,13 @@ SRC				=	\
 					garbage_collector/garbage_collector.c \
 					lexer/lexer.c \
 					lexer/lexer_redir.c \
+					lexer/lexer_redir_utils.c \
 					lexer/lexer_utils.c \
 					lexer/lexer_word.c \
 					parser/parser.c \
 					parser/parser_utils.c \
 					parser/parser_redir.c \
+					parser/parser_redir_create.c \
 					parser/parser_syntax.c \
 					signals/signals.c \
 					signals/signals_modes.c \
@@ -34,6 +36,7 @@ SRC				=	\
 					expand/quote_utils.c \
 					expand/expand_marked_vars.c \
 					expand/expand_marked_word.c \
+					expand/expand_marked_word_utils.c \
 					expand/expand_marked_split.c \
 					expand/expand_redirs.c \
 					builtins/builtins.c \
@@ -45,6 +48,7 @@ SRC				=	\
 					builtins/builtin_exit_code.c \
 					builtins/builtin_cd.c \
 					builtins/builtin_export.c \
+					builtins/builtin_export_append.c \
 					builtins/builtin_export_print.c \
 					builtins/builtin_unset.c \
 					exec/exec.c \
@@ -52,6 +56,8 @@ SRC				=	\
 					exec/exec_path_direct.c \
 					exec/exec_path_special.c \
 					exec/exec_redir.c \
+					exec/exec_redir_open.c \
+					exec/exec_here_string.c \
 					exec/exec_stdio.c \
 					exec/exec_pipeline.c \
 					exec/exec_pipeline_wait.c \

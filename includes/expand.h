@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 11:34:34 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 15:16:25 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 18:32:00 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_cmd	t_cmd;
 int		expand(t_shell *shell, t_cmd *cmds);
 int		expand_redirs(t_shell *shell, t_redir *redirs);
 char	*expand_marked_word(t_shell *shell, char *str, int *had_quote);
+int		handle_marked_char(t_shell *shell, char *str, char **res, int *i);
 int		expand_unquoted_variable(t_shell *shell, char *str, char **res, int *i);
 int		expand_quoted_variable(t_shell *shell, char *str, char **res, int *i);
 int		marked_word_count(char *str);
