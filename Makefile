@@ -56,6 +56,7 @@ SRC				=	\
 					exec/exec_pipeline.c \
 					exec/exec_pipeline_wait.c \
 					exec/exec_pipeline_child.c \
+					exec/exec_child_exit.c \
 					exec/exec_heredoc.c \
 					exec/exec_heredoc_file.c \
 					exec/exec_heredoc_prepare.c \

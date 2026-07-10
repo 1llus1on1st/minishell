@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 17:30:39 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 14:09:15 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 17:55:40 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ int		open_unique_heredoc(t_shell *shell, char **path);
 int		read_heredoc_loop(t_shell *shell, t_redir *redir, int fd);
 int		prepare_one_heredoc(t_shell *shell, t_redir *redir);
 void	close_heredoc_fds(t_cmd *cmds);
+void	exit_child(t_shell *shell, int status);
 
 #endif

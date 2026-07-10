@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 19:34:23 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/07 21:43:22 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 18:02:08 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,23 +47,23 @@ static void	exec_pipeline_cmd(t_shell *shell, t_cmd *cmd)
 
 	exit_status = 0;
 	if (!apply_redirections(cmd))
-		exit(1);
+		exit_child(shell, 1);
 	if (!cmd->argv || !cmd->argv[0])
-		exit(0);
+		exit_child(shell, 0);
 	if (is_builtin(cmd->argv[0]))
-		exit(execute_builtin(shell, cmd));
+		exit_child(shell, execute_builtin(shell, cmd));
 	path = get_cmd_path(shell, cmd->argv[0], &exit_status);
 	if (!path)
-		exit(exit_status);
+		exit_child(shell, exit_status);
 	execve(path, cmd->argv, shell->env);
 	perror(cmd->argv[0]);
-	exit(126);
+	exit_child(shell, 126);
 }
 
 void	run_pipeline_child(t_shell *shell, t_cmd *cmd, int *pipes, int info[2])
 {
 	setup_child_signals();
 	if (!setup_pipeline_fds(pipes, info[0], info[1]))
-		exit(1);
+		exit_child(shell, 1);
 	exec_pipeline_cmd(shell, cmd);
 }
