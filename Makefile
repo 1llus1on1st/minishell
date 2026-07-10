@@ -9,6 +9,7 @@ SRC_DIR			=	src
 SRC				=	\
 					main/main.c \
 					main/shell_init.c \
+					main/shell_process.c \
 					main/shell.c \
 					garbage_collector/garbage_collector.c \
 					lexer/lexer.c \

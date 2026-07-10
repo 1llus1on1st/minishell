@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:14:25 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 12:46:25 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 13:11:01 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,54 +20,6 @@ static char	*read_input(void)
 	if (line && *line)
 		add_history(line);
 	return (line);
-}
-
-static void	exit_noninteractive_syntax(t_shell *shell)
-{
-	if (!isatty(STDIN_FILENO))
-	{
-		gc_clear(&shell->line_gc);
-		gc_clear(&shell->shell_gc);
-		exit(2);
-	}
-}
-
-static void	process_line(char *line, t_shell *shell)
-{
-	t_token	*tokens;
-	t_cmd	*cmds;
-
-	tokens = NULL;
-	cmds = NULL;
-	if (lexer(shell, line, &tokens) != 0)
-	{
-		shell->last_exit = 2;
-		exit_noninteractive_syntax(shell);
-		return (gc_clear(&shell->line_gc));
-	}
-	if (parser(shell, tokens, &cmds) != 0)
-	{
-		shell->last_exit = 2;
-		exit_noninteractive_syntax(shell);
-		return (gc_clear(&shell->line_gc));
-	}
-	if (!cmds)
-		return (gc_clear(&shell->line_gc));
-	if (!expand(shell, cmds))
-		return (gc_clear(&shell->line_gc));
-	if (!prepare_heredocs(shell, cmds))
-	{
-		if (g_signal == SIGINT)
-			shell->last_exit = 130;
-		else
-			shell->last_exit = 1;
-		g_signal = 0;
-		close_heredoc_fds(cmds);
-		return (gc_clear(&shell->line_gc));
-	}
-	shell->last_exit = execute_cmd(shell, cmds);
-	close_heredoc_fds(cmds);
-	gc_clear(&shell->line_gc);
 }
 
 static void	exit_shell(t_shell *shell)

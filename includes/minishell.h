@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 19:04:30 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/09 11:38:51 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 13:11:20 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_shell
 
 void	init_shell(t_shell *shell, char **envp);
 void	setup_signals(void);
+void	process_line(char *line, t_shell *shell);
 void	shell_loop(t_shell *shell);
 
 #endif
