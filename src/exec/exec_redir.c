@@ -6,11 +6,24 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 18:37:50 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 11:16:28 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 11:54:52 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
+
+static int	apply_read_write_redir(char *file, int target_fd)
+{
+	int	fd;
+
+	fd = open(file, O_RDWR | O_CREAT, 0644);
+	if (fd < 0)
+		return (redir_error(file));
+	if (dup2(fd, target_fd) < 0)
+		return (close(fd), redir_error(file));
+	close(fd);
+	return (1);
+}
 
 static int	redir_error(char *file)
 {
@@ -59,6 +72,10 @@ static int	apply_one_redir(t_redir *redir)
 		return (apply_output_redir(redir->file, 0, redir->fd));
 	if (redir->type == T_APPEND)
 		return (apply_output_redir(redir->file, 1, redir->fd));
+	if (redir->type == T_READ_WRITE)
+		return (apply_read_write_redir(redir->file, redir->fd));
+	if (redir->type == T_HERE_STRING)
+		return (apply_here_string(redir->file, redir->fd));
 	if (redir->type == T_HEREDOC)
 	{
 		if (redir->heredoc_fd < 0)

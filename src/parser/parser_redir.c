@@ -12,18 +12,11 @@
 
 #include "../../includes/minishell.h"
 
-/*
-Checks whether a token type is one of the redirection operators.
-1.	Compares the type with input redirection
-2.	Compares the type with output redirection
-3.	Compares the type with append redirection
-4.	Compares the type with heredoc redirection
-5.	Returns 1 for redirection types and 0 for all other token types
-*/
 int	is_redir(t_token_type type)
 {
 	return (type == T_REDIR_IN || type == T_REDIR_OUT
-		|| type == T_APPEND || type == T_HEREDOC);
+		|| type == T_APPEND || type == T_HEREDOC
+		|| type == T_READ_WRITE || type == T_HERE_STRING);
 }
 
 /*
@@ -71,7 +64,8 @@ static int	has_quotes(char *str)
 
 static int	default_redir_fd(t_token_type type)
 {
-	if (type == T_REDIR_IN || type == T_HEREDOC)
+	if (type == T_REDIR_IN || type == T_HEREDOC
+		|| type == T_READ_WRITE || type == T_HERE_STRING)
 		return (STDIN_FILENO);
 	return (STDOUT_FILENO);
 }

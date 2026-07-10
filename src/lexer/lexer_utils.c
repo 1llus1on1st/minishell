@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 19:04:47 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 11:36:10 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 11:54:38 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,12 +88,32 @@ int	handle_redir_in(t_shell *shell, char *line, int *i, t_token **tokens)
 	while (ft_isdigit(line[*i]))
 		(*i)++;
 	op = *i;
-	if (line[*i + 1] == '<')
+	if (line[*i + 1] == '<' && line[*i + 2] == '<')
+	{
+		value = ft_substr(line, start, *i - start + 3);
+		if (!value)
+			return (0);
+		if (!add_token_back(tokens, create_token(shell, T_HERE_STRING, value)))
+			return (free(value), 0);
+		free(value);
+		*i = op + 3;
+	}
+	else if (line[*i + 1] == '<')
 	{
 		value = ft_substr(line, start, *i - start + 2);
 		if (!value)
 			return (0);
 		if (!add_token_back(tokens, create_token(shell, T_HEREDOC, value)))
+			return (free(value), 0);
+		free(value);
+		*i = op + 2;
+	}
+	else if (line[*i + 1] == '>')
+	{
+		value = ft_substr(line, start, *i - start + 2);
+		if (!value)
+			return (0);
+		if (!add_token_back(tokens, create_token(shell, T_READ_WRITE, value)))
 			return (free(value), 0);
 		free(value);
 		*i = op + 2;

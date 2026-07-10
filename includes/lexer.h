@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 19:04:19 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/09 11:37:54 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 11:52:55 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ typedef enum e_token_type
 	T_REDIR_IN,
 	T_REDIR_OUT,
 	T_APPEND,
-	T_HEREDOC
+	T_HEREDOC,
+	T_READ_WRITE,
+	T_HERE_STRING
 }	t_token_type;
 
 typedef struct s_token
