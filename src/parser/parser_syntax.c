@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 13:56:48 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/09 11:35:56 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 11:27:59 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,20 +55,38 @@ static int	check_pipe_syntax(t_token *prev, t_token *current)
 	return (1);
 }
 
-/*
-Checks whether a redirection token is followed by a valid filename.
-1.	Rejects a redirection at the end of the command line
-2.	Checks that the next token is a word token
-3.	Prints "newline" when the filename is missing completely
-4.	Prints the next token value when another operator appears instead
-5.	Returns 1 when the redirection has a valid word after it
-*/
+static int	has_unquoted_operator(char *str)
+{
+	int		i;
+	char	quote;
+
+	i = 0;
+	while (str && str[i])
+	{
+		if (str[i] == '\'' || str[i] == '"')
+		{
+			quote = str[i++];
+			while (str[i] && str[i] != quote)
+				i++;
+			if (str[i] == quote)
+				i++;
+		}
+		else if (str[i] == '<' || str[i] == '>' || str[i] == '|')
+			return (1);
+		else
+			i++;
+	}
+	return (0);
+}
+
 static int	check_redir_syntax(t_token *current)
 {
 	if (!current->next)
 		return (print_syntax_error(NULL));
 	if (current->next->type != T_WORD)
 		return (print_syntax_error(current->next));
+	if (has_unquoted_operator(current->next->value))
+		return (print_syntax_error(NULL));
 	return (1);
 }
 
