@@ -47,13 +47,13 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest d
   43:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mini_death/1_segfault.sh:89  
   44:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mini_death/1_segfault.sh:91  
   45:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mini_death/1_segfault.sh:93  
-  46:   STD_OUT: ❌  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(2)  bash(0) ]  /home/fedora_m4pro/42_minishell_tester/cmds/mini_death/1_segfault.sh:97  
+  46:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mini_death/1_segfault.sh:97  
   47:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mini_death/1_segfault.sh:99  
   48:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mini_death/1_segfault.sh:101  
   49:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mini_death/1_segfault.sh:103  
-  50:   STD_OUT: ❌  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(2)  bash(0) ]  /home/fedora_m4pro/42_minishell_tester/cmds/mini_death/1_segfault.sh:105  
+  50:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mini_death/1_segfault.sh:105  
   51:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mini_death/1_segfault.sh:107  
-  52:   STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mini_death/1_segfault.sh:109  
+  52:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mini_death/1_segfault.sh:109  
   53:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mini_death/1_segfault.sh:111  
   54:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mini_death/1_segfault.sh:113  
   55:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mini_death/1_segfault.sh:115  
@@ -66,8 +66,8 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest d
 🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁
 🏁                                    RESULT                                    🏁
 🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁
-             TOTAL TEST COUNT: 61  TESTS PASSED: 58  LEAKING: 0 
-                     STD_OUT: 2  STD_ERR: 3  EXIT_CODE: 2  
+             TOTAL TEST COUNT: 61  TESTS PASSED: 61  LEAKING: 0 
+                     STD_OUT: ✓   STD_ERR: ✓   EXIT_CODE: ✓   
                          TOTAL FAILED AND PASSED CASES:
-                                     ❌ 7   
-                                     ✅ 176
+                                     ❌ 0   
+                                     ✅ 183   

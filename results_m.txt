@@ -219,7 +219,7 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest m
   120:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:313  
   121:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:315  
   122:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:317  
-  123:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ❌ [ minishell(2)  bash(127) ]  /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:319  
+  123:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:319  
   124:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:321  
   # **************************************************************************** #
   #                                   BUILTINS                                   #
@@ -951,7 +951,7 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest m
   39:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:88  
   40:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:96  
   41:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:98  
-  42:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ❌ [ minishell(2)  bash(0) ]  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:100  
+  42:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:100  
   43:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:103  
   44:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:105  
   45:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:107  
@@ -982,8 +982,8 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest m
 🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁
 🏁                                    RESULT                                    🏁
 🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁
-             TOTAL TEST COUNT: 941  TESTS PASSED: 921  LEAKING: 0 
-                     STD_OUT: 16  STD_ERR: 5  EXIT_CODE: 4  
+             TOTAL TEST COUNT: 941  TESTS PASSED: 923  LEAKING: 0 
+                     STD_OUT: 16  STD_ERR: 5  EXIT_CODE: 2  
                          TOTAL FAILED AND PASSED CASES:
-                                     ❌ 25   
-                                     ✅ 2798   
+                                     ❌ 23   
+                                     ✅ 2800  	

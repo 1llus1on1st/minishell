@@ -35,7 +35,7 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest ne
   31:   STD_OUT: ❌  STD_ERR: ❌  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/no_env/10_no_env.sh:89  
   32:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/no_env/10_no_env.sh:96  
   33:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/no_env/10_no_env.sh:102  
-  34:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/no_env/10_no_env.sh:116  
+  34:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/no_env/10_no_env.sh:116  
   35:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/no_env/10_no_env.sh:124  
   36:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/no_env/10_no_env.sh:134  
   37:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/no_env/10_no_env.sh:142  
@@ -49,8 +49,8 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest ne
 🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁
 🏁                                    RESULT                                    🏁
 🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁
-             TOTAL TEST COUNT: 44  TESTS PASSED: 35  LEAKING: 0 
-                     STD_OUT: 7  STD_ERR: 5  EXIT_CODE: 3  
+             TOTAL TEST COUNT: 44  TESTS PASSED: 36  LEAKING: 0 
+                     STD_OUT: 6  STD_ERR: 5  EXIT_CODE: 3  
                          TOTAL FAILED AND PASSED CASES:
-                                     ❌ 15   
-                                     ✅ 117  
+                                     ❌ 14   
+                                     ✅ 118   
