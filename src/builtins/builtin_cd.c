@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 14:13:15 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 10:48:13 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 14:16:42 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,32 +47,27 @@ static char	*join_home_path(char *home, char *arg)
 static char	*get_cd_path(t_shell *shell, t_cmd *cmd, int *print_path)
 {
 	char	*home;
-	char	*oldpwd;
+	char	*arg;
 
 	*print_path = 0;
-	if (!cmd->argv[1] || ft_strncmp(cmd->argv[1], "--", 3) == 0)
+	arg = cmd->argv[1];
+	if (!arg || ft_strncmp(arg, "--", 3) == 0 || arg[0] == '~')
 	{
 		home = get_env_value(shell, "HOME");
 		if (!home)
 			return (ft_putstr_fd("minishell: cd: HOME not set\n", 2), NULL);
-		return (ft_strdup(home));
+		if (!arg || ft_strncmp(arg, "--", 3) == 0)
+			return (ft_strdup(home));
+		return (join_home_path(home, arg));
 	}
-	if (ft_strncmp(cmd->argv[1], "-", 2) == 0)
+	if (ft_strncmp(arg, "-", 2) == 0)
 	{
-		oldpwd = get_env_value(shell, "OLDPWD");
-		if (!oldpwd)
-			return (ft_putstr_fd("minishell: cd: OLDPWD not set\n", 2), NULL);
 		*print_path = 1;
-		return (ft_strdup(oldpwd));
+		arg = get_env_value(shell, "OLDPWD");
+		if (!arg)
+			return (ft_putstr_fd("minishell: cd: OLDPWD not set\n", 2), NULL);
 	}
-	if (cmd->argv[1][0] == '~')
-	{
-		home = get_env_value(shell, "HOME");
-		if (!home)
-			return (ft_putstr_fd("minishell: cd: HOME not set\n", 2), NULL);
-		return (join_home_path(home, cmd->argv[1]));
-	}
-	return (ft_strdup(cmd->argv[1]));
+	return (ft_strdup(arg));
 }
 
 int	builtin_cd(t_shell *shell, t_cmd *cmd)
@@ -88,19 +83,15 @@ int	builtin_cd(t_shell *shell, t_cmd *cmd)
 	path = get_cd_path(shell, cmd, &print_path);
 	if (!path)
 		return (1);
-	if (!getcwd(old_pwd, sizeof(old_pwd)))
-		return (free(path), perror("cd"), 1);
-	if (chdir(path) != 0)
+	if (!getcwd(old_pwd, sizeof(old_pwd)) || chdir(path) != 0)
 		return (free(path), perror("cd"), 1);
 	free(path);
 	status = update_pwd(shell, old_pwd);
 	if (status != 0)
 		return (status);
+	if (print_path && !getcwd(new_pwd, sizeof(new_pwd)))
+		return (perror("cd"), 1);
 	if (print_path)
-	{
-		if (!getcwd(new_pwd, sizeof(new_pwd)))
-			return (perror("cd"), 1);
 		printf("%s\n", new_pwd);
-	}
 	return (0);
 }
