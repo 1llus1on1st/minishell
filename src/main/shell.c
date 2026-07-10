@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:14:25 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/09 17:54:22 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 10:36:45 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,14 @@ static void	process_line(char *line, t_shell *shell)
 
 static void	exit_shell(t_shell *shell)
 {
+	int	status;
+
+	status = shell->last_exit;
 	if (isatty(STDIN_FILENO))
 		printf("exit\n");
 	gc_clear(&shell->line_gc);
 	gc_clear(&shell->shell_gc);
-	exit(0);
+	exit((unsigned char)status);
 }
 
 /*
