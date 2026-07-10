@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 18:37:50 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 12:19:44 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 12:21:56 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,34 @@ static int	apply_output_redir(char *file, int append, int target_fd)
 	if (dup2(fd, target_fd) < 0)
 		return (close(fd), redir_error(file));
 	close(fd);
+	return (1);
+}
+
+static int	apply_here_string(char *word, int target_fd)
+{
+	int	pipe_fd[2];
+
+	if (pipe(pipe_fd) < 0)
+		return (perror("pipe"), 0);
+	if (write(pipe_fd[1], word, ft_strlen(word)) < 0)
+	{
+		close(pipe_fd[0]);
+		close(pipe_fd[1]);
+		return (perror("write"), 0);
+	}
+	if (write(pipe_fd[1], "\n", 1) < 0)
+	{
+		close(pipe_fd[0]);
+		close(pipe_fd[1]);
+		return (perror("write"), 0);
+	}
+	close(pipe_fd[1]);
+	if (dup2(pipe_fd[0], target_fd) < 0)
+	{
+		close(pipe_fd[0]);
+		return (perror("dup2"), 0);
+	}
+	close(pipe_fd[0]);
 	return (1);
 }
 
