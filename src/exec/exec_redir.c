@@ -6,11 +6,18 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 18:37:50 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 11:54:52 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 12:19:44 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
+
+static int	redir_error(char *file)
+{
+	ft_putstr_fd("minishell: ", 2);
+	perror(file);
+	return (0);
+}
 
 static int	apply_read_write_redir(char *file, int target_fd)
 {
@@ -23,13 +30,6 @@ static int	apply_read_write_redir(char *file, int target_fd)
 		return (close(fd), redir_error(file));
 	close(fd);
 	return (1);
-}
-
-static int	redir_error(char *file)
-{
-	ft_putstr_fd("minishell: ", 2);
-	perror(file);
-	return (0);
 }
 
 static int	apply_input_redir(char *file, int target_fd)
