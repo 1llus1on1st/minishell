@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 17:34:30 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/07 21:41:03 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 17:50:53 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,11 @@ static void	run_child(t_shell *shell, t_cmd *cmd)
 		exit(1);
 	path = get_cmd_path(shell, cmd->argv[0], &exit_status);
 	if (!path)
+	{
+		gc_clear(&shell->line_gc);
+		gc_clear(&shell->shell_gc);
 		exit(exit_status);
+	}
 	execve(path, cmd->argv, shell->env);
 	perror(cmd->argv[0]);
 	exit(126);
