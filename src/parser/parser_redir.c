@@ -60,14 +60,18 @@ static int	get_redir_fd(t_token_type type, char *value)
 {
 	int	i;
 	int	fd;
+	int	digit;
 
-	i = 0;
-	fd = 0;
 	if (!value || !ft_isdigit(value[0]))
 		return (default_redir_fd(type));
+	i = 0;
+	fd = 0;
 	while (ft_isdigit(value[i]))
 	{
-		fd = fd * 10 + value[i] - '0';
+		digit = value[i] - '0';
+		if (fd > (INT_MAX - digit) / 10)
+			return (-1);
+		fd = (fd * 10) + digit;
 		i++;
 	}
 	return (fd);

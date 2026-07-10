@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 18:37:50 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 12:21:56 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 15:27:37 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ static int	apply_here_string(char *word, int target_fd)
 
 static int	apply_one_redir(t_redir *redir)
 {
+	if (redir->fd < 0)
+		return (ft_putstr_fd("minishell: bad file descriptor\n", 2), 0);
 	if (redir->type == T_REDIR_IN)
 		return (apply_input_redir(redir->file, redir->fd));
 	if (redir->type == T_REDIR_OUT)
