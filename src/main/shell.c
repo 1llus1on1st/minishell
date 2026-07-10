@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 12:14:25 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 13:11:01 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 18:17:01 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ static void	exit_shell(t_shell *shell)
 	printf("exit\n");
 	gc_clear(&shell->line_gc);
 	gc_clear(&shell->shell_gc);
+	close(STDIN_FILENO);
+	close(STDERR_FILENO);
+	close(STDOUT_FILENO);
 	exit((unsigned char)status);
 }
 

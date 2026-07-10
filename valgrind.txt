@@ -1,37 +1,36 @@
 fedora_m4pro@fedora ~/D/_/M/W/minishell (main)> valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes --trace-children=yes  --suppressions=readline.supp ./minishell
-==481593== Memcheck, a memory error detector
-==481593== Copyright (C) 2002-2026, and GNU GPL'd, by Julian Seward et al.
-==481593== Using Valgrind-3.27.1 and LibVEX; rerun with -h for copyright info
-==481593== Command: ./minishell
-==481593== 
+==482573== Memcheck, a memory error detector
+==482573== Copyright (C) 2002-2026, and GNU GPL'd, by Julian Seward et al.
+==482573== Using Valgrind-3.27.1 and LibVEX; rerun with -h for copyright info
+==482573== Command: ./minishell
+==482573== 
 minishell$ << EOF
 > ^C
 minishell$ exit
 exit
-==481593== 
-==481593== FILE DESCRIPTORS: 4 open (3 inherited) at exit.
-==481593== Open file descriptor 0: /dev/pts/4
-==481593==    at 0x4A38B40: dup2 (dup2.c:36)
-==481593==    by 0x408A73: finish_heredoc_input (in /home/fedora_m4pro/Documents/_Milestones/Milestone 3/WIP/minishell/minishell)
-==481593==    by 0x408AE3: fail_heredoc (in /home/fedora_m4pro/Documents/_Milestones/Milestone 3/WIP/minishell/minishell)
-==481593==    by 0x408BDB: prepare_one_heredoc (in /home/fedora_m4pro/Documents/_Milestones/Milestone 3/WIP/minishell/minishell)
-==481593==    by 0x408573: prepare_heredocs (in /home/fedora_m4pro/Documents/_Milestones/Milestone 3/WIP/minishell/minishell)
-==481593==    by 0x401177: process_line (in /home/fedora_m4pro/Documents/_Milestones/Milestone 3/WIP/minishell/minishell)
-==481593==    by 0x4012C7: shell_loop (in /home/fedora_m4pro/Documents/_Milestones/Milestone 3/WIP/minishell/minishell)
-==481593==    by 0x400F17: main (in /home/fedora_m4pro/Documents/_Milestones/Milestone 3/WIP/minishell/minishell)
-==481593== 
-==481593== 
-==481593== HEAP SUMMARY:
-==481593==     in use at exit: 228,841 bytes in 243 blocks
-==481593==   total heap usage: 670 allocs, 427 frees, 252,828 bytes allocated
-==481593== 
-==481593== LEAK SUMMARY:
-==481593==    definitely lost: 0 bytes in 0 blocks
-==481593==    indirectly lost: 0 bytes in 0 blocks
-==481593==      possibly lost: 0 bytes in 0 blocks
-==481593==    still reachable: 0 bytes in 0 blocks
-==481593==         suppressed: 228,841 bytes in 243 blocks
-==481593== 
-==481593== For lists of detected and suppressed errors, rerun with: -s
-==481593== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
-fedora_m4pro@fedora ~/D/_/M/W/minishell (main) [SIGINT]> 
+==482573== 
+==482573== FILE DESCRIPTORS: 4 open (3 inherited) at exit.
+==482573== Open file descriptor 0: /dev/pts/4
+==482573==    at 0x4A38B40: dup2 (dup2.c:36)
+==482573==    by 0x408A8B: finish_heredoc_input (in /home/fedora_m4pro/Documents/_Milestones/Milestone 3/WIP/minishell/minishell)
+==482573==    by 0x408AFB: fail_heredoc (in /home/fedora_m4pro/Documents/_Milestones/Milestone 3/WIP/minishell/minishell)
+==482573==    by 0x408BF3: prepare_one_heredoc (in /home/fedora_m4pro/Documents/_Milestones/Milestone 3/WIP/minishell/minishell)
+==482573==    by 0x40858B: prepare_heredocs (in /home/fedora_m4pro/Documents/_Milestones/Milestone 3/WIP/minishell/minishell)
+==482573==    by 0x401177: process_line (in /home/fedora_m4pro/Documents/_Milestones/Milestone 3/WIP/minishell/minishell)
+==482573==    by 0x4012DF: shell_loop (in /home/fedora_m4pro/Documents/_Milestones/Milestone 3/WIP/minishell/minishell)
+==482573==    by 0x400F17: main (in /home/fedora_m4pro/Documents/_Milestones/Milestone 3/WIP/minishell/minishell)
+==482573== 
+==482573== 
+==482573== HEAP SUMMARY:
+==482573==     in use at exit: 228,841 bytes in 243 blocks
+==482573==   total heap usage: 667 allocs, 424 frees, 252,762 bytes allocated
+==482573== 
+==482573== LEAK SUMMARY:
+==482573==    definitely lost: 0 bytes in 0 blocks
+==482573==    indirectly lost: 0 bytes in 0 blocks
+==482573==      possibly lost: 0 bytes in 0 blocks
+==482573==    still reachable: 0 bytes in 0 blocks
+==482573==         suppressed: 228,841 bytes in 243 blocks
+==482573== 
+==482573== For lists of detected and suppressed errors, rerun with: -s
+==482573== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
