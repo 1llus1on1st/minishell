@@ -15,11 +15,11 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest vm
   8:    STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:20  
   9:    STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:22  
   10:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:24  
-  11:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:26  
-  12:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:28  
+  11:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:26  
+  12:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:28  
   13:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:30  
-  14:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:32  
-  15:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:34  
+  14:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:32  
+  15:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:34  
   16:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:36  
   17:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:38  
   18:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:40  
@@ -28,13 +28,13 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest vm
   21:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:46  
   22:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:48  
   23:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:50  
-  24:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:52  
-  25:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:54  
-  26:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:56  
-  27:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:58  
-  28:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:60  
-  29:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:62  
-  30:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:64  
+  24:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:52  
+  25:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:54  
+  26:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:56  
+  27:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:58  
+  28:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:60  
+  29:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:62  
+  30:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:64  
   31:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:66  
   32:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:68  
   33:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/0_compare_parsing.sh:70  
@@ -208,9 +208,9 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest vm
   109:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:288  
   110:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:290  
   111:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:293  
-  112:  STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:297  
-  113:  STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:299  
-  114:  STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:301  
+  112:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:297  
+  113:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:299  
+  114:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:301  
   115:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:303  
   116:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:305  
   117:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:307  
@@ -219,7 +219,7 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest vm
   120:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:313  
   121:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:315  
   122:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:317  
-  123:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ❌ [ minishell(2)  bash(127) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:319  
+  123:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:319  
   124:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:321  
   # **************************************************************************** #
   #                                   BUILTINS                                   #
@@ -236,11 +236,11 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest vm
   10:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:25  
   11:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:27  
   12:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:29  
-  13:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:31  
-  14:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:33  
+  13:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:31  
+  14:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:33  
   15:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:35  
-  16:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:37  
-  17:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:39  
+  16:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:37  
+  17:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:39  
   18:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:41  
   19:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:43  
   20:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:45  
@@ -250,13 +250,13 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest vm
   24:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:53  
   25:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:55  
   26:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:57  
-  27:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:59  
-  28:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:61  
-  29:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:63  
-  30:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:65  
-  31:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:67  
-  32:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:69  
-  33:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:71  
+  27:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:59  
+  28:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:61  
+  29:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:63  
+  30:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:65  
+  31:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:67  
+  32:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:69  
+  33:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:71  
   34:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:73  
   35:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:75  
   36:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:77  
@@ -325,12 +325,12 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest vm
   99:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:221  
   100:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:225  
   101:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:229  
-  102:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(2)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:233  
+  102:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:233  
   103:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:235  
   104:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:237  
-  105:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(2)  bash(1) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:239  
+  105:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:239  
   106:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:241  
-  107:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(2)  bash(1) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:243  
+  107:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:243  
   108:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:245  
   109:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:247  
   110:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:249  
@@ -430,41 +430,41 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest vm
   204:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:505  
   205:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:509  
   206:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:516  
-  207:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:518  
-  208:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:520  
-  209:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:522  
-  210:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:524  
-  211:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:526  
-  212:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:528  
-  213:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:530  
-  214:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:532  
-  215:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:534  
-  216:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:536  
-  217:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:538  
+  207:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:518  
+  208:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:520  
+  209:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:522  
+  210:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:524  
+  211:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:526  
+  212:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:528  
+  213:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:530  
+  214:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:532  
+  215:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:534  
+  216:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:536  
+  217:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:538  
   218:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:540  
   219:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:542  
   220:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:544  
   221:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:546  
   222:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:548  
   223:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:550  
-  224:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ❌ [ minishell(1)  bash(127) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:552  
-  225:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:554  
-  226:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:556  
-  227:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:558  
-  228:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:560  
-  229:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:562  
-  230:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:564  
+  224:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(0)  bash(127) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:552  
+  225:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:554  
+  226:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:556  
+  227:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:558  
+  228:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:560  
+  229:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:562  
+  230:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:564  
   231:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:566  
   232:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:568  
   233:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:570  
   234:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:572  
-  235:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:574  
-  236:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:576  
-  237:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:578  
-  238:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:580  
+  235:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:574  
+  236:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:576  
+  237:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:578  
+  238:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:580  
   239:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:582  
-  240:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:584  
-  241:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:586  
+  240:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:584  
+  241:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:586  
   242:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:588  
   243:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:590  
   244:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:592  
@@ -472,10 +472,10 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest vm
   246:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:596  
   247:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:598  
   248:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:600  
-  249:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:602  
-  250:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:604  
-  251:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:606  
-  252:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:608  
+  249:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:602  
+  250:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:604  
+  251:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:606  
+  252:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:608  
   253:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:612  
   254:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:616  
   255:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:622  
@@ -554,7 +554,7 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest vm
   26:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_pipelines.sh:59  
   27:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_pipelines.sh:68  
   28:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_pipelines.sh:84  
-  29:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ❌ [ minishell(0)  bash(2) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_pipelines.sh:96  
+  29:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_pipelines.sh:96  
   30:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_pipelines.sh:110  
   31:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_pipelines.sh:126  
   32:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_pipelines.sh:132  
@@ -694,7 +694,7 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest vm
   # **************************************************************************** #
   #                                  BROKEN SCMD                                 #
   # **************************************************************************** #
-  26:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ❌ [ minishell(126)  bash(127) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_scmds.sh:84  
+  26:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_scmds.sh:84  
   27:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_scmds.sh:86  
   28:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_scmds.sh:88  
   29:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_scmds.sh:90  
@@ -728,20 +728,20 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest vm
   12:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:32  
   13:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:35  
   14:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:38  
-  15:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:40  
-  16:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:42  
-  17:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:44  
-  18:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:46  
-  19:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:48  
-  20:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:50  
+  15:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:40  
+  16:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:42  
+  17:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:44  
+  18:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:46  
+  19:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:48  
+  20:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:50  
   21:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:52  
   22:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:54  
   23:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:56  
   24:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:58  
-  25:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:60  
-  26:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:62  
+  25:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:60  
+  26:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:62  
   27:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:64  
-  28:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:66  
+  28:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:66  
   29:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:68  
   30:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:70  
   31:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:72  
@@ -835,25 +835,25 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest vm
   57:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:123  
   58:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:125  
   59:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:127  
-  60:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:129  
-  61:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:131  
+  60:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:129  
+  61:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:131  
   62:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:133  
   63:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:135  
   64:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:137  
-  65:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:139  
-  66:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:141  
-  67:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:143  
-  68:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:145  
-  69:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:147  
-  70:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:149  
+  65:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:139  
+  66:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:141  
+  67:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:143  
+  68:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:145  
+  69:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:147  
+  70:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:149  
   71:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:151  
   72:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:153  
   73:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:155  
   74:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:157  
-  75:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:159  
-  76:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:161  
+  75:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:159  
+  76:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:161  
   77:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:163  
-  78:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:165  
+  78:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:165  
   79:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:167  
   80:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:169  
   81:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:171  
@@ -885,10 +885,10 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest vm
   107:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:254  
   108:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:256  
   109:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:258  
-  110:  STD_OUT: ❌  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(127)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:261  
-  111:  STD_OUT: ❌  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(127)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:265  
+  110:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:261  
+  111:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:265  
   112:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:269  
-  113:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(127)  bash(0) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:273  
+  113:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:273  
   114:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_correction.sh:277  
   # **************************************************************************** #
   #                                  PATH FAILS                                  #
@@ -903,7 +903,7 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest vm
   8:    STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:32  
   9:    STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:35  
   10:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:39  
-  11:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ❌ [ minishell(0)  bash(127) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:43  
+  11:   STD_OUT: ❌  STD_ERR: ❌  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:43  
   12:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:47  
   13:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:66  
   14:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:68  
@@ -917,21 +917,21 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest vm
   5:    STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:13  
   6:    STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:15  
   7:    STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:17  
-  8:    STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ❌ [ minishell(127)  bash(126) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:19  
+  8:    STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:19  
   9:    STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:21  
   10:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:23  
   11:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:25  
   12:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:27  
   13:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:29  
   14:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:31  
-  15:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ❌ [ minishell(126)  bash(127) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:33  
-  16:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ❌ [ minishell(126)  bash(127) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:35  
+  15:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:33  
+  16:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:35  
   17:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:37  
   18:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:39  
   19:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:41  
-  20:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ❌ [ minishell(0)  bash(2) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:43  
-  21:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ❌ [ minishell(0)  bash(2) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:46  
-  22:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ❌ [ minishell(0)  bash(2) ]  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:49  
+  20:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:43  
+  21:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:46  
+  22:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:49  
   23:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:52  
   24:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:54  
   25:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:56  
@@ -975,15 +975,15 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest vm
   11:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/9_go_wild.sh:37  
   12:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/9_go_wild.sh:40  
   13:   STD_OUT: ❌  STD_ERR: ❌  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/9_go_wild.sh:46  
-  14:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/9_go_wild.sh:49  
+  14:   STD_OUT: ❌  STD_ERR: ❌  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/9_go_wild.sh:49  
   15:   STD_OUT: ❌  STD_ERR: ❌  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/9_go_wild.sh:52  
   16:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/9_go_wild.sh:55  
   17:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  LEAKS: ✅ /home/fedora_m4pro/42_minishell_tester/cmds/mand/9_go_wild.sh:57  
 🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁
 🏁                                    RESULT                                    🏁
 🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁
-             TOTAL TEST COUNT: 941  TESTS PASSED: 837  LEAKING: 0 
-                     STD_OUT: 63  STD_ERR: 35  EXIT_CODE: 44  
+             TOTAL TEST COUNT: 941  TESTS PASSED: 923  LEAKING: 0 
+                     STD_OUT: 16  STD_ERR: 5  EXIT_CODE: 2  
                          TOTAL FAILED AND PASSED CASES:
-                                     ❌ 142   
-                                     ✅ 2681   
+                                     ❌ 23   
+                                     ✅ 2800   
