@@ -69,15 +69,32 @@ static int	has_quotes(char *str)
 	return (0);
 }
 
-/*
-Creates a redirection node from a redirection token and its file value.
-1.	Allocates memory for a t_redir using the line garbage collector
-2.	Stores the redirection type and duplicates the file string
-3.	Adds the duplicated file string to the garbage collector
-4.	Initializes heredoc fields with default values
-5.	Disables heredoc expansion when the heredoc delimiter contains quotes
-*/
-static t_redir	*create_redir(t_shell *shell, t_token_type type, char *file)
+static int	default_redir_fd(t_token_type type)
+{
+	if (type == T_REDIR_IN || type == T_HEREDOC)
+		return (STDIN_FILENO);
+	return (STDOUT_FILENO);
+}
+
+static int	get_redir_fd(t_token_type type, char *value)
+{
+	int	i;
+	int	fd;
+
+	i = 0;
+	fd = 0;
+	if (!value || !ft_isdigit(value[0]))
+		return (default_redir_fd(type));
+	while (ft_isdigit(value[i]))
+	{
+		fd = fd * 10 + value[i] - '0';
+		i++;
+	}
+	return (fd);
+}
+
+static t_redir	*create_redir(t_shell *shell, t_token_type type,
+		char *op, char *file)
 {
 	t_redir	*redir;
 
@@ -90,6 +107,7 @@ static t_redir	*create_redir(t_shell *shell, t_token_type type, char *file)
 		return (NULL);
 	if (!gc_add(&shell->line_gc, redir->file))
 		return (free(redir->file), NULL);
+	redir->fd = get_redir_fd(type, op);
 	redir->heredoc_fd = -1;
 	redir->heredoc_expand = 1;
 	if (type == T_HEREDOC && has_quotes(file))
@@ -98,21 +116,14 @@ static t_redir	*create_redir(t_shell *shell, t_token_type type, char *file)
 	return (redir);
 }
 
-/*
-Parses a redirection token into the current command.
-1.	Checks that the redirection is followed by a word token
-2.	Creates a redirection node using the operator type and filename value
-3.	Adds the new redirection to the command redirection list
-4.	Advances the token pointer to the filename token already consumed
-5.	Returns 1 on success and 0 if the redirection is invalid or allocation fails
-*/
 int	parse_redir(t_shell *shell, t_token **token, t_cmd *cmd)
 {
 	t_redir	*redir;
 
 	if (!(*token)->next || (*token)->next->type != T_WORD)
 		return (0);
-	redir = create_redir(shell, (*token)->type, (*token)->next->value);
+	redir = create_redir(shell, (*token)->type,
+			(*token)->value, (*token)->next->value);
 	if (!redir)
 		return (0);
 	add_redir_back(&cmd->redirs, redir);

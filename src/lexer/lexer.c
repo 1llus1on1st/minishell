@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 19:04:51 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/09 11:54:43 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 11:19:43 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,30 @@ static void	skip_spaces(char *line, int *i)
 		(*i)++;
 }
 
-/*
-Converts the input line into a linked list of tokens.
-1.	Loops through the input line from left to right
-2.	Skips spaces before trying to identify the next token
-3.	Detects pipes, input redirections, output redirections and words
-4.	Calls the correct handler depending on the current character
-5.	Returns 1 if token creation fails, otherwise returns 0 when lexing succeeds
-*/
+static int	skip_fd(char *line, int i)
+{
+	while (ft_isdigit(line[i]))
+		i++;
+	return (i);
+}
+
+static int	is_fd_redir(char *line, int i)
+{
+	int	start;
+
+	start = i;
+	while (ft_isdigit(line[i]))
+		i++;
+	if (i == start)
+		return (0);
+	return (line[i] == '<' || line[i] == '>');
+}
+
 int	lexer(t_shell *shell, char *line, t_token **tokens)
 {
 	int		i;
 	char	c;
+	int		op;
 
 	i = 0;
 	while (line[i])
@@ -44,11 +56,18 @@ int	lexer(t_shell *shell, char *line, t_token **tokens)
 		c = line[i];
 		if (!line[i])
 			break ;
+		op = skip_fd(line, i);
 		if (c == '|' && !handle_pipe(shell, &i, tokens))
 			return (1);
 		else if (c == '<' && !handle_redir_in(shell, line, &i, tokens))
 			return (1);
 		else if (c == '>' && !handle_redir_out(shell, line, &i, tokens))
+			return (1);
+		else if (is_fd_redir(line, i) && line[op] == '<'
+			&& !handle_redir_in(shell, line, &i, tokens))
+			return (1);
+		else if (is_fd_redir(line, i) && line[op] == '>'
+			&& !handle_redir_out(shell, line, &i, tokens))
 			return (1);
 		else if (c != '|' && c != '<' && c != '>'
 			&& !handle_word(shell, line, &i, tokens))

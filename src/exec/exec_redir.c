@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 18:37:50 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/06 09:28:11 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 11:16:28 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,20 @@ static int	redir_error(char *file)
 	return (0);
 }
 
-static int	apply_input_redir(char *file)
+static int	apply_input_redir(char *file, int target_fd)
 {
 	int	fd;
 
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 		return (redir_error(file));
-	if (dup2(fd, STDIN_FILENO) < 0)
+	if (dup2(fd, target_fd) < 0)
 		return (close(fd), redir_error(file));
 	close(fd);
 	return (1);
 }
 
-static int	apply_output_redir(char *file, int append)
+static int	apply_output_redir(char *file, int append, int target_fd)
 {
 	int	fd;
 	int	flags;
@@ -45,7 +45,7 @@ static int	apply_output_redir(char *file, int append)
 	fd = open(file, flags, 0644);
 	if (fd < 0)
 		return (redir_error(file));
-	if (dup2(fd, STDOUT_FILENO) < 0)
+	if (dup2(fd, target_fd) < 0)
 		return (close(fd), redir_error(file));
 	close(fd);
 	return (1);
@@ -54,16 +54,16 @@ static int	apply_output_redir(char *file, int append)
 static int	apply_one_redir(t_redir *redir)
 {
 	if (redir->type == T_REDIR_IN)
-		return (apply_input_redir(redir->file));
+		return (apply_input_redir(redir->file, redir->fd));
 	if (redir->type == T_REDIR_OUT)
-		return (apply_output_redir(redir->file, 0));
+		return (apply_output_redir(redir->file, 0, redir->fd));
 	if (redir->type == T_APPEND)
-		return (apply_output_redir(redir->file, 1));
+		return (apply_output_redir(redir->file, 1, redir->fd));
 	if (redir->type == T_HEREDOC)
 	{
 		if (redir->heredoc_fd < 0)
 			return (0);
-		if (dup2(redir->heredoc_fd, STDIN_FILENO) < 0)
+		if (dup2(redir->heredoc_fd, redir->fd) < 0)
 			return (perror("dup2"), 0);
 		close(redir->heredoc_fd);
 		redir->heredoc_fd = -1;

@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 17:35:04 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/09 12:28:31 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 11:19:12 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,34 @@ static char	*handle_direct_path(char *cmd, int *exit_status)
 	return (cmd);
 }
 
+static int	is_exact_cmd(char *cmd, char *target)
+{
+	return (ft_strncmp(cmd, target, ft_strlen(target) + 1) == 0);
+}
+static char	*handle_special_cmd_name(char *cmd, int *exit_status)
+{
+	if (is_exact_cmd(cmd, "~"))
+	{
+		ft_putstr_fd("minishell: ~: Is a directory\n", 2);
+		*exit_status = 126;
+		return (NULL);
+	}
+	if (is_exact_cmd(cmd, ".") || is_exact_cmd(cmd, ".."))
+	{
+		ft_putstr_fd(cmd, 2);
+		ft_putstr_fd(": command not found\n", 2);
+		*exit_status = 127;
+		return (NULL);
+	}
+	return ((char *)1);
+}
+
 char	*get_cmd_path(t_shell *shell, char *cmd, int *exit_status)
 {
 	char	*path_env;
 	char	**dirs;
 	char	*path;
+	char	*special;
 
 	if (!cmd || cmd[0] == '\0')
 	{
@@ -95,10 +118,15 @@ char	*get_cmd_path(t_shell *shell, char *cmd, int *exit_status)
 		*exit_status = 127;
 		return (NULL);
 	}
+	special = handle_special_cmd_name(cmd, exit_status);
+	if (!special)
+		return (NULL);
 	if (ft_strchr(cmd, '/'))
 		return (handle_direct_path(cmd, exit_status));
 	path_env = get_env_value(shell, "PATH");
 	if (!path_env)
+		path_env = "/bin:/usr/bin";
+	if (path_env[0] == '\0')
 	{
 		ft_putstr_fd(cmd, 2);
 		ft_putstr_fd(": command not found\n", 2);

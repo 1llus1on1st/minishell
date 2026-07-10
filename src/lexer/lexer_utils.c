@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 19:04:47 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/09 11:56:42 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 11:15:12 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,54 +78,68 @@ int	handle_pipe(t_shell *shell, int *i, t_token **tokens)
 	return (1);
 }
 
-/*
-Handles input redirection operators found by the lexer.
-1.	Checks if the current character is followed by another '<'
-2.	Creates a T_HEREDOC token for "<<"
-3.	If there is only one '<', creates a T_REDIR_IN token
-4.	Advances the input index by two characters for heredoc or one for 
-	normal input redirection
-5.	Returns 1 on success and 0 if token creation or insertion fails
-*/
 int	handle_redir_in(t_shell *shell, char *line, int *i, t_token **tokens)
 {
+	int		start;
+	int		op;
+	char	*value;
+
+	start = *i;
+	while (ft_isdigit(line[*i]))
+		(*i)++;
+	op = *i;
 	if (line[*i + 1] == '<')
 	{
-		if (!add_token_back(tokens, create_token(shell, T_HEREDOC, "<<")))
+		value = ft_substr(line, start, *i - start + 2);
+		if (!value)
 			return (0);
-		*i += 2;
+		if (!add_token_back(tokens, create_token(shell, T_HEREDOC, value)))
+			return (free(value), 0);
+		free(value);
+		*i = op + 2;
 	}
 	else
 	{
-		if (!add_token_back(tokens, create_token(shell, T_REDIR_IN, "<")))
+		value = ft_substr(line, start, *i - start + 1);
+		if (!value)
 			return (0);
-		(*i)++;
+		if (!add_token_back(tokens, create_token(shell, T_REDIR_IN, value)))
+			return (free(value), 0);
+		free(value);
+		*i = op + 1;
 	}
 	return (1);
 }
 
-/*
-Handles output redirection operators found by the lexer.
-1.	Checks if the current character is followed by another '>'
-2.	Creates a T_APPEND token for ">>"
-3.	If there is only one '>', creates a T_REDIR_OUT token
-4.	Advances the input index by two characters for append or one for normal
-	output redirection
-5.	Returns 1 on success and 0 if token creation or insertion fails
-*/
 int	handle_redir_out(t_shell *shell, char *line, int *i, t_token **tokens)
 {
+	int		start;
+	int		op;
+	char	*value;
+
+	start = *i;
+	while (ft_isdigit(line[*i]))
+		(*i)++;
+	op = *i;
 	if (line[*i + 1] == '>')
 	{
-		if (!add_token_back(tokens, create_token(shell, T_APPEND, ">>")))
+		value = ft_substr(line, start, *i - start + 2);
+		if (!value)
 			return (0);
-		*i += 2;
+		if (!add_token_back(tokens, create_token(shell, T_APPEND, value)))
+			return (free(value), 0);
+		free(value);
+		*i = op + 2;
 	}
 	else
 	{
-		if (!add_token_back(tokens, create_token(shell, T_REDIR_OUT, ">")))
+		value = ft_substr(line, start, *i - start + 1);
+		if (!value)
 			return (0);
-		(*i)++;
+		if (!add_token_back(tokens, create_token(shell, T_REDIR_OUT, value)))
+			return (free(value), 0);
+		free(value);
+		*i = op + 1;
 	}
 	return (1);
 }
