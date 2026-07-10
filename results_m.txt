@@ -554,7 +554,7 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest m
   26:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_pipelines.sh:59  
   27:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_pipelines.sh:68  
   28:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_pipelines.sh:84  
-  29:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ❌ [ minishell(0)  bash(2) ]  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_pipelines.sh:96  
+  29:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_pipelines.sh:96  
   30:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_pipelines.sh:110  
   31:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_pipelines.sh:126  
   32:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_pipelines.sh:132  
@@ -929,9 +929,9 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest m
   17:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:37  
   18:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:39  
   19:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:41  
-  20:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ❌ [ minishell(0)  bash(2) ]  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:43  
-  21:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ❌ [ minishell(0)  bash(2) ]  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:46  
-  22:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ❌ [ minishell(0)  bash(2) ]  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:49  
+  20:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:43  
+  21:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:46  
+  22:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:49  
   23:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:52  
   24:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:54  
   25:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:56  
@@ -951,7 +951,7 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest m
   39:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:88  
   40:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:96  
   41:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:98  
-  42:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:100  
+  42:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ❌ [ minishell(2)  bash(0) ]  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:100  
   43:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:103  
   44:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:105  
   45:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/8_syntax_errors.sh:107  
@@ -982,8 +982,8 @@ fedora_m4pro@fedora:~/Documents/_Milestones/Milestone 3/WIP/minishell$ mstest m
 🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁
 🏁                                    RESULT                                    🏁
 🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁
-             TOTAL TEST COUNT: 941  TESTS PASSED: 918  LEAKING: 0 
-                     STD_OUT: 17  STD_ERR: 5  EXIT_CODE: 7  
+             TOTAL TEST COUNT: 941  TESTS PASSED: 921  LEAKING: 0 
+                     STD_OUT: 16  STD_ERR: 5  EXIT_CODE: 4  
                          TOTAL FAILED AND PASSED CASES:
-                                     ❌ 29   
-                                     ✅ 2794   
+                                     ❌ 25   
+                                     ✅ 2798   
