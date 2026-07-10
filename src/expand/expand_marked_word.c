@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 12:41:15 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 11:20:47 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 11:23:20 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,16 @@ static int	copy_double_marked(t_shell *shell, char *str, char **res, int *i)
 static int	copy_dollar_quote_marked(t_shell *shell, char *str,
 		char **res, int *i)
 {
-	(*i)++;
-	if (str[*i] == '\'')
+	if (str[*i + 1] == '\'')
+	{
+		(*i)++;
 		return (copy_single_marked(shell, str, res, i));
-	if (str[*i] == '"')
+	}
+	if (str[*i + 1] == '"')
+	{
+		(*i)++;
 		return (copy_double_marked(shell, str, res, i));
+	}
 	return (expand_unquoted_variable(shell, str, res, i));
 }
 
