@@ -183,7 +183,7 @@
   85:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:236  
   86:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:239  
   87:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:242  
-  88:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:244  
+  88:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:244  
   89:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:247  
   90:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:250  
   91:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:252  
@@ -219,7 +219,7 @@
   121:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:315  
   122:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:317  
   123:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ❌ [ minishell(2)  bash(127) ]  /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:319  
-  124:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:321  
+  124:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/10_parsing_hell.sh:321  
   # **************************************************************************** #
   #                                   BUILTINS                                   #
   # **************************************************************************** #
@@ -344,25 +344,25 @@
   119:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:278  
   120:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:282  
   121:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:286  
-  122:  STD_OUT: ❌  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:290  
+  122:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:290  
   123:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:294  
   124:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:298  
   125:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:302  
   126:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:306  
   127:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:310  
-  128:  STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:314  
+  128:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:314  
   129:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:320  
   130:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:324  
-  131:  STD_OUT: ❌  STD_ERR: ❌  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:328  
-  132:  STD_OUT: ❌  STD_ERR: ❌  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:333  
-  133:  STD_OUT: ❌  STD_ERR: ❌  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:337  
+  131:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:328  
+  132:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:333  
+  133:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:337  
   134:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:342  
   135:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:347  
   136:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:352  
   137:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:354  
   138:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:356  
   139:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:358  
-  140:  STD_OUT: ❌  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(0)  bash(127) ]  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:360  
+  140:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:360  
   141:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:363  
   142:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:365  
   143:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:367  
@@ -387,12 +387,12 @@
   162:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:414  
   163:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:416  
   164:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:418  
-  165:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ❌ [ minishell(1)  bash(2) ]  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:420  
+  165:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:420  
   166:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:422  
   167:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:424  
   168:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:426  
   169:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:428  
-  170:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ❌ [ minishell(1)  bash(2) ]  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:430  
+  170:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:430  
   171:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:432  
   172:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:434  
   173:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:436  
@@ -407,7 +407,7 @@
   182:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:454  
   183:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:456  
   184:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:458  
-  185:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ❌ [ minishell(1)  bash(2) ]  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:460  
+  185:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:460  
   186:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:462  
   187:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:464  
   188:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:466  
@@ -422,7 +422,7 @@
   197:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:484  
   198:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:486  
   199:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:488  
-  200:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:490  
+  200:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:490  
   201:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:492  
   202:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:496  
   203:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:501  
@@ -453,7 +453,7 @@
   228:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:560  
   229:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:562  
   230:  STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:564  
-  231:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ❌ [ minishell(1)  bash(2) ]  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:566  
+  231:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:566  
   232:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:568  
   233:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:570  
   234:  STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_builtins.sh:572  
@@ -546,7 +546,7 @@
   19:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_pipelines.sh:40  
   20:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_pipelines.sh:42  
   21:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_pipelines.sh:44  
-  22:   STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_pipelines.sh:46  
+  22:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_pipelines.sh:46  
   23:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_pipelines.sh:49  
   24:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_pipelines.sh:53  
   25:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_pipelines.sh:55  
@@ -769,8 +769,8 @@
   54:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:157  
   55:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:160  
   56:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:163  
-  57:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:166  
-  58:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:169  
+  57:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:166  
+  58:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:169  
   59:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/1_variables.sh:172  
   # **************************************************************************** #
   #                                  CORRECTION                                  #
@@ -892,17 +892,17 @@
   # **************************************************************************** #
   #                                  PATH FAILS                                  #
   # **************************************************************************** #
-  1:    STD_OUT: ❌  STD_ERR: ❌  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:5  
+  1:    STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:5  
   2:    STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:12  
   3:    STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:21  
   4:    STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:24  
-  5:    STD_OUT: ❌  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:26  
+  5:    STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:26  
   6:    STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:28  
-  7:    STD_OUT: ✅  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(1)  bash(0) ]  /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:30  
-  8:    STD_OUT: ❌  STD_ERR: ❌  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:32  
+  7:    STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:30  
+  8:    STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:32  
   9:    STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:35  
   10:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:39  
-  11:   STD_OUT: ❌  STD_ERR: ❌  EXIT_CODE: ❌ [ minishell(0)  bash(127) ]  /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:43  
+  11:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ❌ [ minishell(0)  bash(127) ]  /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:43  
   12:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:47  
   13:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:66  
   14:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/2_path_check.sh:68  
@@ -973,16 +973,16 @@
   10:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/9_go_wild.sh:30  
   11:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/9_go_wild.sh:37  
   12:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/9_go_wild.sh:40  
-  13:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/9_go_wild.sh:46  
-  14:   STD_OUT: ❌  STD_ERR: ❌  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/9_go_wild.sh:49  
-  15:   STD_OUT: ❌  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/9_go_wild.sh:52  
+  13:   STD_OUT: ❌  STD_ERR: ❌  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/9_go_wild.sh:46  
+  14:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/9_go_wild.sh:49  
+  15:   STD_OUT: ❌  STD_ERR: ❌  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/9_go_wild.sh:52  
   16:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/9_go_wild.sh:55  
   17:   STD_OUT: ✅  STD_ERR: ✅  EXIT_CODE: ✅  /home/fedora_m4pro/42_minishell_tester/cmds/mand/9_go_wild.sh:57  
 🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁
 🏁                                    RESULT                                    🏁
 🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁🏁
-             TOTAL TEST COUNT: 941  TESTS PASSED: 823  LEAKING: 0 
-                     STD_OUT: 69  STD_ERR: 47  EXIT_CODE: 54  
+             TOTAL TEST COUNT: 941  TESTS PASSED: 837  LEAKING: 0 
+                     STD_OUT: 63  STD_ERR: 35  EXIT_CODE: 44  
                          TOTAL FAILED AND PASSED CASES:
-                                     ❌ 170   
-                                     ✅ 2653 
+                                     ❌ 142   
+                                     ✅ 2681   
