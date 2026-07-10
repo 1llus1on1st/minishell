@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 13:59:16 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/05 20:00:47 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 10:46:48 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	execute_builtin(t_shell *shell, t_cmd *cmd)
 	if (ft_strncmp(cmd->argv[0], "unset", 6) == 0)
 		return (builtin_unset(shell, cmd));
 	if (ft_strncmp(cmd->argv[0], "env", 4) == 0)
-		return (builtin_env(shell));
+		return (builtin_env(shell, cmd));
 	if (ft_strncmp(cmd->argv[0], "exit", 5) == 0)
 		return (builtin_exit(shell, cmd));
 	return (1);
