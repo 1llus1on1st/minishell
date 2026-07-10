@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 14:02:34 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/09 17:54:33 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 18:20:14 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static void	exit_numeric_error(t_shell *shell, char *arg)
 	ft_putstr_fd(": numeric argument required\n", 2);
 	gc_clear(&shell->line_gc);
 	gc_clear(&shell->shell_gc);
+	close(STDIN_FILENO);
 	exit(2);
 }
 
@@ -47,5 +48,6 @@ int	builtin_exit(t_shell *shell, t_cmd *cmd)
 	}
 	gc_clear(&shell->line_gc);
 	gc_clear(&shell->shell_gc);
+	close(STDIN_FILENO);
 	exit((unsigned char)code);
 }
