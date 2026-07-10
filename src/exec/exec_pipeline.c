@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 19:34:32 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 14:09:48 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 15:24:44 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	close_pipes(int *pipes, int count)
 }
 
 static int	fork_pipeline(t_shell *shell, t_cmd *cmds, int *pipes,
-	pid_t *pids)
+		pid_t *pids)
 {
 	int	i;
 	int	count;
@@ -64,8 +64,10 @@ static int	fork_pipeline(t_shell *shell, t_cmd *cmds, int *pipes,
 		pids[i] = fork();
 		if (pids[i] < 0)
 		{
+			perror("fork");
 			close_pipes(pipes, count);
-			return (perror("fork"), 0);
+			wait_pipeline(pids, i);
+			return (0);
 		}
 		if (pids[i] == 0)
 			run_pipeline_child(shell, cmds, pipes, (int [2]){i, count});
@@ -87,10 +89,13 @@ int	execute_pipeline(t_shell *shell, t_cmd *cmds)
 	pids = gc_malloc(&shell->line_gc, sizeof(pid_t) * count);
 	if (!pipes || !pids || !create_pipes(pipes, count))
 		return (1);
-	if (!fork_pipeline(shell, cmds, pipes, pids))
-		return (1);
-	close_pipes(pipes, count);
 	setup_parent_signals();
+	if (!fork_pipeline(shell, cmds, pipes, pids))
+	{
+		setup_prompt_signals();
+		return (1);
+	}
+	close_pipes(pipes, count);
 	status = wait_pipeline(pids, count);
 	setup_prompt_signals();
 	return (status);
