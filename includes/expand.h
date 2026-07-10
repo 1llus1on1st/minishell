@@ -6,16 +6,16 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 11:34:34 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/09 12:40:32 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/10 12:51:40 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EXPAND_H
 # define EXPAND_H
-\
-#ifndef EXP_SPLIT
-# define EXP_SPLIT 31
-#endif
+
+# ifndef EXP_SPLIT
+#  define EXP_SPLIT 31
+# endif
 
 typedef struct s_shell	t_shell;
 typedef struct s_cmd	t_cmd;
