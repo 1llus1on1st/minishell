@@ -12,10 +12,45 @@
 
 #include "../../includes/minishell.h"
 
+static char	*read_piped_line(void)
+{
+	char	*line;
+	char	*new_line;
+	size_t	len;
+	ssize_t	bytes;
+	char	c;
+
+	line = malloc(1);
+	if (!line)
+		return (NULL);
+	line[0] = '\0';
+	len = 0;
+	while (1)
+	{
+		bytes = read(STDIN_FILENO, &c, 1);
+		if (bytes <= 0 || c == '\n')
+			break ;
+		new_line = malloc(len + 2);
+		if (!new_line)
+			return (free(line), NULL);
+		ft_memcpy(new_line, line, len);
+		new_line[len] = c;
+		new_line[len + 1] = '\0';
+		free(line);
+		line = new_line;
+		len++;
+	}
+	if (bytes <= 0 && len == 0)
+		return (free(line), NULL);
+	return (line);
+}
+
 static char	*read_input(void)
 {
 	char	*line;
 
+	if (!isatty(STDIN_FILENO))
+		return (read_piped_line());
 	line = readline("minishell$ ");
 	if (line && *line)
 		add_history(line);
@@ -27,7 +62,8 @@ static void	exit_shell(t_shell *shell)
 	int	status;
 
 	status = shell->last_exit;
-	printf("exit\n");
+	if (isatty(STDIN_FILENO))
+		printf("exit\n");
 	gc_clear(&shell->line_gc);
 	gc_clear(&shell->shell_gc);
 	exit((unsigned char)status);

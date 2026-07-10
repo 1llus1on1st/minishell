@@ -36,7 +36,8 @@ int	builtin_exit(t_shell *shell, t_cmd *cmd)
 {
 	long long	code;
 
-	printf("exit\n");
+	if (isatty(STDIN_FILENO))
+		printf("exit\n");
 	code = shell->last_exit;
 	if (cmd->argv[1] && !parse_exit_code(cmd->argv[1], &code))
 		exit_numeric_error(shell, cmd->argv[1]);
