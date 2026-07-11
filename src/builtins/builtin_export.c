@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 14:13:23 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 18:39:35 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/11 13:17:18 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Prints the export invalid identifier error.
 1.	Shows the original argument between quotes
 2.	Returns 1 so export can continue checking later arguments
 */
-static int	export_error(char *arg)
+int	export_error(char *arg)
 {
 	ft_putstr_fd("minishell: export: `", 2);
 	ft_putstr_fd(arg, 2);
