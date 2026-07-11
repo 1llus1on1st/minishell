@@ -6,7 +6,7 @@
 /*   By: mshargan <mshargan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 14:02:34 by mshargan          #+#    #+#             */
-/*   Updated: 2026/07/10 18:20:14 by mshargan         ###   ########.fr       */
+/*   Updated: 2026/07/11 13:39:00 by mshargan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	builtin_exit(t_shell *shell, t_cmd *cmd)
 	if (argv_count(cmd->argv) > 2)
 	{
 		ft_putstr_fd("minishell: exit: too many arguments\n", 2);
-		return (2);
+		return (1);
 	}
 	gc_clear(&shell->line_gc);
 	gc_clear(&shell->shell_gc);
