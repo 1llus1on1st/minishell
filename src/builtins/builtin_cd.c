@@ -12,6 +12,12 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Updates PWD and OLDPWD after a successful directory change.
+1.	Uses old_pwd as the previous working directory value
+2.	Reads the new current directory with getcwd
+3.	Stores both values in the shell environment
+*/
 static int	update_pwd(t_shell *shell, char *old_pwd)
 {
 	char	new_pwd[4096];
@@ -35,6 +41,12 @@ static int	update_pwd(t_shell *shell, char *old_pwd)
 	return (0);
 }
 
+/*
+Expands a cd argument that begins with '~'.
+1.	Returns HOME for a bare '~'
+2.	Joins HOME with the rest of the path for '~/...'
+3.	Leaves unusual '~name' forms unchanged
+*/
 static char	*join_home_path(char *home, char *arg)
 {
 	if (!arg[1])
@@ -44,6 +56,13 @@ static char	*join_home_path(char *home, char *arg)
 	return (ft_strdup(arg));
 }
 
+/*
+Chooses the path that cd should use.
+1.	Uses HOME for no argument, '--' or '~'
+2.	Expands paths that begin with '~'
+3.	Uses OLDPWD for cd - and asks the caller to print the new path
+4.	Returns NULL after printing an error when HOME or OLPWD is missing
+*/
 static char	*get_cd_path(t_shell *shell, t_cmd *cmd, int *print_path)
 {
 	char	*home;
@@ -70,6 +89,14 @@ static char	*get_cd_path(t_shell *shell, t_cmd *cmd, int *print_path)
 	return (ft_strdup(arg));
 }
 
+/*
+Implements the cd builtin in the parent shell.
+1.	Rejects more than one path argument
+2.	Resolves special cd forms before calling chdir
+3.	Saves the old directory so OLDPWD can be updated
+4.	Updates PWD and OLDPWD after chdir succeeds
+5.	Prints the new directory for cd -
+*/
 int	builtin_cd(t_shell *shell, t_cmd *cmd)
 {
 	char	old_pwd[4096];

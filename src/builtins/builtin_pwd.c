@@ -12,6 +12,12 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Implements the pwd builtin.
+1.	Reads the current working directory with getcwd
+2.	Prints the directory followed by a newline
+3.	Returns 1 if getcwd fails
+*/
 int	builtin_pwd(void)
 {
 	char	buffer[4096];

@@ -12,6 +12,11 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Converts a signaled pipeline child status into a shell exit code.
+1.	Prints the expected terminal message for SIGINT or SIGQUIT
+2.	Returns 128 plus the signal number
+*/
 static int	pipeline_signal_status(int status)
 {
 	int	sig;
@@ -24,6 +29,11 @@ static int	pipeline_signal_status(int status)
 	return (128 + sig);
 }
 
+/*
+Converts the final pipeline command status into a shell exit code.
+1.	Uses the normal exit status when the command exited normally
+2.	Uses signal conversion when the command died from a signal
+*/
 static int	pipeline_last_status(int status)
 {
 	if (WIFEXITED(status))
@@ -33,6 +43,12 @@ static int	pipeline_last_status(int status)
 	return (1);
 }
 
+/*
+Waits for every process in a pipeline.
+1.	Waits for children in the order their pids were stored
+2.	Keeps the status from the last pipeline command
+3.	Returns that last command status as the pipeline status
+*/
 int	wait_pipeline(pid_t *pids, int count)
 {
 	int	i;

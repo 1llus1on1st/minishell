@@ -12,6 +12,11 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Saves the current stdin and stdout file descriptors.
+1.	Used before running parent-side builtins with redirections
+2.	Allows minishell to restore the prompt's stdio afterward
+*/
 int	save_stdio(int saved[2])
 {
 	saved[0] = dup(STDIN_FILENO);
@@ -26,6 +31,11 @@ int	save_stdio(int saved[2])
 	return (1);
 }
 
+/*
+Restores stdin and stdout from saved descriptors.
+1.	Duplicates the saved descriptors back onto standard fds
+2.	Closes the saved copies after restoration
+*/
 int	restore_stdio(int saved[2])
 {
 	if (dup2(saved[0], STDIN_FILENO) < 0)
@@ -37,6 +47,12 @@ int	restore_stdio(int saved[2])
 	return (1);
 }
 
+/*
+Executes a command line that contains only redirections.
+1.	Saves stdio because redirections are applied in the parent
+2.	Applies redirections to test their side effects and errors
+3.	Restores stdio before returning to the prompt
+*/
 int	execute_redir_only(t_cmd *cmd)
 {
 	int	saved[2];
@@ -52,6 +68,12 @@ int	execute_redir_only(t_cmd *cmd)
 	return (status);
 }
 
+/*
+Executes a builtin while respecting its redirections.
+1.	Runs directly when there are no redirections
+2.	Saves parent stdio before applying builtin redirections
+3.	Restores stdio so the shell prompt is not permanently redirected
+*/
 int	execute_builtin_with_redirs(t_shell *shell, t_cmd *cmd)
 {
 	int	saved[2];

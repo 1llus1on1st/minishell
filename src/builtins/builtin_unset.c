@@ -12,6 +12,11 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Prints the unset invalid option error.
+1.	Shows the first option characters in the same style as a shell error
+2.	Returns 2 because invalid builtin options are usage errors
+*/
 static int	unset_option_error(char *arg)
 {
 	ft_putstr_fd("minishell: unset: ", 2);
@@ -22,6 +27,12 @@ static int	unset_option_error(char *arg)
 	return (2);
 }
 
+/*
+Implements the unset builtin.
+1.	Stops with an option error when an argument starts with '-'
+2.	Removes only arguments that are valid identifiers
+3.	Ignores invalid identifiers instead of treating them as fatal
+*/
 int	builtin_unset(t_shell *shell, t_cmd *cmd)
 {
 	int	i;

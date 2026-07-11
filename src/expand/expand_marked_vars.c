@@ -12,6 +12,12 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Appends an expanded variable value to a marked result.
+1.	Ignores missing variables by appending nothing
+2.	When split is true, converts whitespace to EXP_SPLIT markers
+3.	When split is false, preserves whitespace literally
+*/
 static int	append_marked_value(t_shell *shell, char **res,
 	char *value, int split)
 {
@@ -35,6 +41,12 @@ static int	append_marked_value(t_shell *shell, char **res,
 	return (1);
 }
 
+/*
+Expands $? into the marked result.
+1.	Converts the last exit status to a temporary string
+2.	Appends it with or without split marking depending on quote context
+3.	Advances the input index past "$?"
+*/
 static int	expand_marked_status(t_shell *shell, char **res, int *i, int split)
 {
 	char	*value;
@@ -49,6 +61,12 @@ static int	expand_marked_status(t_shell *shell, char **res, int *i, int split)
 	return (ok);
 }
 
+/*
+Expands a variable outside quotes.
+1.	Expands $? with field splitting enabled
+2.	Keeps a literal '$' when it is not followed by a variable character
+3.	Looks up the variable name and marks whitespace for later splitting
+*/
 int	expand_unquoted_variable(t_shell *shell, char *str, char **res, int *i)
 {
 	int		start;
@@ -73,6 +91,12 @@ int	expand_unquoted_variable(t_shell *shell, char *str, char **res, int *i)
 	return (ok);
 }
 
+/*
+Expands a variable inside double quotes.
+1.	Expands $? without field splitting
+2.	Keeps a literal '$' when it is not followed by a variable character
+3.	Preserves whitespace because double quotes protect the expanded value
+*/
 int	expand_quoted_variable(t_shell *shell, char *str, char **res, int *i)
 {
 	int		start;

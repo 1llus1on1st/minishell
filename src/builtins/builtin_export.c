@@ -12,6 +12,11 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Prints the export invalid option error.
+1.	Reports the option that caused export to fail
+2.	Returns 2 because invalid options are usage errors
+*/
 static int	export_option_error(char *arg)
 {
 	ft_putstr_fd("minishell: export: ", 2);
@@ -22,6 +27,11 @@ static int	export_option_error(char *arg)
 	return (2);
 }
 
+/*
+Prints the export invalid identifier error.
+1.	Shows the original argument between quotes
+2.	Returns 1 so export can continue checking later arguments
+*/
 static int	export_error(char *arg)
 {
 	ft_putstr_fd("minishell: export: `", 2);
@@ -30,6 +40,14 @@ static int	export_error(char *arg)
 	return (1);
 }
 
+/*
+Implements the export builtin.
+1.	Prints sorted exports when no arguments are given
+2.	Rejects option-like arguments as invalid options
+3.	Handles NAME+=value with the append helper
+4.	Validates normal identifiers before changing the environment
+5.	Keeps processing later arguments after identifier errors
+*/
 int	builtin_export(t_shell *shell, t_cmd *cmd)
 {
 	int	i;

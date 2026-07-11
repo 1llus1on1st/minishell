@@ -12,6 +12,12 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Converts a waitpid status into a shell exit status.
+1.	Returns the child exit code when the process exited normally
+2.	Prints the expected terminal message for SIGINT and SIGQUIT
+3.	Returns 128 + signal number for signaled children
+*/
 static int	wait_status_to_exit(int status)
 {
 	int	sig;
@@ -30,6 +36,13 @@ static int	wait_status_to_exit(int status)
 	return (1);
 }
 
+/*
+Chooses how to execute one parsed command list.
+1.	Runs pipelines through the pipeline executor
+2.	Applies redirections even when there is no command name
+3.	Runs builtins in the parent when possible so shell state can change
+4.	Forks only for external commands
+*/
 int	execute_cmd(t_shell *shell, t_cmd *cmd)
 {
 	if (!cmd)
@@ -43,6 +56,12 @@ int	execute_cmd(t_shell *shell, t_cmd *cmd)
 	return (execute_external(shell, cmd));
 }
 
+/*
+Runs an external command inside a forked child process.
+1.	Restores default child signal behavior
+2.	Applies redirections before resolving the executable path
+3.	Exits with the correct shell status when lookup or execve fails
+*/
 static void	run_child(t_shell *shell, t_cmd *cmd)
 {
 	int		exit_status;
@@ -60,6 +79,12 @@ static void	run_child(t_shell *shell, t_cmd *cmd)
 	exit_child(shell, 126);
 }
 
+/*
+Executes a single non-builtin command.
+1.	Forks so execve cannot replace the minishell process
+2.	Ignores prompt signals in the parent while the child runs
+3.	Waits for the child and converts its wait status into last_exit form
+*/
 int	execute_external(t_shell *shell, t_cmd *cmd)
 {
 	pid_t	pid;

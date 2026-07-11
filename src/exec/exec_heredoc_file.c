@@ -12,6 +12,11 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Writes one heredoc line to the temporary file.
+1.	Expands variables when the delimiter allows heredoc expansion
+2.	Writes the line content followed by a newline
+*/
 static int	write_heredoc_line(t_shell *shell, char *line, int fd, int expand)
 {
 	char	*out;
@@ -30,6 +35,13 @@ static int	write_heredoc_line(t_shell *shell, char *line, int fd, int expand)
 	return (1);
 }
 
+/*
+Reads heredoc input until the delimiter, EOF or interruption.
+1.	Prompts with "> " for each heredoc line
+2.	Stops successfully when the line exactly matches the delimiter
+3.	Reports a warning when EOF arrives before the delimiter
+4.	Returns 0 when SIGINT interrupts heredoc input
+*/
 int	read_heredoc_loop(t_shell *shell, t_redir *redir, int fd)
 {
 	char	*line;
@@ -56,6 +68,11 @@ int	read_heredoc_loop(t_shell *shell, t_redir *redir, int fd)
 	}
 }
 
+/*
+Builds a temporary heredoc path from the process id and a counter.
+1.	Uses the pid to reduce collisions between minishell processes
+2.	Uses count to retry if a path already exists
+*/
 static char	*join_heredoc_path(char *pid, int count)
 {
 	char	*num;
@@ -79,6 +96,11 @@ static char	*join_heredoc_path(char *pid, int count)
 	return (path);
 }
 
+/*
+Tracks a heredoc temp path after its file has been opened.
+1.	Adds the path to line_gc so cleanup can free the string
+2.	Closes and unlinks the file if tracking fails
+*/
 static int	save_heredoc_path(t_shell *shell, char **path, int fd)
 {
 	if (gc_add(&shell->line_gc, *path))
@@ -90,6 +112,12 @@ static int	save_heredoc_path(t_shell *shell, char **path, int fd)
 	return (-1);
 }
 
+/*
+Opens a unique temporary file for heredoc content.
+1.	Builds candidate paths using pid and an increasing counter
+2.	Uses O_EXCL so an existing file is never overwritten
+3.	Retries only when the candidate path already exists
+*/
 int	open_unique_heredoc(t_shell *shell, char **path)
 {
 	char	*pid;

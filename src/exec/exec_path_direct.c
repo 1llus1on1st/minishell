@@ -12,6 +12,12 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Prints a direct-path execution error.
+1.	Uses minishell's command prefix
+2.	Sets the status chosen by the caller
+3.	Returns NULL so path lookup can fail directly
+*/
 static char	*direct_path_error(char *cmd, int *exit_status,
 	int status, char *message)
 {
@@ -24,6 +30,9 @@ static char	*direct_path_error(char *cmd, int *exit_status,
 	return (NULL);
 }
 
+/*
+Checks whether a path points to a directory.
+*/
 static int	is_directory(char *path)
 {
 	struct stat	st;
@@ -33,6 +42,12 @@ static int	is_directory(char *path)
 	return (S_ISDIR(st.st_mode));
 }
 
+/*
+Validates a command that already contains a slash.
+1.	Reports 127 when the path does not exist
+2.	Reports 126 for directories or permission errors
+3.	Returns the original command path when it is executable
+*/
 char	*handle_direct_path(char *cmd, int *exit_status)
 {
 	if (access(cmd, F_OK) != 0)

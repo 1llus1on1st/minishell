@@ -12,6 +12,12 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Implements the env builtin without external command support.
+1.	Rejects extra arguments because this minishell does not run env commands
+2.	Prints only entries that contain '='
+3.	Hides export-only names that have no value assigned
+*/
 int	builtin_env(t_shell *shell, t_cmd *cmd)
 {
 	int	i;

@@ -13,10 +13,12 @@
 #include "../../includes/minishell.h"
 
 /*
-1.	Initializes the values of the variables in the t_shell structure
-2.	Launches the initializer of the garbage collector
-	If it fails launches the clear of the garbage collector which can contain 
-	partial t_shell data
+Initializes the main shell structure before the prompt loop starts.
+1.	Sets last_exit to 0 because no command has failed yet
+2.	Initializes the environment and garbage collector pointers to NULL
+3.	Builds the shell environment list from envp
+4.	Clears shell-level allocations if environment initialization fails
+5.	Exits with status 1 when minishell cannot be initialized safely
 */
 void	init_shell(t_shell *shell, char **envp)
 {

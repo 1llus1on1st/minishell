@@ -12,6 +12,12 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Frees a NULL-terminated array created by split-style functions.
+1.	Frees each string inside the array
+2.	Handles a NULL array safely
+3.	Frees the array pointer itself at the end
+*/
 void	free_split(char **split)
 {
 	int	i;

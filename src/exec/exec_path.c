@@ -12,6 +12,12 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Builds a candidate executable path from one PATH directory.
+1.	Joins the directory with a slash
+2.	Appends the command name
+3.	Tracks the candidate path in line_gc
+*/
 static char	*join_path(t_shell *shell, char *dir, char *cmd)
 {
 	char	*tmp;
@@ -29,6 +35,12 @@ static char	*join_path(t_shell *shell, char *dir, char *cmd)
 	return (path);
 }
 
+/*
+Searches PATH directories for an executable command.
+1.	Builds one candidate path per PATH entry
+2.	Returns the first candidate that is executable
+3.	Returns NULL when no PATH entry works
+*/
 static char	*find_in_path(t_shell *shell, char *cmd, char **dirs)
 {
 	int		i;
@@ -47,6 +59,11 @@ static char	*find_in_path(t_shell *shell, char *cmd, char **dirs)
 	return (NULL);
 }
 
+/*
+Reports a command-not-found lookup failure.
+1.	Prints the command name with a shell-style error
+2.	Sets the exit status to 127
+*/
 static char	*cmd_not_found(char *cmd, int *exit_status)
 {
 	ft_putstr_fd(cmd, 2);
@@ -55,6 +72,12 @@ static char	*cmd_not_found(char *cmd, int *exit_status)
 	return (NULL);
 }
 
+/*
+Finds a command by searching the PATH environment variable.
+1.	Handles missing or empty PATH as a special case
+2.	Splits PATH on ':' and tests each directory
+3.	Returns command-not-found when no executable is found
+*/
 static char	*find_cmd_from_path(t_shell *shell, char *cmd, int *exit_status)
 {
 	char	*path_env;
@@ -78,6 +101,13 @@ static char	*find_cmd_from_path(t_shell *shell, char *cmd, int *exit_status)
 	return (path);
 }
 
+/*
+Resolves the executable path for an external command.
+1.	Rejects empty command names
+2.	Handles special names like '~', '.' and '..'
+3.	Validates direct paths that contain '/'
+4.	Searches PATH for normal command names
+*/
 char	*get_cmd_path(t_shell *shell, char *cmd, int *exit_status)
 {
 	if (!cmd || cmd[0] == '\0')

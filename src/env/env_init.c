@@ -12,6 +12,13 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Copies the inherited environment into minishell-owned memory.
+1.	Allocates a NULL-terminated env array in the shell garbage collector
+2.	Duplicates each envp entry so minishell can safely mutate its own copy
+3.	Tracks each duplicated string for full-program cleanup
+4.	Returns 0 if any allocation fails during startup
+*/
 int	init_env(t_shell *shell, char **envp)
 {
 	int	i;

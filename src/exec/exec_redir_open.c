@@ -12,6 +12,9 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Prints a redirection open or dup error.
+*/
 static int	redir_error(char *file)
 {
 	ft_putstr_fd("minishell: ", 2);
@@ -19,6 +22,11 @@ static int	redir_error(char *file)
 	return (0);
 }
 
+/*
+Applies a <> read-write redirection.
+1.	Opens the file for reading and writing, creating it if needed
+2.	Duplicates the opened fd onto the requested target fd
+*/
 int	apply_read_write_redir(char *file, int target_fd)
 {
 	int	fd;
@@ -32,6 +40,11 @@ int	apply_read_write_redir(char *file, int target_fd)
 	return (1);
 }
 
+/*
+Applies an input redirection.
+1.	Opens the target file read-only
+2.	Duplicates it onto the requested target fd
+*/
 int	apply_input_redir(char *file, int target_fd)
 {
 	int	fd;
@@ -45,6 +58,12 @@ int	apply_input_redir(char *file, int target_fd)
 	return (1);
 }
 
+/*
+Applies an output or append redirection.
+1.	Creates the file if it does not exist
+2.	Uses O_APPEND for >> and O_TRUNC for >
+3.	Duplicates the opened file onto the requested target fd
+*/
 int	apply_output_redir(char *file, int append, int target_fd)
 {
 	int	fd;

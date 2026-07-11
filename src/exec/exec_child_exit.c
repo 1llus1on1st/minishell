@@ -12,6 +12,12 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Exits a child process after cleaning inherited shell allocations.
+1.	Clears line-level allocations copied into the child by fork
+2.	Clears shell-level allocations before exiting the child
+3.	Exits with the status chosen by the child execution path
+*/
 void	exit_child(t_shell *shell, int status)
 {
 	gc_clear(&shell->line_gc);

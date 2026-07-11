@@ -12,6 +12,12 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Closes any heredoc read fds still stored on command redirections.
+1.	Walks every command and every redirection
+2.	Closes only heredoc descriptors that are currently open
+3.	Resets heredoc_fd to -1 to avoid double-closing later
+*/
 void	close_heredoc_fds(t_cmd *cmds)
 {
 	t_redir	*redir;
@@ -32,6 +38,12 @@ void	close_heredoc_fds(t_cmd *cmds)
 	}
 }
 
+/*
+Prepares all heredocs before command execution starts.
+1.	Reads heredocs from left to right across the full command list
+2.	Stores each prepared heredoc as a read fd on its redirection node
+3.	Stops immediately if a heredoc is interrupted or cannot be prepared
+*/
 int	prepare_heredocs(t_shell *shell, t_cmd *cmds)
 {
 	t_redir	*redir;

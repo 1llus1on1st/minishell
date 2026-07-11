@@ -12,6 +12,11 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Checks whether a redirection target contains quote characters.
+1.	Used for heredoc delimiters because quoted delimiters disable expansion
+2.	Returns 1 as soon as a single or double quote is found
+*/
 static int	has_quotes(char *str)
 {
 	int	i;
@@ -26,6 +31,11 @@ static int	has_quotes(char *str)
 	return (0);
 }
 
+/*
+Returns the default file descriptor for a redirection type.
+1.	Input-like redirections default to STDIN_FILENO
+2.	Output-like redirections default to STDOUT_FILENO
+*/
 static int	default_redir_fd(t_token_type type)
 {
 	if (type == T_REDIR_IN || type == T_HEREDOC
@@ -34,6 +44,12 @@ static int	default_redir_fd(t_token_type type)
 	return (STDOUT_FILENO);
 }
 
+/*
+Extracts an explicit file descriptor from a redirection operator.
+1.	Falls back to the default fd when the operator has no leading digits
+2.	Builds the fd number from the digit prefix
+3.	Returns -1 on integer overflow so invalid fds can fail later
+*/
 static int	get_redir_fd(t_token_type type, char *value)
 {
 	int	i;
@@ -55,6 +71,13 @@ static int	get_redir_fd(t_token_type type, char *value)
 	return (fd);
 }
 
+/*
+Creates a redirection node for a parsed command.
+1.	Stores the redirection type and duplicated target file word
+2.	Derives the target fd from operators like 2> or 0<
+3.	Initializes heredoc bookkeeping before heredocs are prepared
+4.	Disables heredoc expansion when the delimiter was quoted
+*/
 t_redir	*create_redir(t_shell *shell, t_token_type type,
 		char *op, char *file)
 {

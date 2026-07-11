@@ -12,6 +12,12 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Applies a prepared heredoc as an input redirection.
+1.	Requires the heredoc file descriptor to already be open
+2.	Duplicates it onto the redirection target fd
+3.	Closes the stored heredoc fd after it has been applied
+*/
 static int	apply_heredoc_redir(t_redir *redir)
 {
 	if (redir->heredoc_fd < 0)
@@ -23,6 +29,12 @@ static int	apply_heredoc_redir(t_redir *redir)
 	return (1);
 }
 
+/*
+Applies one redirection node to the current process.
+1.	Rejects invalid explicit file descriptors
+2.	Dispatches each redirection type to the correct open or pipe helper
+3.	Returns 0 as soon as a redirection fails
+*/
 static int	apply_one_redir(t_redir *redir)
 {
 	if (redir->fd < 0)
@@ -42,6 +54,12 @@ static int	apply_one_redir(t_redir *redir)
 	return (1);
 }
 
+/*
+Applies all redirections for a command in order.
+1.	Walks through the redirection list from left to right
+2.	Stops at the first failed redirection
+3.	Later redirections can override earlier ones on the same fd
+*/
 int	apply_redirections(t_cmd *cmd)
 {
 	t_redir	*redir;

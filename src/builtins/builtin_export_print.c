@@ -12,6 +12,11 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Copies environment entry pointers into a temporary sortable array.
+1.	Does not duplicate the strings because the function only reorders refs
+2.	Stores the array in line_gc so it is cleaned after the command
+*/
 static char	**copy_env_refs(t_shell *shell)
 {
 	char	**copy;
@@ -31,6 +36,11 @@ static char	**copy_env_refs(t_shell *shell)
 	return (copy);
 }
 
+/*
+Sorts environment references alphabetically for export output.
+1.	Uses a simple in-place comparison sort
+2.	Swaps only pointers, not the environment strings themselves
+*/
 static void	sort_env_refs(char **env)
 {
 	int		i;
@@ -56,6 +66,12 @@ static void	sort_env_refs(char **env)
 	}
 }
 
+/*
+Prints one entry in declare -x format.
+1.	Prints the key after the declare prefix
+2.	Prints assigned values inside quotes
+3.	Prints names without '=' as export-only declarations
+*/
 static void	print_export_entry(char *entry)
 {
 	int	i;
@@ -75,6 +91,12 @@ static void	print_export_entry(char *entry)
 	ft_putchar_fd('\n', 1);
 }
 
+/*
+Prints all exported environment entries.
+1.	Copies references so sorting does not change shell->env order
+2.	Sorts the temporary reference array
+3.	Prints each entry using declare -x formatting
+*/
 int	print_export(t_shell *shell)
 {
 	char	**sorted;

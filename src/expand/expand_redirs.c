@@ -12,6 +12,11 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Creates an empty string tracked by the line garbage collector.
+1.	Used for quoted redirection targets that expand to an empty word
+2.	Returns NULL if allocation or garbage collector registration fails
+*/
 static char	*empty_gc_string(t_shell *shell)
 {
 	char	*str;
@@ -24,6 +29,11 @@ static char	*empty_gc_string(t_shell *shell)
 	return (str);
 }
 
+/*
+Reports an ambiguous redirect expansion error.
+1.	Prints the original redirection word for a useful shell-style message
+2.	Sets last_exit to 1 because redirection setup failed
+*/
 static int	ambiguous_redir(t_shell *shell, char *file)
 {
 	ft_putstr_fd("minishell: ", 2);
@@ -33,6 +43,11 @@ static int	ambiguous_redir(t_shell *shell, char *file)
 	return (0);
 }
 
+/*
+Stores the single expanded word back into a redirection.
+1.	Extracts word zero from the marked expansion result
+2.	Replaces redir->file with the garbage-collected expanded word
+*/
 static int	set_redir_word(t_shell *shell, t_redir *redir, char *marked)
 {
 	char	*word;
@@ -44,6 +59,13 @@ static int	set_redir_word(t_shell *shell, t_redir *redir, char *marked)
 	return (1);
 }
 
+/*
+Expands a normal redirection target and checks ambiguity.
+1.	Uses marked expansion so unquoted variables can split
+2.	Rejects results that become more than one word
+3.	Rejects empty unquoted results as ambiguous redirects
+4.	Preserves quoted empty results as an empty filename
+*/
 static int	expand_normal_redir(t_shell *shell, t_redir *redir)
 {
 	char	*marked;
@@ -64,6 +86,12 @@ static int	expand_normal_redir(t_shell *shell, t_redir *redir)
 	return (set_redir_word(shell, redir, marked));
 }
 
+/*
+Expands every redirection target in a redirection list.
+1.	Only removes quotes from heredoc delimiters
+2.	Uses normal redirection expansion for all other redirection types
+3.	Stops when expansion fails or creates an invalid target
+*/
 int	expand_redirs(t_shell *shell, t_redir *redirs)
 {
 	while (redirs)

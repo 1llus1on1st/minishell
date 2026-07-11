@@ -12,16 +12,29 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Checks for whitespace accepted around an exit argument.
+1.	Accepts a normal space
+2.	Accepts ASCII control whitespace from tab through carriage return
+*/
 static int	is_space_char(char c)
 {
 	return (c == ' ' || (c >= 9 && c <= 13));
 }
 
+/*
+Checks whether a character is an explicit number sign.
+*/
 static int	is_sign(char c)
 {
 	return (c == '+' || c == '-');
 }
 
+/*
+Returns the absolute parsing limit for a signed long long.
+1.	Allows one extra value for LLONG_MIN
+2.	Uses LLONG_MAX for positive numbers
+*/
 static unsigned long long	get_limit(int sign)
 {
 	if (sign == -1)
@@ -29,6 +42,12 @@ static unsigned long long	get_limit(int sign)
 	return (9223372036854775807ULL);
 }
 
+/*
+Reads and validates the digit part of an exit argument.
+1.	Requires at least one digit
+2.	Accumulates the value as unsigned long long
+3.	Rejects overflow before multiplying by 10
+*/
 static int	read_digits(char *str, int *i, int sign,
 		unsigned long long *value)
 {
@@ -49,6 +68,13 @@ static int	read_digits(char *str, int *i, int sign,
 	return (1);
 }
 
+/*
+Parses a shell exit code argument.
+1.	Skips leading and trailing whitespace
+2.	Accepts one optional '+' or '-' sign
+3.	Rejects missing digits, overflow and extra trailing characters
+4.	Stores the parsed value in code when it is valid
+*/
 int	parse_exit_code(char *str, long long *code)
 {
 	unsigned long long	value;

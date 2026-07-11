@@ -12,6 +12,11 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Replaces an existing environment entry.
+1.	Duplicates the new entry into shell-level memory
+2.	Stores the duplicate at the existing environment index
+*/
 static int	replace_env_entry(t_shell *shell, int index, char *entry)
 {
 	char	*copy;
@@ -23,6 +28,13 @@ static int	replace_env_entry(t_shell *shell, int index, char *entry)
 	return (1);
 }
 
+/*
+Appends a new entry to the shell environment array.
+1.	Allocates a larger NULL-terminated environment array
+2.	Copies the old entry pointers into the new array
+3.	Duplicates and appends the new entry
+4.	Updates shell->env to point at the new array
+*/
 static int	append_env_entry(t_shell *shell, char *entry)
 {
 	char	**new_env;
@@ -48,6 +60,13 @@ static int	append_env_entry(t_shell *shell, char *entry)
 	return (1);
 }
 
+/*
+Adds or updates one environment entry.
+1.	Searches for an existing entry with the same key
+2.	Appends the entry when the key does not exist yet
+3.	Does nothing for export-only entries that have no '='
+4.	Replaces the old value when the entry contains an assignment
+*/
 int	env_set_entry(t_shell *shell, char *entry)
 {
 	int	index;
@@ -60,6 +79,12 @@ int	env_set_entry(t_shell *shell, char *entry)
 	return (replace_env_entry(shell, index, entry));
 }
 
+/*
+Builds a new environment array without one index.
+1.	Allocates space for every entry except the removed one
+2.	Copies all pointers except the requested index
+3.	Keeps the result NULL-terminated for later env operations
+*/
 static char	**make_unset_env(t_shell *shell, int index)
 {
 	char	**new_env;
@@ -82,6 +107,12 @@ static char	**make_unset_env(t_shell *shell, int index)
 	return (new_env);
 }
 
+/*
+Removes one key from the shell environment.
+1.	Finds the index that matches the requested key
+2.	Returns success when the key is already absent
+3.	Replaces shell->env with a new array that skips the removed entry
+*/
 int	env_unset_key(t_shell *shell, char *key)
 {
 	char	**new_env;

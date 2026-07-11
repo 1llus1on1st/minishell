@@ -12,6 +12,14 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Handles input-side redirection tokens, with or without an fd prefix.
+1.	Remembers where the token starts so the full operator can be copied
+2.	Skips an optional fd prefix, such as 0< or 3<<
+3.	Chooses between input, heredoc, here-string and read-write token types
+4.	Measures the exact operator length, including the fd prefix if present
+5.	Adds the complete redirection operator as one token
+*/
 int	handle_redir_in(t_shell *shell, char *line, int *i, t_token **tokens)
 {
 	int				start;
@@ -30,6 +38,14 @@ int	handle_redir_in(t_shell *shell, char *line, int *i, t_token **tokens)
 			ft_substr(line, start, len), type));
 }
 
+/*
+Handles output-side redirection tokens, with or without an fd prefix.
+1.	Remembers where the token starts so the full operator can be copied
+2.	Skips an optional fd prefix, such as 2> or 1>>
+3.	Chooses between output and append token types
+4.	Keeps special operators like >| as one redirection token length
+5.	Adds the complete redirection operator as one token
+*/
 int	handle_redir_out(t_shell *shell, char *line, int *i, t_token **tokens)
 {
 	int				start;

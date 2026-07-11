@@ -12,6 +12,13 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Expands one word while marking places where field splitting is allowed.
+1.	Removes quote syntax while keeping the protected content
+2.	Marks unquoted whitespace from variable values with EXP_SPLIT
+3.	Tracks whether quotes appeared so quoted empty words can survive
+4.	Returns the marked string used later to build argv or redirection words
+*/
 char	*expand_marked_word(t_shell *shell, char *str, int *had_quote)
 {
 	char	*res;

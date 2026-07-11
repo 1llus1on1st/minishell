@@ -12,6 +12,11 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Counts arguments in an argv array.
+1.	Handles NULL argv safely
+2.	Returns the number of strings before the terminating NULL
+*/
 static int	argv_count(char **argv)
 {
 	int	i;
@@ -22,6 +27,12 @@ static int	argv_count(char **argv)
 	return (i);
 }
 
+/*
+Exits after an invalid numeric exit argument.
+1.	Prints the required numeric argument error
+2.	Clears both garbage collector scopes before leaving
+3.	Exits with status 2, matching shell behavior for this error
+*/
 static void	exit_numeric_error(t_shell *shell, char *arg)
 {
 	ft_putstr_fd("minishell: exit: ", 2);
@@ -33,6 +44,13 @@ static void	exit_numeric_error(t_shell *shell, char *arg)
 	exit(2);
 }
 
+/*
+Implements the exit builtin.
+1.	Uses the last command status when no explicit code is given
+2.	Exits immediately with status 2 for non-numeric arguments
+3.	Refuses to exit when there are too many arguments
+4.	Clears shell memory and exits with the code cast to unsigned char
+*/
 int	builtin_exit(t_shell *shell, t_cmd *cmd)
 {
 	long long	code;

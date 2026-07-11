@@ -12,11 +12,22 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Checks whether a character can continue a variable name.
+1.	Accepts letters, digits and underscores
+2.	Used after '$' while reading an environment key
+*/
 int	is_var_char(char c)
 {
 	return (ft_isalnum(c) || c == '_');
 }
 
+/*
+Appends one character to an expansion result.
+1.	Builds a temporary one-character string
+2.	Joins it to the current result
+3.	Tracks the new result in line_gc and updates the result pointer
+*/
 int	append_char(t_shell *shell, char **res, char c)
 {
 	char	tmp[2];
@@ -33,6 +44,12 @@ int	append_char(t_shell *shell, char **res, char c)
 	return (1);
 }
 
+/*
+Appends a string to an expansion result.
+1.	Treats NULL as an empty string for missing environment variables
+2.	Joins the string to the current result
+3.	Tracks the new result in line_gc and updates the result pointer
+*/
 int	append_str(t_shell *shell, char **res, char *str)
 {
 	char	*joined;

@@ -55,6 +55,12 @@ static int	check_pipe_syntax(t_token *prev, t_token *current)
 	return (1);
 }
 
+/*
+Checks whether a redirection has a valid target token.
+1.	Reports "newline" when the redirection ends the input
+2.	Reports the next token when another operator appears instead of a word
+3.	Returns 1 only when the following token is T_WORD
+*/
 static int	check_redir_syntax(t_token *current)
 {
 	if (!current->next)

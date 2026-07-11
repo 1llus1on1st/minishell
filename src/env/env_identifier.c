@@ -12,11 +12,23 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Checks whether a character is allowed inside an identifier name.
+1.	Accepts letters, digits and underscores
+2.	Used after the first character, where digits are allowed
+*/
 static int	is_name_char(char c)
 {
 	return (ft_isalnum(c) || c == '_');
 }
 
+/*
+Validates an environment identifier for export and unset.
+1.	Requires the first character to be a letter or underscore
+2.	Allows later characters to be letters, digits or underscores
+3.	When allow_equal is true, stops successfully at the first '='
+4.	Rejects empty strings and invalid assignment names
+*/
 int	is_valid_identifier(char *str, int allow_equal)
 {
 	int	i;

@@ -12,6 +12,11 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Checks whether a command name is implemented as a builtin.
+1.	Returns false for NULL command names
+2.	Matches exactly against the builtin names supported by minishell
+*/
 int	is_builtin(char *cmd)
 {
 	if (!cmd)
@@ -33,6 +38,12 @@ int	is_builtin(char *cmd)
 	return (0);
 }
 
+/*
+Dispatches a command to the matching builtin implementation.
+1.	Calls builtins that need shell state with the t_shell pointer
+2.	Calls simple output-only builtins with just the command data
+3.	Returns the builtin exit status to the executor
+*/
 int	execute_builtin(t_shell *shell, t_cmd *cmd)
 {
 	if (ft_strncmp(cmd->argv[0], "echo", 5) == 0)

@@ -12,11 +12,20 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Checks command equality against a special command name.
+*/
 static int	is_exact_cmd(char *cmd, char *target)
 {
 	return (ft_strncmp(cmd, target, ft_strlen(target) + 1) == 0);
 }
 
+/*
+Handles command names that need custom shell errors.
+1.	Treats '~' as a directory-like execution error
+2.	Treats '.' and '..' as command-not-found in this minishell
+3.	Returns 1 when normal path lookup should continue
+*/
 int	handle_special_cmd_name(char *cmd, int *exit_status)
 {
 	if (is_exact_cmd(cmd, "~"))

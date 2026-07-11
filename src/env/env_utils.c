@@ -12,6 +12,12 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Returns the value part of an environment entry.
+1.	Looks for an entry whose key exactly matches the requested key
+2.	Requires the match to be followed by '=' to avoid partial key matches
+3.	Returns a pointer inside shell->env, not a newly allocated string
+*/
 char	*get_env_value(t_shell *shell, char *key)
 {
 	int		i;
@@ -31,6 +37,11 @@ char	*get_env_value(t_shell *shell, char *key)
 	return (NULL);
 }
 
+/*
+Counts the key length of an environment entry.
+1.	Starts at the first character of the entry
+2.	Stops at '=' or the end of the string
+*/
 int	env_key_len(char *entry)
 {
 	int	i;
@@ -41,6 +52,11 @@ int	env_key_len(char *entry)
 	return (i);
 }
 
+/*
+Counts entries in a NULL-terminated environment array.
+1.	Handles a NULL environment pointer as an empty array
+2.	Returns the number of strings before the final NULL
+*/
 int	env_count(char **env)
 {
 	int	i;
@@ -51,6 +67,12 @@ int	env_count(char **env)
 	return (i);
 }
 
+/*
+Finds the index of an environment key in shell->env.
+1.	Compares only the key part before '='
+2.	Requires both keys to have the same length
+3.	Returns -1 when the key is not present
+*/
 int	env_find_index(t_shell *shell, char *key)
 {
 	int	i;
@@ -68,6 +90,12 @@ int	env_find_index(t_shell *shell, char *key)
 	return (-1);
 }
 
+/*
+Duplicates an environment string into shell-level memory.
+1.	Uses ft_strdup because env entries must remain mutable by minishell
+2.	Registers the copy in shell_gc so it lives until shell exit
+3.	Returns NULL if allocation or registration fails
+*/
 char	*gc_strdup_env(t_shell *shell, char *str)
 {
 	char	*copy;

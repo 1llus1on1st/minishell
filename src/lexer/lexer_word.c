@@ -14,9 +14,8 @@
 
 /*
 Checks whether a character is a shell operator handled by the lexer.
-1.	Compares the character with pipe, input redirection and output redirection
-2.	Returns 1 if the character is '|', '<' or '>'
-3.	Returns 0 for every other character
+1.	Returns 1 for '|', '<' or '>'
+2.	Returns 0 for every other character
 */
 static int	is_operator(char c)
 {
@@ -27,9 +26,8 @@ static int	is_operator(char c)
 
 /*
 Checks whether a character is whitespace used to separate tokens.
-1.	Compares the character with space and tab
-2.	Returns 1 if the character is a space or tab
-3.	Returns 0 for every other character
+1.	Returns 1 for spaces and tabs
+2.	Returns 0 for every other character
 */
 static int	is_space(char c)
 {
@@ -39,12 +37,12 @@ static int	is_space(char c)
 }
 
 /*
-Skips over a quoted section inside a word token.
-1.	Stores the opening quote character, either single quote or double quote
+Skips over a quoted part while measuring a word token.
+1.	Stores whether the opening quote is single or double
 2.	Moves past the opening quote
-3.	Advances j until it finds the matching closing quote
-4.	Returns 0 if the end of the line is reached before the quote closes
-5.	Moves past the closing quote and returns 1 when the quote is valid
+3.	Advances until the matching closing quote is found
+4.	Returns 0 if the quote is never closed
+5.	Moves past the closing quote when the quoted part is valid
 */
 static int	skip_quote(char *line, int start, int *j)
 {
@@ -62,11 +60,11 @@ static int	skip_quote(char *line, int start, int *j)
 
 /*
 Reads a complete word token from the input line.
-1.	Starts from the current input index and counts the word length with j
-2.	Stops when it reaches an operator, a space, a tab or the end of the line
-3.	If it finds quotes, skips everything until the matching closing quote
-4.	Creates a substring containing the full word
-5.	Adds the word as a T_WORD token and advances the input index past it
+1.	Measures from the current index until a separator or operator is found
+2.	Skips quoted sections so spaces and operators inside quotes stay in the word
+3.	Rejects the word if a quote is not closed
+4.	Creates a substring for the full word and stores it as T_WORD
+5.	Advances the lexer index past the word
 */
 int	handle_word(t_shell *shell, char *line, int *i, t_token **tokens)
 {

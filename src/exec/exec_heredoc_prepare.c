@@ -12,6 +12,12 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Switches the shell into heredoc input mode.
+1.	Saves stdin so Ctrl-C can close and later restore it
+2.	Clears the global signal flag before reading heredoc lines
+3.	Installs heredoc-specific signal handlers
+*/
 static int	start_heredoc_input(int *saved_stdin)
 {
 	*saved_stdin = dup(STDIN_FILENO);
@@ -22,6 +28,12 @@ static int	start_heredoc_input(int *saved_stdin)
 	return (1);
 }
 
+/*
+Restores normal prompt input after heredoc reading.
+1.	Restores saved stdin onto STDIN_FILENO
+2.	Closes the saved descriptor
+3.	Reinstalls prompt signal behavior
+*/
 static int	finish_heredoc_input(int saved_stdin)
 {
 	int	status;
@@ -36,6 +48,12 @@ static int	finish_heredoc_input(int saved_stdin)
 	return (1);
 }
 
+/*
+Cleans up a failed heredoc preparation.
+1.	Closes the temporary write fd
+2.	Unlinks the temporary file path
+3.	Restores stdin and prompt signal handling
+*/
 static int	fail_heredoc(int write_fd, char *path, int saved_stdin)
 {
 	close(write_fd);
@@ -44,6 +62,12 @@ static int	fail_heredoc(int write_fd, char *path, int saved_stdin)
 	return (0);
 }
 
+/*
+Reopens the temporary heredoc file for reading.
+1.	Closes the write side after heredoc content has been written
+2.	Unlinks the path so the temporary file disappears after close
+3.	Returns the read fd that execution will later dup onto stdin
+*/
 static int	open_heredoc_read(char *path, int write_fd)
 {
 	int	read_fd;
@@ -56,6 +80,13 @@ static int	open_heredoc_read(char *path, int write_fd)
 	return (read_fd);
 }
 
+/*
+Prepares one heredoc redirection for later execution.
+1.	Creates a unique temporary heredoc file
+2.	Reads user input with heredoc signal behavior enabled
+3.	Restores stdin and prompt signals after input is finished
+4.	Stores the reopened read fd on the redirection node
+*/
 int	prepare_one_heredoc(t_shell *shell, t_redir *redir)
 {
 	char	*path;

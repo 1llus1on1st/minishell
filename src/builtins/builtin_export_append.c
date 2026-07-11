@@ -12,6 +12,11 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Checks whether an export argument uses NAME+=value syntax.
+1.	Returns true only when '+' appears immediately before '='
+2.	Stops at a plain '=' because normal assignments are not append mode
+*/
 int	is_append_assignment(char *arg)
 {
 	int	i;
@@ -28,6 +33,11 @@ int	is_append_assignment(char *arg)
 	return (0);
 }
 
+/*
+Extracts the variable name from a NAME+=value argument.
+1.	Finds the '+=' separator
+2.	Returns a newly allocated substring before that separator
+*/
 static char	*get_append_name(char *arg)
 {
 	int	i;
@@ -38,6 +48,12 @@ static char	*get_append_name(char *arg)
 	return (ft_substr(arg, 0, i));
 }
 
+/*
+Builds the environment entry produced by export append mode.
+1.	Treats a missing old value as an empty string
+2.	Concatenates the old value and the appended value
+3.	Prefixes the combined value with NAME=
+*/
 static char	*make_append_entry(char *name, char *old_value, char *append_value)
 {
 	char	*joined_value;
@@ -58,6 +74,13 @@ static char	*make_append_entry(char *name, char *old_value, char *append_value)
 	return (entry);
 }
 
+/*
+Applies one NAME+=value export argument.
+1.	Extracts and validates the variable name before changing env
+2.	Reads the current value from the shell environment
+3.	Builds a normal NAME=value entry with the combined value
+4.	Stores the resulting entry through env_set_entry
+*/
 int	export_append(t_shell *shell, char *arg)
 {
 	char	*name;

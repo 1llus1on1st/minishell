@@ -12,6 +12,11 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Checks whether an echo argument is a valid -n flag.
+1.	Accepts -n, -nn and longer strings made only of n after '-'
+2.	Rejects plain '-' and flags containing any other character
+*/
 static int	is_n_flag(char *arg)
 {
 	int	i;
@@ -28,6 +33,12 @@ static int	is_n_flag(char *arg)
 	return (1);
 }
 
+/*
+Implements the echo builtin.
+1.	Consumes all leading -n style flags to disable the final newline
+2.	Prints the remaining arguments separated by single spaces
+3.	Prints a newline unless at least one valid -n flag was found
+*/
 int	builtin_echo(t_cmd *cmd)
 {
 	int	i;

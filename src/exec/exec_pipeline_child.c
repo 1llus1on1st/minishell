@@ -12,6 +12,11 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Connects a pipeline child's stdin to the previous pipe.
+1.	The first command keeps its existing stdin
+2.	Other commands read from the previous pipe read end
+*/
 static int	setup_input_pipe(int *pipes, int index)
 {
 	if (index == 0)
@@ -21,6 +26,11 @@ static int	setup_input_pipe(int *pipes, int index)
 	return (1);
 }
 
+/*
+Connects a pipeline child's stdout to the next pipe.
+1.	The last command keeps its existing stdout
+2.	Other commands write to the current pipe write end
+*/
 static int	setup_output_pipe(int *pipes, int index, int count)
 {
 	if (index == count - 1)
@@ -30,6 +40,11 @@ static int	setup_output_pipe(int *pipes, int index, int count)
 	return (1);
 }
 
+/*
+Sets up pipe fds for one pipeline child.
+1.	Connects stdin and stdout based on the child position
+2.	Closes all pipe fds after dup2 so children do not keep extras open
+*/
 static int	setup_pipeline_fds(int *pipes, int index, int count)
 {
 	if (!setup_input_pipe(pipes, index))
@@ -40,6 +55,13 @@ static int	setup_pipeline_fds(int *pipes, int index, int count)
 	return (1);
 }
 
+/*
+Executes one command inside a pipeline child.
+1.	Applies command redirections after pipe setup
+2.	Allows empty redirection-only pipeline commands to exit successfully
+3.	Runs builtins in the child so they behave like pipeline commands
+4.	Resolves and execs external commands
+*/
 static void	exec_pipeline_cmd(t_shell *shell, t_cmd *cmd)
 {
 	char	*path;
@@ -60,6 +82,12 @@ static void	exec_pipeline_cmd(t_shell *shell, t_cmd *cmd)
 	exit_child(shell, 126);
 }
 
+/*
+Entry point for a forked pipeline child.
+1.	Restores default child signal behavior
+2.	Sets up the pipe fds for this child's pipeline position
+3.	Executes the command and exits inside the child process
+*/
 void	run_pipeline_child(t_shell *shell, t_cmd *cmd, int *pipes, int info[2])
 {
 	setup_child_signals();

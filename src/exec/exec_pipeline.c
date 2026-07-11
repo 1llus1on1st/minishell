@@ -12,6 +12,9 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Counts how many commands are in a pipeline list.
+*/
 static int	count_cmds(t_cmd *cmds)
 {
 	int	count;
@@ -25,6 +28,11 @@ static int	count_cmds(t_cmd *cmds)
 	return (count);
 }
 
+/*
+Creates all pipes needed for a pipeline.
+1.	A pipeline with N commands needs N - 1 pipes
+2.	Stores read and write fds consecutively in the pipes array
+*/
 static int	create_pipes(int *pipes, int count)
 {
 	int	i;
@@ -39,6 +47,9 @@ static int	create_pipes(int *pipes, int count)
 	return (1);
 }
 
+/*
+Closes every pipe fd stored in the pipeline fd array.
+*/
 void	close_pipes(int *pipes, int count)
 {
 	int	i;
@@ -51,6 +62,12 @@ void	close_pipes(int *pipes, int count)
 	}
 }
 
+/*
+Forks every child process in a pipeline.
+1.	Stores each child pid so the parent can wait later
+2.	Runs pipeline setup and execution in the child branch
+3.	Cleans up already-created children if a later fork fails
+*/
 static int	fork_pipeline(t_shell *shell, t_cmd *cmds, int *pipes,
 		pid_t *pids)
 {
@@ -77,6 +94,13 @@ static int	fork_pipeline(t_shell *shell, t_cmd *cmds, int *pipes,
 	return (1);
 }
 
+/*
+Executes a multi-command pipeline.
+1.	Allocates the pipe and pid arrays for the full pipeline
+2.	Creates all pipes before forking children
+3.	Ignores prompt signals in the parent while children run
+4.	Closes parent pipe fds and returns the last command's status
+*/
 int	execute_pipeline(t_shell *shell, t_cmd *cmds)
 {
 	int		count;

@@ -12,12 +12,21 @@
 
 #include "../../includes/minishell.h"
 
+/*
+Closes both ends of a pipe.
+*/
 static void	close_pipe_fds(int pipe_fd[2])
 {
 	close(pipe_fd[0]);
 	close(pipe_fd[1]);
 }
 
+/*
+Writes here-string content into a pipe.
+1.	Writes the expanded word
+2.	Adds the trailing newline expected from here-string input
+3.	Closes both pipe fds on write failure
+*/
 static int	write_here_string(int pipe_fd[2], char *word)
 {
 	if (write(pipe_fd[1], word, ft_strlen(word)) < 0)
@@ -33,6 +42,12 @@ static int	write_here_string(int pipe_fd[2], char *word)
 	return (1);
 }
 
+/*
+Applies a here-string redirection.
+1.	Creates a pipe to hold the here-string content
+2.	Writes the word and a newline into the pipe
+3.	Duplicates the read end onto the target fd
+*/
 int	apply_here_string(char *word, int target_fd)
 {
 	int	pipe_fd[2];
